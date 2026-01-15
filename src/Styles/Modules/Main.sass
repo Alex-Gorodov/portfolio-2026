@@ -1,0 +1,42 @@
+.main
+  display: flex
+  flex-direction: column
+  gap: 60px
+
+  &_intro-text
+    @include subscript-style;
+  &_header
+    @include flex-column-center
+  &_content
+    @include section-layout
+  &_image-wrapper
+    max-width: 320px
+    border-radius: 16px
+    overflow: hidden
+    height: auto
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25)
+    // transition:
+    //   transform 0.2s ease-out,
+    //   box-shadow 0.2s ease-out
+  &_image
+    display: block
+    object-fit: cover
+    width: 100%
+    filter: grayscale(66%)
+    height: auto
+    transition: all 0.3s ease
+    &:hover
+      scale: 1.05
+  &_card
+    @include flex-column-center
+    box-shadow: $card-shadow
+    border-radius: 16px
+    padding: 20px
+    width: clamp(240px, 40vw, 320px)
+  &_card-title
+    margin: 12px 0
+    font-size: clamp(16px, 3vw, 18px)
+    font-weight: 600
+    color: $text
+  &_card-text
+    @include subscript-style

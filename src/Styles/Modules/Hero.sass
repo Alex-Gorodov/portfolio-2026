@@ -1,0 +1,57 @@
+.hero
+  &_wrapper
+
+  &_image-wrapper
+    width: 320px
+    height: 320px
+    border-radius: clamp(16px, 5vw, 999px)
+    overflow: hidden
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1)
+
+  &_image
+    width: 320px
+    height: 320px
+    object-fit: cover
+    display: block
+
+  &_content
+    display: flex
+    flex-direction: column
+    gap: 20px
+    align-items: center
+    text-align: center
+
+  &_buttons-wrapper
+    display: flex
+    gap: 12px
+    flex-wrap: wrap
+    justify-content: center
+
+  &_text-intro
+    @include subscript-style
+    margin: 0
+
+  &_name
+    margin: 6px 0
+    font-size: clamp(22px, 4vw, 28px)
+    font-weight: 700
+    color: $text
+
+  &_description
+    margin: 0
+    font-size: clamp(16px, 3vw, 18px)
+    font-weight: 600
+    color: $text-secondary
+
+  &_links-wrapper
+    display: flex
+    gap: 16px
+
+  &_link
+    color: $text
+    transition: 0.3s
+    &:hover
+      opacity: 0.8
+
+    &:active
+      opacity: 0.6

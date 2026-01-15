@@ -1,0 +1,46 @@
+$white: #ffffff
+$black: #000000
+$main-button: #292929
+$dark-background: #0B0F14
+$light-background: #E5E7EB
+$card-background: #121826
+$container-background: #1E2533
+$primary: #4F7DFF
+$secondary: #22D3EE
+$text: #14161c
+$text-secondary: #787a7e
+$border: #1F2937
+
+$card-shadow: 0 12px 30px rgba(0,0,0,0.15)
+
+@mixin style-reset
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+@mixin burger-line
+  background-color: $dark-background
+  width: 40px
+  height: 4px
+  border-radius: 4px
+  transition: all 0.3s ease
+
+@mixin flex-center
+  display: flex
+  justify-content: center
+  align-items: center
+
+@mixin flex-column-center
+  @include flex-center
+  flex-direction: column
+
+@mixin subscript-style
+  font-size: clamp(12px, 2vw, 16px)
+  color: $text-secondary
+
+@mixin section-layout
+  display: flex
+  gap: clamp(20px, 5vw, 180px)
+  align-items: center
+  justify-content: center
+  flex-wrap: wrap
