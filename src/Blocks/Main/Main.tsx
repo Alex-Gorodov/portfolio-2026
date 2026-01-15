@@ -40,15 +40,46 @@ export default function Main() {
     `;
   };
 
+  // Some browsers (notably iOS Safari) require an explicit permission request
+  // for DeviceOrientationEvent. Request it on first user gesture and then
+  // register the `deviceorientation` listener.
+  const D = (DeviceOrientationEvent as unknown) as any;
+  let onFirstGesture: ((e?: Event) => Promise<void>) | undefined;
+
+  const addOrientationListener = () => {
+    if (typeof D !== "undefined" && typeof D.requestPermission === "function") {
+      onFirstGesture = async () => {
+        try {
+          const permission = await D.requestPermission();
+          if (permission === "granted") {
+            window.addEventListener("deviceorientation", handleOrientation);
+          }
+        } catch (err) {
+          // permission API may throw if not available or denied — ignore silently
+        }
+      };
+      // listen for the first user gesture (tap/click) to request permission
+      window.addEventListener("touchstart", onFirstGesture as EventListener, { once: true });
+      window.addEventListener("click", onFirstGesture as EventListener, { once: true });
+    } else {
+      // permission not required — register directly
+      window.addEventListener("deviceorientation", handleOrientation);
+    }
+  };
+
   if (window.matchMedia("(hover: hover)").matches) {
     window.addEventListener("mousemove", handleMouseMove);
   } else {
-    window.addEventListener("deviceorientation", handleOrientation);
+    addOrientationListener();
   }
 
   return () => {
     window.removeEventListener("mousemove", handleMouseMove);
     window.removeEventListener("deviceorientation", handleOrientation);
+    if (onFirstGesture) {
+      window.removeEventListener("touchstart", onFirstGesture as EventListener);
+      window.removeEventListener("click", onFirstGesture as EventListener);
+    }
   };
 }, []);
 
