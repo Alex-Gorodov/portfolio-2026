@@ -25,17 +25,16 @@
     display: flex
     align-items: center
     justify-content: center
-    width: 60px
-    height: 60px
+    width: 44px
+    height: 44px
     border-radius: 12px
     background-color: transparent
     border: none
-
+    cursor: pointer
 
   @include burger-line
   position: absolute
   border: none
-  cursor: pointer
 
   &::before
     @include burger-line
@@ -51,10 +50,10 @@
     top: 8px
     left: 0
 
-    &--active
-      transform: translateX(120px)
-      &::before
-        transform: translate(-120px, 8px) rotate(45deg)
+  &--active
+    transform: translateX(120px)
+    &::before
+      transform: translate(-120px, 8px) rotate(45deg)
 
-      &::after
-        transform: translate(-120px, -8px) rotate(-45deg)
+    &::after
+      transform: translate(-120px, -8px) rotate(-45deg)
