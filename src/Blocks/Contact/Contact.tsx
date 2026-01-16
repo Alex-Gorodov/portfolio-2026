@@ -2,7 +2,7 @@ import { AiOutlineLinkedin, AiOutlineMail } from "react-icons/ai";
 
 export default function Contact() {
   return (
-    <div className="contact">
+    <div className="contact" id="contact">
       <div className="section_header">
         <p className="section_intro-text">Get in touch</p>
         <h2 className="section_intro-title">Contact me</h2>

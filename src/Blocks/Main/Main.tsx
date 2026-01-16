@@ -9,61 +9,53 @@ export default function Main() {
   const { isMobile } = useResponsive();
 
   useEffect(() => {
-  const card = cardRef.current;
-  if (!card) return;
+    const card = cardRef.current;
+    if (!card) return;
 
-  const maxRotate = 8;
+    const maxRotate = 16;
 
-  /* ---------- DESKTOP ---------- */
-  const handleMouseMove = (e: MouseEvent) => {
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
+    const handleMouseMove = (e: MouseEvent) => {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
 
-    const rotateY = ((e.clientX - centerX) / centerX) * maxRotate;
-    const rotateX = -((e.clientY - centerY) / centerY) * maxRotate;
+      const rotateY = ((e.clientX - centerX) / centerX) * maxRotate;
+      const rotateX = -((e.clientY - centerY) / centerY) * maxRotate;
 
-    card.style.transform = `
-      perspective(900px)
-      rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg)
-    `;
-  };
+      card.style.transform = `
+        perspective(900px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+      `;
+    };
 
+    const D = (DeviceOrientationEvent as unknown) as any;
+    let onFirstGesture: ((e?: Event) => Promise<void>) | undefined;
 
+    const addOrientationListener = () => {
+      if (typeof D !== "undefined" && typeof D.requestPermission === "function") {
 
-  // Some browsers (notably iOS Safari) require an explicit permission request
-  // for DeviceOrientationEvent. Request it on first user gesture and then
-  // register the `deviceorientation` listener.
-  const D = (DeviceOrientationEvent as unknown) as any;
-  let onFirstGesture: ((e?: Event) => Promise<void>) | undefined;
+        // window.addEventListener("touchstart", onFirstGesture as EventListener, { once: true });
+        window.addEventListener("click", onFirstGesture as EventListener, { once: true });
+      }
+    };
 
-  const addOrientationListener = () => {
-    if (typeof D !== "undefined" && typeof D.requestPermission === "function") {
-
-      // listen for the first user gesture (tap/click) to request permission
-      window.addEventListener("touchstart", onFirstGesture as EventListener, { once: true });
-      window.addEventListener("click", onFirstGesture as EventListener, { once: true });
+    if (window.matchMedia("(hover: hover)").matches) {
+      window.addEventListener("mousemove", handleMouseMove);
+    } else {
+      addOrientationListener();
     }
-  };
 
-  if (window.matchMedia("(hover: hover)").matches) {
-    window.addEventListener("mousemove", handleMouseMove);
-  } else {
-    addOrientationListener();
-  }
-
-  return () => {
-    window.removeEventListener("mousemove", handleMouseMove);
-    if (onFirstGesture) {
-      window.removeEventListener("touchstart", onFirstGesture as EventListener);
-      window.removeEventListener("click", onFirstGesture as EventListener);
-    }
-  };
-}, []);
-
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (onFirstGesture) {
+        // window.removeEventListener("touchstart", onFirstGesture as EventListener);
+        window.removeEventListener("click", onFirstGesture as EventListener);
+      }
+    };
+  }, []);
 
   return (
-    <div className="main section">
+    <div className="main section" id="about">
       <div className="section_header">
         <p className="section_intro-text">Get to know more</p>
         <h2 className="section_intro-title">About me</h2>
@@ -114,13 +106,6 @@ export default function Main() {
               </p>
             </div>
           </div>
-          {/* <div>
-            <p className="main_about-text">
-              Frontend developer. React, Redux, TypeScript.
-              Web & Mobile — React Native, Expo, Firebase, REST APIs.
-            </p>
-
-          </div> */}
         </div>
 
       </div>
