@@ -4,6 +4,8 @@ import Header from './Blocks/Header/Header';
 import Main from './Blocks/Main/Main';
 import Container from './Components/Container/Container';
 import './Styles/styles.sass';
+import Footer from './Blocks/Footer/Footer';
+import Contact from './Blocks/Contact/Contact';
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <Header/>
       <Hero/>
       <Main/>
+      <Contact/>
+      <Footer/>
     </Container>
   );
 }

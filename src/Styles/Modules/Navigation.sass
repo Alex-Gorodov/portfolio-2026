@@ -1,0 +1,21 @@
+.navigation
+  &_menu
+    display: flex
+    gap: clamp(12px, 2vw, 24px)
+
+  &_link
+    text-decoration: none
+
+  &_item
+    color: black
+    font-size: clamp(12px, 2vw, 18px)
+    margin: 0
+    transition: 0.3s
+    cursor: pointer
+    &--footer
+      font-size: clamp(16px, 1.5vw, 24px)
+    &--header
+      font-size: clamp(12px, 2vw, 18px)
+
+    &:hover
+      color: gray

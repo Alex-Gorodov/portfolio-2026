@@ -63,10 +63,10 @@ export default function Main() {
 
 
   return (
-    <div className="main">
-      <div className="main_header">
-        <p className="main_intro-text">Get to know more</p>
-        <h2 className="main_intro-title">About me</h2>
+    <div className="main section">
+      <div className="section_header">
+        <p className="section_intro-text">Get to know more</p>
+        <h2 className="section_intro-title">About me</h2>
       </div>
 
       <div className="main_content-wrapper">
@@ -86,11 +86,11 @@ export default function Main() {
             <div className="main_card">
               <AiOutlineLineChart size={48}/>
               <p className="main_card-title">Experience</p>
-              <p className="main_card-text">3+ years</p>
               <p className="main_card-text">Frontend developer</p>
+              <p className="main_card-text">3+ years</p>
               <br/>
-              <p className="main_card-text">1 year</p>
               <p className="main_card-text">Mobile developer</p>
+              <p className="main_card-text">1 year</p>
             </div>
 
             <div className="main_card">
