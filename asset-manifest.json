@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/portfolio-2026/static/css/main.92c9c4a8.css",
-    "main.js": "/portfolio-2026/static/js/main.adbfa2e3.js",
+    "main.css": "/portfolio-2026/static/css/main.850ced09.css",
+    "main.js": "/portfolio-2026/static/js/main.e47fc7b4.js",
     "static/js/453.8cfb0cf3.chunk.js": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js",
     "static/media/main-pic.webp": "/portfolio-2026/static/media/main-pic.46371a5a5d54ce254594.webp",
     "static/media/Alex.webp": "/portfolio-2026/static/media/Alex.e74736f202f5a2d69f88.webp",
     "static/media/alex_gorodov_cv.pdf": "/portfolio-2026/static/media/alex_gorodov_cv.62d3a14574d6ffb1a6af.pdf",
     "index.html": "/portfolio-2026/index.html",
-    "main.92c9c4a8.css.map": "/portfolio-2026/static/css/main.92c9c4a8.css.map",
-    "main.adbfa2e3.js.map": "/portfolio-2026/static/js/main.adbfa2e3.js.map",
+    "main.850ced09.css.map": "/portfolio-2026/static/css/main.850ced09.css.map",
+    "main.e47fc7b4.js.map": "/portfolio-2026/static/js/main.e47fc7b4.js.map",
     "453.8cfb0cf3.chunk.js.map": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.92c9c4a8.css",
-    "static/js/main.adbfa2e3.js"
+    "static/css/main.850ced09.css",
+    "static/js/main.e47fc7b4.js"
   ]
 }
