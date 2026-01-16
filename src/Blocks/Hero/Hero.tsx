@@ -16,7 +16,7 @@ export default function Hero() {
     const image = imageRef.current;
     if (!image) return;
 
-    const speed = 0.45; // ← чем меньше, тем медленнее
+    const speed = 0.45;
 
     const onScroll = () => {
       setImageY(window.scrollY * speed);
