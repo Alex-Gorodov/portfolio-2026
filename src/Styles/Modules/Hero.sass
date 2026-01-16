@@ -1,8 +1,8 @@
 @keyframes hero-marquee
-  0%
-    transform: translateX(0)
-  100%
-    transform: translateX(-50%)
+  from
+    transform: translate3d(0,0,0)
+  to
+    transform: translate3d(-33.33%,0,0)
 
 .hero
   &_wrapper
@@ -89,15 +89,18 @@
     mask-image: linear-gradient(
       to right,
       transparent,
-      black 15%,
-      black 85%,
+      black 20%,
+      black 80%,
       transparent
     )
 
   .hero_name-track
     display: flex
     width: max-content
-    animation: hero-marquee 4s linear infinite
+    backface-visibility: hidden
+    transform-style: preserve-3d
+    animation: hero-marquee 6s linear infinite
+    will-change: transform
 
   .hero_name
     font-size: 124px

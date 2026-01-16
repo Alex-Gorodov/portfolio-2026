@@ -59,6 +59,7 @@ export default function Hero() {
                 <>
                   <h2 className="hero_name">AlexGorodov</h2>
                   <h2 className="hero_name">AlexGorodov</h2>
+                  <h2 className="hero_name">AlexGorodov</h2>
                 </>
                 :
                 <h2 className="hero_name">Alex Gorodov</h2>
