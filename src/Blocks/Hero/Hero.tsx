@@ -16,23 +16,24 @@ export default function Hero() {
   if (!image) return;
 
   const speed = 0.35;
-
   const update = () => {
+    const scale = 1 + window.scrollY * 0.0008;
     const y = window.scrollY * speed;
 
-    image.style.transform = `translate3d(0, ${y}px, 0)`;
-    image.style.opacity = `${Math.max(0, 1 - window.scrollY / 600)}`;
-    image.style.filter = `grayscale(${Math.min(100, window.scrollY / 5)}%)`;
+    // image.style.transform = `translate3d(0, ${y}px, 0)`;
+      image.style.transform = `translate(0, ${y}px) scale(${scale})`;
+      image.style.opacity = `${Math.max(0, 1 - window.scrollY / 600)}`;
+      image.style.filter = `grayscale(${Math.min(100, window.scrollY / 5)}%)`;
+
+      rafRef.current = requestAnimationFrame(update);
+    };
 
     rafRef.current = requestAnimationFrame(update);
-  };
 
-  rafRef.current = requestAnimationFrame(update);
-
-  return () => {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-  };
-}, []);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
 
   return (
     <div className="hero_wrapper section">
