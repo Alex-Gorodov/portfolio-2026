@@ -4,7 +4,7 @@ interface NavigationProps {
 
 export default function Navigation({ className }: NavigationProps) {
   return (
-    <div className="navigation_menu">
+    <div className={`navigation_menu ${className}`}>
       <a className="navigation_link" href="#about">
         <p className={`navigation_item navigation_item--${className}`}>About</p>
       </a>

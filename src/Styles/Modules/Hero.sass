@@ -6,6 +6,8 @@
 
 .hero
   &_wrapper
+    position: relative
+    // min-height: 100vh
 
   &_image-wrapper
     width: 320px
@@ -14,6 +16,21 @@
     overflow: hidden
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1)
 
+  &_parallax
+    // position: absolute
+    // inset: 0
+    z-index: 0
+    overflow: hidden
+    &-image
+      // position: absolute
+      // top: 0
+      // left: 50%
+      // transform: translateX(-50%)
+      width: 420px
+      height: auto
+      pointer-events: none
+      will-change: transform
+
   &_image
     width: 320px
     height: 320px
@@ -21,6 +38,8 @@
     display: block
 
   &_content
+    position: relative
+    z-index: 1
     display: flex
     flex-direction: column
     gap: 20px
@@ -58,6 +77,7 @@
   &_links-wrapper
     display: flex
     gap: 16px
+    padding-bottom: 80px
 
   &_link
     color: $text
@@ -86,5 +106,5 @@
 
   .hero_name
     font-size: 124px
-    padding-right: 48px
+    padding-right: 24px
     text-transform: uppercase

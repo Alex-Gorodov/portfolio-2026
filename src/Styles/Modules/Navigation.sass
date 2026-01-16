@@ -1,7 +1,14 @@
 .navigation
+
   &_menu
     display: flex
     gap: clamp(12px, 2vw, 24px)
+
+    &.header-mobile
+      width: 80%
+      justify-content: space-between
+      gap: unset
+
 
   &_link
     text-decoration: none
@@ -16,6 +23,9 @@
       font-size: clamp(16px, 1.5vw, 24px)
     &--header
       font-size: clamp(12px, 2vw, 18px)
+    &--header-mobile
+      font-size: 16px
+
 
     &:hover
       color: gray

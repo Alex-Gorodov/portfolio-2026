@@ -14,6 +14,7 @@ const styles = {
   container: {
     margin: '0 auto',
     maxWidth: ScreenSizes.ContainerMaxWidth,
-    // padding: 20,
+    width: '100%',
+    overflow: 'hidden'
   },
 };

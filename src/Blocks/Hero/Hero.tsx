@@ -3,19 +3,46 @@ import Image from "../../Assets/Images/Alex.webp";
 import CV from "../../Assets/Files/alex_gorodov_cv.pdf";
 import Button from "../../Components/Buttons/Button";
 import { useResponsive } from "../../Context/responsive.context";
+import { useEffect, useRef, useState } from "react";
 
 export default function Hero() {
   const { isMobile } = useResponsive();
+  const imageRef = useRef<HTMLImageElement | null>(null);
+  const [imageY, setImageY] = useState(0);
+  const [imageOpacity, setImageOpacity] = useState(1);
+  const [imageGrayScale, setImageGrayScale] = useState(0);
+
+  useEffect(() => {
+    const image = imageRef.current;
+    if (!image) return;
+
+    const speed = 0.45; // ← чем меньше, тем медленнее
+
+    const onScroll = () => {
+      setImageY(window.scrollY * speed);
+      setImageOpacity(Math.max(0, 1 - window.scrollY / 600));
+      setImageGrayScale(Math.min(100, window.scrollY / 5));
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <div className="hero_wrapper section">
-      <div className="hero_image-wrapper">
+      <div className="hero_image-wrapper hero_parallax">
         <img
+          ref={imageRef}
           src={Image}
           alt="Alex"
           width={320}
           height={320}
-          className="hero_image"
+          className="hero_image hero_parallax-image"
+          style={{
+            transform: `translate(0, ${imageY}px)`,
+            opacity: imageOpacity,
+            filter: `grayscale(${imageGrayScale}%)`,
+          }}
         />
       </div>
 
@@ -28,8 +55,8 @@ export default function Hero() {
                 isMobile
                 ?
                 <>
-                  <h2 className="hero_name">Alex Gorodov</h2>
-                  <h2 className="hero_name">Alex Gorodov</h2>
+                  <h2 className="hero_name">AlexGorodov</h2>
+                  <h2 className="hero_name">AlexGorodov</h2>
                 </>
                 :
                 <h2 className="hero_name">Alex Gorodov</h2>

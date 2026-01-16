@@ -1,10 +1,19 @@
 import { useState } from 'react';
 
-export default function BurgerButton() {
+interface BurgerButtonProps {
+  onHandle: () => void;
+}
+
+export default function BurgerButton({onHandle}: BurgerButtonProps) {
   const [isActive, setIsActive] = useState(false);
 
+  const handleButton = () => {
+    onHandle();
+    setIsActive(!isActive);
+  }
+
   return (
-    <button className="burger-button__wrapper" onClick={() => setIsActive(!isActive)}>
+    <button className="burger-button__wrapper" onClick={handleButton}>
       <span className={`burger-button ${isActive ? 'burger-button--active' : ''}`}></span>
     </button>
   )
