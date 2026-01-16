@@ -11,6 +11,10 @@ $text: #14161c
 $text-secondary: #787a7e
 $border: #1F2937
 
+$mobile-width: 768px
+$tablet-width: 1024px
+$desktop-width: 1280px
+
 $card-shadow: 0 12px 30px rgba(0,0,0,0.15)
 
 @mixin style-reset
@@ -35,12 +39,12 @@ $card-shadow: 0 12px 30px rgba(0,0,0,0.15)
   flex-direction: column
 
 @mixin subscript-style
-  font-size: clamp(12px, 2vw, 16px)
+  font-size: clamp(16px, 2vw, 24px)
   color: $text-secondary
 
 @mixin section-layout
   display: flex
-  gap: clamp(20px, 5vw, 180px)
+  gap: clamp(20px, 5vw, 80px)
   align-items: center
   justify-content: center
   flex-wrap: wrap

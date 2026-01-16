@@ -2,8 +2,10 @@ import { AiFillLinkedin, AiOutlineGithub } from "react-icons/ai";
 import Image from "../../Assets/Images/Alex.webp";
 import CV from "../../Assets/Files/alex_gorodov_cv.pdf";
 import Button from "../../Components/Buttons/Button";
+import { useResponsive } from "../../Context/responsive.context";
 
 export default function Hero() {
+  const { isMobile } = useResponsive();
 
   return (
     <div className="hero_wrapper section">
@@ -20,7 +22,22 @@ export default function Hero() {
       <div className="hero_content">
         <div>
           <p className="hero_text-intro">Hello, I'm</p>
-          <h2 className="hero_name">Alex Gorodov</h2>
+          <div className="hero_name-marquee">
+            <div className="hero_name-track">
+              {
+                isMobile
+                ?
+                <>
+                  <h2 className="hero_name">Alex Gorodov</h2>
+                  <h2 className="hero_name">Alex Gorodov</h2>
+                </>
+                :
+                <h2 className="hero_name">Alex Gorodov</h2>
+              }
+            </div>
+          </div>
+
+
           <p className="hero_description">Frontend Developer</p>
         </div>
 

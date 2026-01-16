@@ -1,3 +1,9 @@
+@keyframes hero-marquee
+  0%
+    transform: translateX(0)
+  100%
+    transform: translateX(-50%)
+
 .hero
   &_wrapper
 
@@ -31,11 +37,17 @@
     @include subscript-style
     margin: 0
 
+  &_name-marquee
+    overflow: hidden
+
+  &_name-track
+    display: inline-block
+
   &_name
     margin: 6px 0
     font-size: clamp(22px, 4vw, 28px)
     font-weight: 700
-    color: $text
+    white-space: nowrap
 
   &_description
     margin: 0
@@ -55,3 +67,24 @@
 
     &:active
       opacity: 0.6
+
+@media (max-width: $mobile-width)
+  .hero_name-marquee
+    width: 100vw
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    )
+
+  .hero_name-track
+    display: flex
+    width: max-content
+    animation: hero-marquee 4s linear infinite
+
+  .hero_name
+    font-size: 124px
+    padding-right: 48px
+    text-transform: uppercase

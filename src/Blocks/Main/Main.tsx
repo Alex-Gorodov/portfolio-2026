@@ -1,9 +1,12 @@
 import Image from "../../Assets/Images/main-pic.webp";
+import { AiOutlineDatabase } from "react-icons/ai";
 import { AiOutlineLineChart } from "react-icons/ai";
 import { useEffect, useRef } from "react";
+import { useResponsive } from "../../Context/responsive.context";
 
 export default function Main() {
   const cardRef = useRef<HTMLDivElement | null>(null);
+  const { isMobile } = useResponsive();
 
   useEffect(() => {
   const card = cardRef.current;
@@ -26,19 +29,7 @@ export default function Main() {
     `;
   };
 
-  /* ---------- MOBILE ---------- */
-  const handleOrientation = (e: DeviceOrientationEvent) => {
-    if (e.beta === null || e.gamma === null) return;
 
-    const rotateX = Math.max(-maxRotate, Math.min(maxRotate, e.beta / 5));
-    const rotateY = Math.max(-maxRotate, Math.min(maxRotate, e.gamma / 5));
-
-    card.style.transform = `
-      perspective(900px)
-      rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg)
-    `;
-  };
 
   // Some browsers (notably iOS Safari) require an explicit permission request
   // for DeviceOrientationEvent. Request it on first user gesture and then
@@ -48,22 +39,10 @@ export default function Main() {
 
   const addOrientationListener = () => {
     if (typeof D !== "undefined" && typeof D.requestPermission === "function") {
-      onFirstGesture = async () => {
-        try {
-          const permission = await D.requestPermission();
-          if (permission === "granted") {
-            window.addEventListener("deviceorientation", handleOrientation);
-          }
-        } catch (err) {
-          // permission API may throw if not available or denied — ignore silently
-        }
-      };
+
       // listen for the first user gesture (tap/click) to request permission
       window.addEventListener("touchstart", onFirstGesture as EventListener, { once: true });
       window.addEventListener("click", onFirstGesture as EventListener, { once: true });
-    } else {
-      // permission not required — register directly
-      window.addEventListener("deviceorientation", handleOrientation);
     }
   };
 
@@ -75,7 +54,6 @@ export default function Main() {
 
   return () => {
     window.removeEventListener("mousemove", handleMouseMove);
-    window.removeEventListener("deviceorientation", handleOrientation);
     if (onFirstGesture) {
       window.removeEventListener("touchstart", onFirstGesture as EventListener);
       window.removeEventListener("click", onFirstGesture as EventListener);
@@ -88,27 +66,63 @@ export default function Main() {
     <div className="main">
       <div className="main_header">
         <p className="main_intro-text">Get to know more</p>
-        <h2>About me</h2>
+        <h2 className="main_intro-title">About me</h2>
       </div>
 
-      <div className="main_content">
-        <div ref={cardRef} className="main_image-wrapper">
-          <img
-            src={Image}
-            alt="Alex"
-            width={320}
-            height={320}
-            className="main_image"
-          />
+      <div className="main_content-wrapper">
+          <div ref={cardRef} className={`main_image-wrapper ${isMobile && 'visually-hidden'}`}>
+            <img
+              src={Image}
+              alt="Alex and Agatha anime style AI generated"
+              width={320}
+              height={320}
+              className="main_image"
+            />
+          </div>
+
+        <div className="main_content">
+
+          <div className="main_cards-wrapper">
+            <div className="main_card">
+              <AiOutlineLineChart size={48}/>
+              <p className="main_card-title">Experience</p>
+              <p className="main_card-text">3+ years</p>
+              <p className="main_card-text">Frontend developer</p>
+              <br/>
+              <p className="main_card-text">1 year</p>
+              <p className="main_card-text">Mobile developer</p>
+            </div>
+
+            <div className="main_card">
+              <AiOutlineDatabase size={48}/>
+              <p className="main_card-title">Tech Stack</p>
+
+              <p className="main_card-text">
+                React, Redux, TypeScript, JavaScript (ES6+)
+              </p>
+
+              <p className="main_card-text">
+                HTML5, CSS3, SASS / SCSS, responsive design
+              </p>
+
+              <p className="main_card-text">
+                React Native, Expo, Firebase, REST APIs
+              </p>
+
+              <p className="main_card-text">
+                Git, GitHub, Webpack, Gulp
+              </p>
+            </div>
+          </div>
+          {/* <div>
+            <p className="main_about-text">
+              Frontend developer. React, Redux, TypeScript.
+              Web & Mobile — React Native, Expo, Firebase, REST APIs.
+            </p>
+
+          </div> */}
         </div>
 
-        <div className="main_card">
-          <AiOutlineLineChart size={48}/>
-          <p className="main_card-title">Experience</p>
-          <p className="main_card-text">3+ years</p>
-          <p className="main_card-text">Frontend developer</p>
-        </div>
-        <div className="main_card">text</div>
       </div>
     </div>
   );
