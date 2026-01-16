@@ -8,25 +8,31 @@ import { useEffect, useRef, useState } from "react";
 export default function Hero() {
   const { isMobile } = useResponsive();
   const imageRef = useRef<HTMLImageElement | null>(null);
-  const [imageY, setImageY] = useState(0);
-  const [imageOpacity, setImageOpacity] = useState(1);
-  const [imageGrayScale, setImageGrayScale] = useState(0);
+  const rafRef = useRef<number | null>(null);
+
 
   useEffect(() => {
-    const image = imageRef.current;
-    if (!image) return;
+  const image = imageRef.current;
+  if (!image) return;
 
-    const speed = 0.45;
+  const speed = 0.35;
 
-    const onScroll = () => {
-      setImageY(window.scrollY * speed);
-      setImageOpacity(Math.max(0, 1 - window.scrollY / 600));
-      setImageGrayScale(Math.min(100, window.scrollY / 5));
-    };
+  const update = () => {
+    const y = window.scrollY * speed;
 
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    image.style.transform = `translate3d(0, ${y}px, 0)`;
+    image.style.opacity = `${Math.max(0, 1 - window.scrollY / 600)}`;
+    image.style.filter = `grayscale(${Math.min(100, window.scrollY / 5)}%)`;
+
+    rafRef.current = requestAnimationFrame(update);
+  };
+
+  rafRef.current = requestAnimationFrame(update);
+
+  return () => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+  };
+}, []);
 
   return (
     <div className="hero_wrapper section">
@@ -38,11 +44,7 @@ export default function Hero() {
           width={320}
           height={320}
           className="hero_image hero_parallax-image"
-          style={{
-            transform: `translate(0, ${imageY}px)`,
-            opacity: imageOpacity,
-            filter: `grayscale(${imageGrayScale}%)`,
-          }}
+
         />
       </div>
 

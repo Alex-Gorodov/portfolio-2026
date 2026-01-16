@@ -7,7 +7,6 @@
 .hero
   &_wrapper
     position: relative
-    // min-height: 100vh
 
   &_image-wrapper
     width: 320px
@@ -17,19 +16,15 @@
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1)
 
   &_parallax
-    // position: absolute
-    // inset: 0
     z-index: 0
     overflow: hidden
     &-image
-      // position: absolute
-      // top: 0
-      // left: 50%
-      // transform: translateX(-50%)
       width: 420px
       height: auto
       pointer-events: none
       will-change: transform
+      backface-visibility: hidden
+      transform-style: preserve-3d
 
   &_image
     width: 320px
