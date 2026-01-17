@@ -49,8 +49,9 @@
   position: relative
 
   width: min(80vw, 320px)
-  aspect-ratio: 369 / 750
+  aspect-ratio: 364 / 750
 
+  border-radius: 62px
   display: flex
   align-items: center
   justify-content: center
@@ -60,12 +61,14 @@
 .video_mask
   position: relative
 
-  width: 88%
-  height: 96%
+  width: 90%
+  height: 95%
+  aspect-ratio: 327 / 713
 
   // border-radius: clamp(32px, 8vw, 64px)
   overflow: hidden
   background: black
+  border-radius: 44px
 
 .video_template
   width: 100%
@@ -79,8 +82,6 @@
 
   &--paused
     filter: brightness(0.7)
-
-
 
 
 .video_frame::before
@@ -98,10 +99,6 @@
   .video_frame
     width: 90vw
 
-
-
 @media (min-width: 1024px)
   .video_frame
     width: 280px
-
-

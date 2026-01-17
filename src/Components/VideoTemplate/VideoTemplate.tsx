@@ -27,34 +27,6 @@ export default function VideoTemplate({ src }: VideoTemplateProps) {
     }
   };
 
-  // return (
-  //   <div className="video_frame">
-  //     {!isPlaying && (
-  //       <button
-  //         className="video_button"
-  //         onClick={togglePlay}
-  //         aria-label="Play video"
-  //       >
-  //         <span />
-  //       </button>
-  //     )}
-
-  //     <video
-  //       ref={videoRef}
-  //       className={`video_template ${!isPlaying ? 'video_template--paused' : ''}`}
-  //       autoPlay
-  //       loop
-  //       muted
-  //       playsInline
-  //       preload="metadata"
-  //       onClick={togglePlay}
-  //     >
-  //       <source src={src} type="video/mp4" />
-  //       Your browser does not support the video tag.
-  //     </video>
-  //   </div>
-  // );
-
   return (
   <div className="video_frame">
     <div className="video_mask">
