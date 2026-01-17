@@ -5,12 +5,6 @@ import ThreeDCard from "../../Components/ThreeDCard/ThreeDCard";
 
 export default function Main() {
 
-  const cardsData = [
-    {
-
-    }
-  ]
-
   return (
     <div className="main section" id="about">
       <div className="section_header">
@@ -23,6 +17,7 @@ export default function Main() {
           <div className="main_cards-wrapper">
 
             <ThreeDCard
+              active
               children={
                 <div className="main_card">
                   <AiOutlineLineChart size={48}/>
@@ -37,6 +32,7 @@ export default function Main() {
             />
 
             <ThreeDCard
+              active
               children={
                 <img
                   src={Image}
@@ -49,6 +45,7 @@ export default function Main() {
             />
 
             <ThreeDCard
+              active
               children={
                 <div className="main_card">
                   <AiOutlineDatabase size={48}/>

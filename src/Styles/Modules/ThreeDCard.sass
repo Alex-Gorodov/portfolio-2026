@@ -3,9 +3,12 @@
     border-radius: 16px
     perspective: 900px
     transform-style: preserve-3d
-    min-width: 320px
     &:has(.main_image)
       max-width: 320px
+
+    &:hover .main_image
+      transform: translateZ(60px) scale(1.05)
+      filter: grayscale(0%)
 
   &_inner
     position: relative
@@ -13,4 +16,6 @@
     overflow: hidden
     transform-style: preserve-3d
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35)
-    // transition: transform .15s ease-out
+    &--flat
+      box-shadow: none
+

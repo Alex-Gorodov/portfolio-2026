@@ -41,16 +41,12 @@
     transform: translateZ(40px)
     transition: transform 0.3s ease, filter 0.3s ease
 
-    .main_image-wrapper:hover &
-        transform: translateZ(60px) scale(1.05)
-        filter: grayscale(0%)
-
   &_cards-wrapper
     display: flex
-    // flex-direction: row
-    gap: 20px
+    gap: 40px
     flex-wrap: wrap
     justify-content: center
+    align-items: center
 
   &_card
     @include flex-column-center
