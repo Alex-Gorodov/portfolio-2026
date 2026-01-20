@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import ThreeDCard from "../ThreeDCard/ThreeDCard";
+import { useResponsive } from "../../Context/responsive.context";
 
 interface ProjectCardProps {
   children: React.ReactNode;
@@ -65,6 +66,7 @@ export default function ProjectCard({
   themeColor
 }: ProjectCardProps) {
   const [active, setActive] = useState(false);
+  const { isMobile } = useResponsive();
 
   return (
     <div
@@ -78,7 +80,7 @@ export default function ProjectCard({
       >
         <div className="project-card_mask">
           <div className="project-card_children">
-            {isVideo ? (
+            {isVideo && !isMobile ? (
               <ThreeDCard active={active} disableShadow hoverOnly>
                 {children}
               </ThreeDCard>
