@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio-2026/static/css/main.578e5e57.css",
-    "main.js": "/portfolio-2026/static/js/main.1f09a778.js",
+    "main.css": "/portfolio-2026/static/css/main.bf97fe14.css",
+    "main.js": "/portfolio-2026/static/js/main.f8c32667.js",
     "static/js/453.8cfb0cf3.chunk.js": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js",
     "static/media/sportapp-iphone-16.mp4": "/portfolio-2026/static/media/sportapp-iphone-16.f96589f8cdd5681baf72.mp4",
     "static/media/amishav-iphone-16.mp4": "/portfolio-2026/static/media/amishav-iphone-16.aae634a580ce6905ad24.mp4",
@@ -10,12 +10,12 @@
     "static/media/iphone-template.png": "/portfolio-2026/static/media/iphone-template.0c9fb195c73a625d6cd5.png",
     "static/media/alex_gorodov_cv.pdf": "/portfolio-2026/static/media/alex_gorodov_cv.62d3a14574d6ffb1a6af.pdf",
     "index.html": "/portfolio-2026/index.html",
-    "main.578e5e57.css.map": "/portfolio-2026/static/css/main.578e5e57.css.map",
-    "main.1f09a778.js.map": "/portfolio-2026/static/js/main.1f09a778.js.map",
+    "main.bf97fe14.css.map": "/portfolio-2026/static/css/main.bf97fe14.css.map",
+    "main.f8c32667.js.map": "/portfolio-2026/static/js/main.f8c32667.js.map",
     "453.8cfb0cf3.chunk.js.map": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.578e5e57.css",
-    "static/js/main.1f09a778.js"
+    "static/css/main.bf97fe14.css",
+    "static/js/main.f8c32667.js"
   ]
 }
