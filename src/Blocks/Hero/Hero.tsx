@@ -20,7 +20,6 @@ export default function Hero() {
     const scale = 1 + window.scrollY * 0.0018;
     const y = window.scrollY * speed;
 
-    // image.style.transform = `translate3d(0, ${y}px, 0)`;
       image.style.transform = `translate(0, ${y}px) scale(${scale})`;
       image.style.opacity = `${Math.max(0, 1 - window.scrollY / 600)}`;
       image.style.filter = `grayscale(${Math.min(100, window.scrollY / 5)}%)`;
@@ -76,14 +75,16 @@ export default function Hero() {
           <a href={CV} type="file" rel="noreferrer nofollow" target="_blank" download>
             <Button label="Download CV" secondary />
           </a>
-          <Button label="Contact" />
+          <a href="#contact" rel="noreferrer nofollow">
+            <Button label="Contact" />
+          </a>
         </div>
 
         <div className="hero_links-wrapper">
-          <a className="hero_link" href="https://www.linkedin.com/in/a-gorodov" target="_blank" rel="noreferrer" >
+          <a className="hero_link" href="https://www.linkedin.com/in/a-gorodov" target="_blank" rel="noreferrer nofollow" >
             <AiFillLinkedin size={32}/>
           </a>
-          <a className="hero_link" href="https://github.com/Alex-Gorodov" target="_blank" rel="noreferrer">
+          <a className="hero_link" href="https://github.com/Alex-Gorodov" target="_blank" rel="noreferrer nofollow">
             <AiOutlineGithub size={32}/>
           </a>
         </div>

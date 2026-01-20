@@ -5,8 +5,11 @@
     transform: translate3d(-33.33%,0,0)
 
 .hero
-  &_wrapper
-    position: relative
+  position: relative
+  @media(max-width: $mobile-width)
+    min-height: 100vh
+    padding-bottom: 12vh
+
 
   &_image-wrapper
     width: 320px
@@ -71,7 +74,6 @@
   &_links-wrapper
     display: flex
     gap: 16px
-    padding-bottom: 80px
 
   &_link
     color: $text
@@ -101,6 +103,6 @@
     will-change: transform
 
   .hero_name
-    font-size: 124px
+    font-size: clamp(64px, 10vw, 124px)
     padding-right: 24px
     text-transform: uppercase

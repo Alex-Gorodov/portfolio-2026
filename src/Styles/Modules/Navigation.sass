@@ -2,10 +2,12 @@
 
   &_menu
     display: flex
+    flex-direction: row
+    align-items: center
     gap: clamp(12px, 2vw, 24px)
 
-    &.header-mobile
-      // width: 25%
+    &.header_navigation--mobile
+      flex-direction: column
       justify-content: space-between
       gap: 20px
       z-index: 1000

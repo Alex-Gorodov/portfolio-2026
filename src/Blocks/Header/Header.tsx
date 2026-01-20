@@ -13,7 +13,7 @@ export default function Header() {
       <nav className="header_navigation">
         {
           isMobile &&
-          <Navigation className={`header-mobile ${isMenuOpened ? 'header-mobile--opened' : ''}`}/>
+          <Navigation className={`header_navigation--mobile ${isMenuOpened ? 'header_navigation--mobile-opened' : ''}`}/>
         }
         {
           isMobile

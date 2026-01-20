@@ -13,25 +13,25 @@
   &_navigation
     display: flex
     gap: 8px
+    &--mobile
+      position: absolute
+      top: 75px
+      right: -100%
+      flex-direction: column
+      align-items: flex-end
+      background-color: $light-background
+      border-radius: 12px
+      box-shadow: $card-shadow
+      padding: 16px
+      transition: right 0.4s ease-out
+      z-index: 1000
+      &-opened
+        right: 16px
+        transition: right 0.3s ease-out
 
-  &-mobile
-    position: absolute
-    top: 75px
-    right: -100%
-    flex-direction: column
-    align-items: flex-end
-    background-color: $light-background
-    border-radius: 12px
-    box-shadow: $card-shadow
-    padding: 16px
-    transition: right 0.4s ease-out
-    &--opened
-      right: 16px
-      transition: right 0.3s ease-out
-
-.header:has(.header-mobile--opened)
+.header:has(.header_navigation--mobile-opened)
   ~ .hero_wrapper
     .hero_image-wrapper
-      transform: rotateY(-33deg) translateX(-32px)
+      transform: rotateY(-33deg) translateX(-90px)
       opacity: 0.6
 
