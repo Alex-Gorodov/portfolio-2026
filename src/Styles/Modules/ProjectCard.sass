@@ -9,11 +9,11 @@
   // border: 2px solid $border-color
   background-color: darken($light-background, 5%)
   border-radius: clamp(16px, 4vw, 24px)
-  box-shadow: 0 0 16px 1px $dark-background
+  // box-shadow: 0 0 16px 1px $dark-background
+  box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.35)
   width: 100%
   max-width: 320px
 
-/* ===== FRAME (ФОН + ТЕНЬ) ===== */
 .project-card_frame
   position: relative
   width: 100%
@@ -24,18 +24,14 @@
   background-color: var(--theme-color, transparent)
   box-shadow: 0 0 16px 1px $dark-background inset
 
-  overflow: hidden // ⬇️ режем снизу
-  // clip-path: inset(-200px -100px 0)
+  overflow: hidden
+  clip-path: inset(-200px -100px 0)
 
-
-/* ===== МАСКА (разрешает выход ТОЛЬКО вверх) ===== */
 .project-card_mask
   position: absolute
   inset: 0
   overflow: visible
 
-
-/* ===== ВЫЕЗЖАЮЩИЙ КОНТЕНТ ===== */
 .project-card_children
   width: 100%
   height: 100%
@@ -47,23 +43,16 @@
   justify-content: center
   align-items: flex-start
 
-  // z-index: -1
-  // background: transparent
   cursor: pointer
 
-  // transform: translateY(0)
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)
   will-change: transform
 
-
-/* ===== HOVER ===== */
 .project-card_frame:hover
   overflow: visible
   & .project-card_children
     transform: translateY(-100%) perspective(900px) rotateX(10deg)
 
-
-/* ===== TITLE ===== */
 .project-card_title
   font-size: clamp(18px, 4vw, 28px)
   font-weight: 600
@@ -71,12 +60,10 @@
 
 @media (max-width: 768px)
   .project-card_children
-    scale: 1
+    scale: 0.75
     overflow: visible
 
-
   .project-card_frame
-    // clip-path: none
     overflow: visible
 
 

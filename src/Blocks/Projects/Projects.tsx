@@ -12,12 +12,12 @@ export default function Projects() {
         <h2 className="section_intro-title">Projects</h2>
       </div>
       <div className='projects_wrapper'>
-        <ProjectCard title="Amishav" themeColor="#72b4ee" isVideo>
+        {/* <ProjectCard title="Amishav" themeColor="#72b4ee" isVideo> */}
           <VideoTemplate src={Amishav}/>
-        </ProjectCard>
-        <ProjectCard title="Unifier" themeColor="#fe5622" isVideo>
+        {/* </ProjectCard>
+        <ProjectCard title="Unifier" themeColor="#fe5622" isVideo> */}
           <VideoTemplate src={Sportapp}/>
-        </ProjectCard>
+        {/* </ProjectCard> */}
       </div>
     </div>
   )
