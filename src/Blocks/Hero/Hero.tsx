@@ -45,7 +45,6 @@ export default function Hero() {
             width={320}
             height={320}
             className="hero_image hero_parallax-image"
-
           />
         </div>
 
