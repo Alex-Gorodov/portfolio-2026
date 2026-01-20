@@ -35,58 +35,60 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="hero_wrapper section">
-      <div className="hero_image-wrapper hero_parallax">
-        <img
-          ref={imageRef}
-          src={Image}
-          alt="Alex"
-          width={320}
-          height={320}
-          className="hero_image hero_parallax-image"
+    <div className="hero section">
+      <div className="hero_wrapper">
+        <div className="hero_image-wrapper hero_parallax">
+          <img
+            ref={imageRef}
+            src={Image}
+            alt="Alex"
+            width={320}
+            height={320}
+            className="hero_image hero_parallax-image"
 
-        />
-      </div>
+          />
+        </div>
 
-      <div className="hero_content">
-        <div>
-          <p className="hero_text-intro">Hello, I'm</p>
-          <div className="hero_name-marquee">
-            <div className="hero_name-track">
-              {
-                isMobile
-                ?
-                <>
-                  <h2 className="hero_name">AlexGorodov</h2>
-                  <h2 className="hero_name">AlexGorodov</h2>
-                  <h2 className="hero_name">AlexGorodov</h2>
-                </>
-                :
-                <h2 className="hero_name">Alex Gorodov</h2>
-              }
+        <div className="hero_content">
+          <div>
+            <p className="hero_text-intro">Hello, I'm</p>
+            <div className="hero_name-marquee">
+              <div className="hero_name-track">
+                {
+                  isMobile
+                  ?
+                  <>
+                    <h2 className="hero_name">AlexGorodov</h2>
+                    <h2 className="hero_name">AlexGorodov</h2>
+                    <h2 className="hero_name">AlexGorodov</h2>
+                  </>
+                  :
+                  <h2 className="hero_name">Alex Gorodov</h2>
+                }
+              </div>
             </div>
+
+
+            <p className="hero_description">Frontend Developer</p>
           </div>
 
+          <div className="hero_buttons-wrapper">
+            <a href={CV} type="file" rel="noreferrer nofollow" target="_blank" download>
+              <Button label="Download CV" secondary />
+            </a>
+            <a href="#contact" rel="noreferrer nofollow">
+              <Button label="Contact" />
+            </a>
+          </div>
 
-          <p className="hero_description">Frontend Developer</p>
-        </div>
-
-        <div className="hero_buttons-wrapper">
-          <a href={CV} type="file" rel="noreferrer nofollow" target="_blank" download>
-            <Button label="Download CV" secondary />
-          </a>
-          <a href="#contact" rel="noreferrer nofollow">
-            <Button label="Contact" />
-          </a>
-        </div>
-
-        <div className="hero_links-wrapper">
-          <a className="hero_link" href="https://www.linkedin.com/in/a-gorodov" target="_blank" rel="noreferrer nofollow" >
-            <AiFillLinkedin size={32}/>
-          </a>
-          <a className="hero_link" href="https://github.com/Alex-Gorodov" target="_blank" rel="noreferrer nofollow">
-            <AiOutlineGithub size={32}/>
-          </a>
+          <div className="hero_links-wrapper">
+            <a className="hero_link" href="https://www.linkedin.com/in/a-gorodov" target="_blank" rel="noreferrer nofollow" >
+              <AiFillLinkedin size={32}/>
+            </a>
+            <a className="hero_link" href="https://github.com/Alex-Gorodov" target="_blank" rel="noreferrer nofollow">
+              <AiOutlineGithub size={32}/>
+            </a>
+          </div>
         </div>
       </div>
     </div>

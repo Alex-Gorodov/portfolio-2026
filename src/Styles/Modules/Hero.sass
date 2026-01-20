@@ -5,11 +5,10 @@
     transform: translate3d(-33.33%,0,0)
 
 .hero
-  position: relative
-  @media(max-width: $mobile-width)
-    min-height: 100vh
-    padding-bottom: 12vh
-
+  &_wrapper
+    position: relative
+    @media(max-width: $mobile-width)
+      height: 100dvh
 
   &_image-wrapper
     width: 320px
