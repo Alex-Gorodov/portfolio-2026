@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/portfolio-2026/static/css/main.10489b9d.css",
+    "main.css": "/portfolio-2026/static/css/main.ffb16c6a.css",
     "main.js": "/portfolio-2026/static/js/main.5f88d72b.js",
     "static/js/453.8cfb0cf3.chunk.js": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js",
     "static/media/sportapp-iphone-16.mp4": "/portfolio-2026/static/media/sportapp-iphone-16.4aa63b6252929b465ad8.mp4",
@@ -10,12 +10,12 @@
     "static/media/iphone-template.png": "/portfolio-2026/static/media/iphone-template.0c9fb195c73a625d6cd5.png",
     "static/media/alex_gorodov_cv.pdf": "/portfolio-2026/static/media/alex_gorodov_cv.62d3a14574d6ffb1a6af.pdf",
     "index.html": "/portfolio-2026/index.html",
-    "main.10489b9d.css.map": "/portfolio-2026/static/css/main.10489b9d.css.map",
+    "main.ffb16c6a.css.map": "/portfolio-2026/static/css/main.ffb16c6a.css.map",
     "main.5f88d72b.js.map": "/portfolio-2026/static/js/main.5f88d72b.js.map",
     "453.8cfb0cf3.chunk.js.map": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.10489b9d.css",
+    "static/css/main.ffb16c6a.css",
     "static/js/main.5f88d72b.js"
   ]
 }
