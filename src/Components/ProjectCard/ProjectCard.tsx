@@ -1,19 +1,21 @@
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import ThreeDCard from "../ThreeDCard/ThreeDCard";
 import { useResponsive } from "../../Context/responsive.context";
 
 interface ProjectCardProps {
   children: React.ReactNode;
   isVideo?: boolean;
-  title: string;
+  title: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
   themeColor?: string;
+  path?: string;
 }
 
 export default function ProjectCard({
   children,
   title,
   isVideo,
-  themeColor
+  themeColor,
+  path
 }: ProjectCardProps) {
   const [active, setActive] = useState(false);
   const { isMobile } = useResponsive();
@@ -21,27 +23,38 @@ export default function ProjectCard({
   return (
     <div
       className="project-card"
-      onMouseEnter={() => setActive(true)}
-      onMouseLeave={() => setActive(false)}
     >
+
       <div
-        className={`project-card_frame ${isVideo ? 'project-card_frame--video' : ''}`}
-        style={{ '--theme-color': themeColor || 1 } as React.CSSProperties}
+        className="project-card_frame"
       >
-        <div className="project-card_mask">
-          <div className="project-card_children">
-            {isVideo ? (
-              <ThreeDCard active={active} disableShadow hoverOnly>
-                {children}
-              </ThreeDCard>
-            ) : (
-              children
-            )}
-          </div>
+        <div className={`project-card_children ${active ? "is-active" : "is-exit"}`}>
+          {isVideo ? (
+            <ThreeDCard active={active} disableShadow hoverOnly>
+              {children}
+            </ThreeDCard>
+          ) : (
+            children
+          )}
         </div>
       </div>
 
-      <h3 className="project-card_title">{title}</h3>
+
+      {
+        typeof title === "string" ? (
+          <h3 className="project-card_title">{title}</h3>
+        ) : (
+          <div className="project-card_title project-card_title--icon">
+            <a href={path} target="_blank" rel="noreferrer nofollow">
+              {React.createElement(title, {
+                width: 120,
+                height: 40,
+                "aria-hidden": true,
+              })}
+            </a>
+          </div>
+        )
+      }
     </div>
   );
 }

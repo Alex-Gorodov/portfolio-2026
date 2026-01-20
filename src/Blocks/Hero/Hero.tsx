@@ -3,7 +3,7 @@ import Image from "../../Assets/Images/Alex.webp";
 import CV from "../../Assets/Files/alex_gorodov_cv.pdf";
 import Button from "../../Components/Buttons/Button";
 import { useResponsive } from "../../Context/responsive.context";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Hero() {
   const { isMobile } = useResponsive();
@@ -20,12 +20,12 @@ export default function Hero() {
     const scale = 1 + window.scrollY * 0.0018;
     const y = window.scrollY * speed;
 
-      image.style.transform = `translate(0, ${y}px) scale(${scale})`;
-      image.style.opacity = `${Math.max(0, 1 - window.scrollY / 600)}`;
-      image.style.filter = `grayscale(${Math.min(100, window.scrollY / 5)}%)`;
+    image.style.transform = `translate(0, ${y}px) scale(${scale})`;
+    image.style.opacity = `${Math.max(0, 1 - window.scrollY / 600)}`;
+    image.style.filter = `grayscale(${Math.min(100, window.scrollY / 5)}%)`;
 
-      rafRef.current = requestAnimationFrame(update);
-    };
+    rafRef.current = requestAnimationFrame(update);
+  };
 
     rafRef.current = requestAnimationFrame(update);
 
@@ -49,7 +49,7 @@ export default function Hero() {
         </div>
 
         <div className="hero_content">
-          <div>
+          <div className="hero_text-wrapper">
             <p className="hero_text-intro">Hello, I'm</p>
             <div className="hero_name-marquee">
               <div className="hero_name-track">

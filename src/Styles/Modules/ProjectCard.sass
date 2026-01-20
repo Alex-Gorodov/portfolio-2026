@@ -13,6 +13,22 @@
   box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.35)
   width: 100%
   max-width: 320px
+  z-index: 100
+  &:not(:has(.video_frame))
+    // height: 80%
+
+// .project-card_frame
+//   position: relative
+//   width: 100%
+//   max-width: 280px
+//   aspect-ratio: 1 / 0.85
+
+//   border-radius: clamp(12px, 3vw, 20px)
+//   background-color: var(--theme-color, transparent)
+//   box-shadow: 0 0 16px 1px $dark-background inset
+
+//   overflow: hidden
+//   clip-path: inset(-200px -100px 0)
 
 .project-card_frame
   position: relative
@@ -26,6 +42,8 @@
 
   overflow: hidden
   clip-path: inset(-200px -100px 0)
+
+  min-height: 0
 
 .project-card_mask
   position: absolute
@@ -51,7 +69,9 @@
 .project-card_frame:hover
   overflow: visible
   & .project-card_children
-    transform: translateY(-100%) perspective(900px) rotateX(10deg)
+    transform: translateY(-30%) perspective(900px) rotateX(-12deg) scale(1.25)
+    &:has(.video_frame)
+      transform: translateY(-100%) perspective(900px) rotateX(10deg)
 
 .project-card_title
   font-size: clamp(18px, 4vw, 28px)
@@ -60,10 +80,13 @@
 
 @media (max-width: 768px)
   .project-card_children
-    // scale: 0.75
     overflow: visible
+    &:not(:has(.video_frame))
+      scale: 0.9
 
   .project-card_frame
     overflow: visible
+    &:not(:has(.video_frame))
+      aspect-ratio: 1 / 0.5
 
 

@@ -1,17 +1,23 @@
+import Braga from "./Assets/Images/Portfolio/braga.webp";
+import Divesea from "./Assets/Images/Portfolio/divesea.webp";
+import Gllacy from "./Assets/Images/Portfolio/gllacy.webp";
+import BrightLights from "./Assets/Images/Portfolio/brightLights.webp";
+import CreateX from "./Assets/Images/Portfolio/createx.webp";
+import CatEnergy from "./Assets/Images/Portfolio/catEnergy.webp";
+import Sedona from "./Assets/Images/Portfolio/sedona.webp";
+import Device from "./Assets/Images/Portfolio/device.webp";
+
+import { ReactComponent as BrightLightsIcon } from "./Assets/Images/Portfolio/logos/bright-lights.svg";
+import { ReactComponent as CatEnergyIcon } from "./Assets/Images/Portfolio/logos/cat-energy.svg";
+import { ReactComponent as CreatexIcon } from "./Assets/Images/Portfolio/logos/createx.svg";
+import { ReactComponent as GllacyIcon } from "./Assets/Images/Portfolio/logos/gllacy.svg";
+import { ReactComponent as SedonaIcon } from "./Assets/Images/Portfolio/logos/sedona.svg";
+import { ReactComponent as DeviceIcon } from "./Assets/Images/Portfolio/logos/device.svg";
+import { ReactComponent as DiveseaIcon } from "./Assets/Images/Portfolio/logos/divesea.svg";
+import { ReactComponent as BragaIcon } from "./Assets/Images/Portfolio/logos/braga.svg";
+
 export enum AppRoute {
   Root = "/portfolio",
-  // Discover = "/divesea/discover",
-  // Creators = "/divesea/creators",
-  // UserPage = "/divesea/creators/:id",
-  // ProductPage = "/divesea/item/:id",
-  // Sell = "/divesea/sell",
-  // Stats = "/divesea/stats",
-}
-
-export enum APIRoute {
-  Users = "divesea-db/users",
-  Items = "divesea-db/items",
-  Bids = "divesea-db/bids",
 }
 
 export enum HeroItemSizes {
@@ -50,3 +56,72 @@ export enum Colors {
   TextSecondary = '#9CA3AF',
   Border = '#1F2937',
 }
+
+
+
+export const WEB_PROJECTS = [
+  {
+    id: "braga",
+    name: "Braga",
+    path: "https://alex-gorodov.github.io/braga",
+    description: "My own website, my own beer, my own production.",
+    img: Braga,
+    icon: BragaIcon
+  },
+  {
+    id: "divesea",
+    name: "DiveSea",
+    path: "https://alex-gorodov.github.io/divesea",
+    description: "Explore our dynamic NFT marketplace to discover, create, and sell thousands of artworks. Join now for a $20 bonus and unleash your creativity!",
+    img: Divesea,
+    icon: DiveseaIcon
+  },
+  {
+    id: "gllacy",
+    name: "Gllacy",
+    path: "https://alex-gorodov.github.io/gllacy",
+    description: "Gllacy store offers a delightful selection of homemade ice cream flavors. Enjoy natural ingredients, free delivery, and exclusive gifts with every purchase. The design belongs to HTML Academy.",
+    img: Gllacy,
+    icon: GllacyIcon
+  },
+  {
+    id: "bright-lights",
+    name: "Bright Lights",
+    path: "https://alex-gorodov.github.io/bright-lights/",
+    description: "\"Bright Lights\" introduces a dynamic blend of music, tours, and news. Led by Grammy-nominated singer, songwriter, and DJ, Bright Lights delivers an electrifying experience, captivating audiences worldwide.",
+    img: BrightLights,
+    icon: BrightLightsIcon
+  },
+  {
+    id: "createx",
+    name: "CreateX",
+    path: "https://alex-gorodov.github.io/CreateX/",
+    description: "\"CreateX\" offers a diverse range of online courses and events tailored for learners worldwide. Benefit from experienced tutors, 24/7 support, and a vibrant learning community. Enroll now and unleash your potential with CreateX!",
+    img: CreateX,
+    icon: CreatexIcon
+  },
+  {
+    id: "cat-energy",
+    name: "Cat Energy",
+    path: "https://alex-gorodov.github.io/Cat-Energy/",
+    description: "\"Cat Energy\" offers specialized nutrition programs for cats. Whether your pet needs to lose weight or gain muscle, our functional nutrition products provide essential nutrients. Achieve remarkable results without changing your cat's lifestyle. Contact us for dealer cooperation. The design belongs to HTML Academy.",
+    img: CatEnergy,
+    icon: CatEnergyIcon
+  },
+  {
+    id: "sedona",
+    name: "Sedona",
+    path: "https://htmlacademy-adaptive.github.io/590651-sedona-26/11/",
+    description: "Sedona is a true Arizona town with a lively atmosphere and amazing attractions. Discover five reasons why Sedona is better than the Grand Canyon. The design belongs to HTML Academy.",
+    img: Sedona,
+    icon: SedonaIcon
+  },
+  {
+    id: "device",
+    name: "Device",
+    path: "https://alex-gorodov.github.io/Device/",
+    description: "\"Device\" is a gadget online store offering a wide range of products. Services include delivery, warranty, and financing. Contact information, working hours, and newsletter subscription are also available. The design belongs to HTML Academy.",
+    img: Device,
+    icon: DeviceIcon
+  }
+]

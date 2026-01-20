@@ -1,0 +1,36 @@
+.toggle
+  position: relative
+  display: flex
+  width: 300px
+  height: 44px
+  padding: 0
+  border-radius: 22px
+  background-color: #e6e6e6
+  border: 2px solid $main-button
+  overflow: hidden
+  cursor: pointer
+
+.toggle__slider
+  position: absolute
+  top: 2px
+  left: 2px
+  height: 36px
+  border-radius: 20px
+  background-color: $main-button
+  transition: transform 0.25s ease
+
+.toggle__item
+  flex: 1
+  display: flex
+  align-items: center
+  justify-content: center
+  z-index: 1
+
+.toggle__text
+  font-size: 16px
+  font-weight: 600
+  color: $text
+  transition: color 0.25s ease
+
+.toggle__text.active
+  color: #fff
