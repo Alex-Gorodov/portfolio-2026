@@ -250,9 +250,7 @@ export default function ThreeDCard({
 
       requestAnimationFrame(animate);
     };
-    // if (!isMobile) animate();
-    animate();
-
+    if (!isMobile) animate();
 
     // if (isMobile) return; // можно добавить скролл для мобилок
 

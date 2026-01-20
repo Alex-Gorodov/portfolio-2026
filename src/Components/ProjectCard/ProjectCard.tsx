@@ -80,7 +80,7 @@ export default function ProjectCard({
       >
         <div className="project-card_mask">
           <div className="project-card_children">
-            {isVideo && !isMobile ? (
+            {!isMobile ? (
               <ThreeDCard active={active} disableShadow hoverOnly>
                 {children}
               </ThreeDCard>
