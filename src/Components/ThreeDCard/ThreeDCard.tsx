@@ -250,6 +250,7 @@ export default function ThreeDCard({
 
       requestAnimationFrame(animate);
     };
+    // if (!isMobile) animate();
     animate();
 
 
