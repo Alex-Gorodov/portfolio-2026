@@ -264,7 +264,7 @@ export default function ThreeDCard({
 
 
     const handleScroll = () => {
-      if (!isMobile) return;
+      // if (!isMobile) return;
       const rect = wrapper.getBoundingClientRect();
       const vh = window.innerHeight;
 

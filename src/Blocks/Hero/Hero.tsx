@@ -17,7 +17,7 @@ export default function Hero() {
 
   const speed = 0.35;
   const update = () => {
-    const scale = 1 + window.scrollY * 0.0008;
+    const scale = 1 + window.scrollY * 0.0018;
     const y = window.scrollY * speed;
 
     // image.style.transform = `translate3d(0, ${y}px, 0)`;
