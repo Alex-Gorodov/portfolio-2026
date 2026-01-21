@@ -7,7 +7,7 @@
   "orientation": "portrait",
   "background_color": "#0f0f14",
   "theme_color": "#7c7cff",
-  "description": "Frontend Developer portfolio, UI/UX, React, TypeScript.",
+  "description": "Портфолио фронтенд-разработчика. Анимации, интерактив, UI/UX, React, TypeScript.",
   "icons": [
     {
       "src": "../icon192.png",
@@ -15,7 +15,7 @@
       "type": "image/png"
     },
     {
-      "src": "../logo512.png",
+      "src": "",
       "sizes": "512x512",
       "type": "image/png"
     }
