@@ -39,7 +39,6 @@ export default function ProjectCard({
         </div>
       </div>
 
-
       {
         typeof title === "string" ? (
           <h3 className="project-card_title">{title}</h3>

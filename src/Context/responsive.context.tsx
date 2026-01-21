@@ -44,7 +44,7 @@ export function ResponsiveProvider({ children }: ResponsiveProviderProps) {
   }, []);
 
   const device: DeviceType =
-    size.width < 768
+    size.width < 480
       ? "mobile"
       : size.width < 1024
       ? "tablet"
