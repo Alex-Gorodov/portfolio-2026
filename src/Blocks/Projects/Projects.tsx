@@ -9,7 +9,16 @@ import { WEB_PROJECTS } from '../../constants';
 import { PortfolioItem } from '../../Components/PortfolioItem/PortfolioItem';
 
 export default function Projects() {
-  const [isMobile, setIsMobile] = useState(true);
+  const [isMobileApps, setIsMobileApps] = useState(true);
+  const [isAppearing, setIsAppearing] = useState(false);
+
+  const handleChangeApps = () => {
+    setIsAppearing(!isAppearing)
+    setIsMobileApps(!isMobileApps)
+    setTimeout(() => {
+      setIsAppearing(false);
+    }, 750);
+  }
 
   const mobileProjects = [
     {
@@ -23,7 +32,6 @@ export default function Projects() {
       themeColor: "#fe5622",
       src: Sportapp
     },
-
   ]
 
   return (
@@ -33,11 +41,11 @@ export default function Projects() {
           <p className="section_intro-text">Browse my recent</p>
           <h2 className="section_intro-title">Projects</h2>
         </div>
-        <Toggle value={isMobile} onChange={() => setIsMobile(!isMobile)} leftLabel = "Mobile" rightLabel = "Web"/>
+        <Toggle value={isMobileApps} onChange={() => handleChangeApps()} leftLabel = "Mobile" rightLabel = "Web"/>
       </div>
-      <div className='projects_wrapper'>
+      <div className={`projects_wrapper ${isAppearing ? 'appearing' : ''}`}>
         {
-          isMobile
+          isMobileApps
           ?
           mobileProjects.map((p) => {
             return (

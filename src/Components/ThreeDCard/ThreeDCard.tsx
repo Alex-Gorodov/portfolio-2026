@@ -250,10 +250,7 @@ export default function ThreeDCard({
 
       requestAnimationFrame(animate);
     };
-    // if (!isMobile) animate();
     animate();
-
-    // if (isMobile) return; // можно добавить скролл для мобилок
 
     if (hoverOnly) {
       wrapper.addEventListener('mousemove', handleMouseMove);
