@@ -31,8 +31,8 @@ export enum ScreenSizes {
   MobileOnly = 430,
   Mobile = 480,
   Tablet = 768,
-  Desktop = 1440,
-  ContainerMaxWidth = 1280
+  Desktop = 1280,
+  ContainerMaxWidth = 1440
 }
 
 export enum WalletPositions {

@@ -12,6 +12,9 @@
   width: 100%
   max-width: 320px
   z-index: 100
+  &:not(:has(.video_frame))
+    padding: clamp(6px, 2vw, 8px)
+    gap: clamp(6px, 3vw, 12px)
 
 .project-card_frame
   position: relative
@@ -26,6 +29,10 @@
   clip-path: inset(-200px 0)
   &:not(:has(.video_frame))
     aspect-ratio: 1 / 0.5
+    &:has(.project-card_children:hover)
+      overflow: visible
+      animation: phone-frame-overflow-animation 1s ease forwards
+      clip-path: inset(-100px)
 
 .frame-active
   overflow: visible
@@ -54,6 +61,8 @@
   will-change: transform
   z-index: 1000
   transform: scale(0.65)
+  &:hover
+    transform: translateY(-60%) scale(0.65)
 
 .children-active
   animation: phone-take-out 2s ease-out forwards

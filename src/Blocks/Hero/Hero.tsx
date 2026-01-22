@@ -3,13 +3,17 @@ import Image from "../../Assets/Images/Alex.webp";
 import CV from "../../Assets/Files/alex_gorodov_cv.pdf";
 import Button from "../../Components/Buttons/Button";
 import { useResponsive } from "../../Context/responsive.context";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Hero() {
   const { isMobile } = useResponsive();
   const imageRef = useRef<HTMLImageElement | null>(null);
   const rafRef = useRef<number | null>(null);
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
   const image = imageRef.current;
@@ -35,7 +39,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="hero section">
+    <div className={`hero section ${mounted ? 'appearing' : ''}`}>
       <div className="hero_wrapper">
         <div className="hero_image-wrapper hero_parallax">
           <img

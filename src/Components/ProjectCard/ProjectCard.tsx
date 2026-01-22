@@ -126,8 +126,6 @@ export default function ProjectCard({
   themeColor,
   path
 }: ProjectCardProps) {
-  const { isMobile } = useResponsive();
-
   const frameRef = useRef<HTMLDivElement>(null);
   const [state, setState] = useState<"rest" | "active" | "leaving">("rest");
   const animationTimeout = useRef<NodeJS.Timeout | null>(null);
