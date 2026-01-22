@@ -18,7 +18,7 @@ export const Toggle: React.FC<ToggleProps> = ({
 
   useEffect(() => {
     if (!wrapperRef.current) return;
-    setWidth(wrapperRef.current.offsetWidth);
+    setWidth(wrapperRef.current.offsetWidth - 2);
   }, []);
 
   const half = width / 2;
@@ -37,7 +37,7 @@ export const Toggle: React.FC<ToggleProps> = ({
       <div
         className="toggle_slider"
         style={{
-          width: half - 10,
+          width: half - 6,
           transform: `translateX(${value ? 0 : half}px)`,
         }}
       />
