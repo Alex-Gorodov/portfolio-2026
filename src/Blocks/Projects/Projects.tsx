@@ -1,7 +1,10 @@
 
 import VideoTemplate from '../../Components/VideoTemplate/VideoTemplate';
-import Amishav from '../../Assets/Videos/amishav-iphone-16.mp4';
 import Sportapp from '../../Assets/Videos/sportapp-iphone-16.mp4';
+import SportappPoster from '../../Assets/Images/poster-sport.png';
+import Amishav from '../../Assets/Videos/amishav-iphone-16.mp4';
+import AmishavIcon from '../../Assets/Images/Portfolio/logos/amishav-icon.png'
+import AmishavPoster from '../../Assets/Images/poster-amishav.png';
 import ProjectCard from '../../Components/ProjectCard/ProjectCard';
 import { Toggle } from '../../Components/Toggle/Toggle';
 import { useState } from 'react';
@@ -24,13 +27,17 @@ export default function Projects() {
     {
       title: "Amishav",
       themeColor: "#72b4ee",
-      src: Amishav
+      src: Amishav,
+      poster: AmishavPoster,
+      icon: AmishavIcon,
     },
 
     {
       title: "Unifier",
       themeColor: "#fe5622",
-      src: Sportapp
+      src: Sportapp,
+      poster: SportappPoster,
+      // title:
     },
   ]
 
@@ -49,8 +56,8 @@ export default function Projects() {
           ?
           mobileProjects.map((p) => {
             return (
-              <ProjectCard title={p.title} themeColor={p.themeColor} isVideo>
-                <VideoTemplate src={p.src}/>
+              <ProjectCard title={p.title} themeColor={p.themeColor} icon={p.icon} isVideo>
+                <VideoTemplate src={p.src} poster={p.poster}/>
               </ProjectCard>
             )
           })

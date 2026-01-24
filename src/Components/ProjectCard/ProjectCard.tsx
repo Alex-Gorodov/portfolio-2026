@@ -1,115 +1,5 @@
-// import React, { useEffect, useRef, useState } from "react"
-// import ThreeDCard from "../ThreeDCard/ThreeDCard";
-
-// interface ProjectCardProps {
-//   children: React.ReactNode;
-//   isVideo?: boolean;
-//   title: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
-//   themeColor?: string;
-//   path?: string;
-// }
-
-// export default function ProjectCard({
-//   children,
-//   title,
-//   isVideo,
-//   themeColor,
-//   path
-// }: ProjectCardProps) {
-//   const [isActive, setIsActive] = useState(false);
-//   const [isLeaving, setIsLeaving] = useState(false);
-//   const [isRest, setIsRest] = useState(true);
-
-//   const handleActive = () => {
-//     setIsActive(true);
-//     setIsLeaving(false);
-//   }
-
-//   const handleLeaving = () => {
-//     setIsActive(false);
-//     setIsLeaving(true);
-//   }
-
-//   const phoneRef = useRef<HTMLDivElement>(null);
-
-//   // const handleActive = () => {
-//   //   setIsRest(false);
-//   //   setIsLeaving(false);
-//   //   setIsActive(true);
-
-//   //   if (phoneRef.current) {
-//   //     phoneRef.current.style.animation = "none"; // сброс
-//   //     void phoneRef.current.offsetWidth; // триггер reflow
-//   //     phoneRef.current.style.animation = "phone-take-out 2s ease-out forwards"; // заново
-//   //   }
-//   // }
-
-//   // const handleLeaving = () => {
-//   //   setIsRest(false)
-//   //   setIsActive(false);
-//   //   setIsLeaving(true);
-
-//   //   if (phoneRef.current) {
-//   //     phoneRef.current.style.animation = "none";
-//   //     void phoneRef.current.offsetWidth;
-//   //     phoneRef.current.style.animation = "phone-take-in 1.5s ease-in forwards";
-//   //   }
-//   // }
-
-//   const frameRef = useRef<HTMLDivElement>(null);
-
-//   useEffect(() => {
-//     if (isActive || isLeaving || !isRest) {
-//       frameRef.current!.style.overflow = "visible";
-//     } else {
-//       frameRef.current!.style.overflow = "hidden";
-//     }
-//   }, [isActive, isLeaving, isRest]);
-
-
-//   return (
-//     <div className={`project-card`}>
-
-//       <div
-//         className="project-card_frame"
-//         ref={frameRef}
-//         onMouseEnter={() => handleActive()}
-//         onMouseLeave={() => handleLeaving()}
-//       >
-//         <div className={`project-card_children`} ref={phoneRef}>
-//           {isVideo ? (
-//             <ThreeDCard active={isActive} disableShadow hoverOnly>
-//               {children}
-//             </ThreeDCard>
-//           ) : (
-//             children
-//           )}
-//         </div>
-//       </div>
-
-//       {
-//         typeof title === "string" ? (
-//           <h3 className="project-card_title">{title}</h3>
-//         ) : (
-//           <div className="project-card_title project-card_title--icon">
-//             <a href={path} target="_blank" rel="noreferrer nofollow">
-//               {React.createElement(title, {
-//                 width: 120,
-//                 height: 40,
-//                 "aria-hidden": true,
-//               })}
-//             </a>
-//           </div>
-//         )
-//       }
-//     </div>
-//   );
-// }
-
-
 import React, { useRef, useState } from "react";
 import ThreeDCard from "../ThreeDCard/ThreeDCard";
-import { useResponsive } from "../../Context/responsive.context";
 
 interface ProjectCardProps {
   children: React.ReactNode;
@@ -117,6 +7,7 @@ interface ProjectCardProps {
   title: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
   themeColor?: string;
   path?: string;
+  icon?: string;
 }
 
 export default function ProjectCard({
@@ -124,6 +15,7 @@ export default function ProjectCard({
   title,
   isVideo,
   themeColor,
+  icon,
   path
 }: ProjectCardProps) {
   const frameRef = useRef<HTMLDivElement>(null);
@@ -165,12 +57,14 @@ export default function ProjectCard({
     animationTimeout.current = setTimeout(() => {
       setState("rest");
       if (frameRef.current) {
+        frameRef.current.style.animation = "phone-frame-overflow-out 2s ease forwards";
         frameRef.current.style.overflow = "hidden";
         frameRef.current.style.clipPath = "inset(0 0)";
-        frameRef.current.style.animation = "phone-frame-overflow-out 2s ease forwards";
       }
     }, 3750);
   };
+
+  const isTitleName = typeof title === "string";
 
   return (
     <div className="project-card">
@@ -191,12 +85,18 @@ export default function ProjectCard({
         </div>
       </div>
 
-      {typeof title === "string" ? (
+      {!icon && isTitleName ? (
         <h3 className="project-card_title">{title}</h3>
-      ) : (
+      ) :
+        icon ?
+        <img src={icon} width={80} alt={isTitleName ? title : 'Project'}/>
+        :
+
+      (
         <div className="project-card_title project-card_title--icon">
-          <a href={path} target="_blank" rel="noreferrer nofollow">
+          <a href={path} target="_blank" rel="noreferrer nofollow" tabIndex={-1}>
             {React.createElement(title, { width: 120, height: 40, "aria-hidden": true })}
+            <span className="visually-hidden">{`Go to ${isTitleName ? title : 'The project'}`}</span>
           </a>
         </div>
       )}

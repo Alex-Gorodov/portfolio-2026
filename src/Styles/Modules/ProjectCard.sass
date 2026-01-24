@@ -1,20 +1,88 @@
+
+@keyframes phone-take-in
+  0%
+    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
+  20%
+    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
+  40%
+    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
+  60%
+    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
+  80%
+    transform: translateY(-110%) perspective(900px) rotateX(8deg) scale(0.65)
+  100%
+    transform: scale(0.65)
+
+
+@keyframes phone-take-out
+  0%
+    transform: scale(0.65)
+  20%
+    transform: translateY(-110%) perspective(900px) rotateX(8deg) scale(0.65)
+  40%
+    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
+  60%
+    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
+  80%
+    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
+  100%
+    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
+
+
+@keyframes phone-frame-overflow-animation
+  0%
+    clip-path: inset(0 0 0 0)
+
+  40%
+    clip-path: inset(-200px 0 0 0)
+
+
+@keyframes phone-frame-overflow-in
+  0%
+    clip-path: inset(0 0 0 0) // рамка закрыта
+
+  40%
+    clip-path: inset(-200px 0 0 0)
+
+@keyframes phone-frame-overflow-out
+  0%
+    clip-path: inset(-200px 0 0 0)
+
+  40%
+    clip-path: inset(0 0 0 0)
+
+  100%
+    clip-path: inset(0 0 0 0)
+
 .project-card
   position: relative
   display: flex
   flex-direction: column
   align-items: center
   gap: clamp(12px, 3vw, 20px)
-
   padding: clamp(16px, 4vw, 32px)
   background-color: darken($light-background, 5%)
   border-radius: clamp(16px, 4vw, 24px)
-  box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.35)
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.35)
   width: 100%
   max-width: 320px
   z-index: 100
+
   &:not(:has(.video_frame))
     padding: clamp(6px, 2vw, 8px)
     gap: clamp(6px, 3vw, 12px)
+
+  /* 🔑 hover = keyboard focus */
+  &:hover,
+  &:focus-within
+    .project-card_children
+      transform: translateY(-60%) scale(0.65)
+
+    .project-card_frame:not(:has(.video_frame))
+      overflow: visible
+      animation: phone-frame-overflow 1s ease forwards
+      clip-path: inset(-200px 0 0 0)
+
 
 .project-card_frame
   position: relative
@@ -64,6 +132,10 @@
   &:hover
     transform: translateY(-60%) scale(0.65)
 
+
+.portfolio_link
+  outline: none
+
 .children-active
   animation: phone-take-out 2s ease-out forwards
 
@@ -79,228 +151,3 @@
   font-size: clamp(18px, 4vw, 28px)
   font-weight: 600
   text-align: center
-
-@keyframes phone-take-in
-  0%
-    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
-  20%
-    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
-  40%
-    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
-  60%
-    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
-  80%
-    transform: translateY(-110%) perspective(900px) rotateX(8deg) scale(0.65)
-  100%
-    transform: scale(0.65)
-
-
-@keyframes phone-take-out
-  0%
-    transform: scale(0.65)
-  20%
-    transform: translateY(-110%) perspective(900px) rotateX(8deg) scale(0.65)
-  40%
-    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
-  60%
-    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
-  80%
-    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
-  100%
-    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
-
-
-@keyframes phone-frame-overflow-animation
-  0%
-    clip-path: inset(0 0 0 0)
-
-  40%
-    clip-path: inset(-200px 0 0 0)
-
-
-@keyframes phone-frame-overflow-in
-  0%
-    clip-path: inset(0 0 0 0) // рамка закрыта
-
-  40%
-    clip-path: inset(-200px 0 0 0) // нижняя часть открылась
-
-  // 100%
-  //   clip-path: inset(-200px 0 0 0) // полностью раскрыта
-
-
-@keyframes phone-frame-overflow-out
-  0%
-    clip-path: inset(-200px 0 0 0) // полностью раскрыта
-
-  40%
-    clip-path: inset(0 0 0 0) // держим верхнюю часть открытой
-
-  100%
-    clip-path: inset(0 0 0 0) // рамка закрыта
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   @keyframes phone-take-out
-//   0%
-//     transform: none
-//   20%
-//     transform: translateY(-196%) perspective(900px) rotateX(8deg)
-//   40%
-//     transform: translateY(-90%) perspective(900px) rotateX(6deg)
-//   60%
-//     transform: translateY(-90%) perspective(900px) rotateX(6deg)
-//   80%
-//     transform: translateY(-90%) perspective(900px) rotateX(6deg)
-//   100%
-//     transform: translateY(-90%) perspective(900px) rotateX(6deg)
-
-// @keyframes phone-frame-overflow-animation
-//   0%
-//     clip-path: unset
-//   90%
-//     clip-path: unset
-//   100%
-//     clip-path: inset(-200px -100px)
-
-// .project-card
-//   position: relative
-//   display: flex
-//   flex-direction: column
-//   align-items: center
-//   gap: clamp(12px, 3vw, 20px)
-
-//   padding: clamp(16px, 4vw, 32px)
-//   background-color: darken($light-background, 5%)
-//   border-radius: clamp(16px, 4vw, 24px)
-//   box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.35)
-//   width: 100%
-//   max-width: 320px
-//   z-index: 100
-//   &:not(:has(.video_frame))
-
-// .project-card_frame
-//   position: relative
-//   width: 100%
-//   max-width: 280px
-//   aspect-ratio: 1 / 0.85
-
-//   border-radius: clamp(12px, 3vw, 20px)
-//   background-color: var(--theme-color, transparent)
-//   box-shadow: 0 0 16px 1px $dark-background inset
-
-//   overflow: hidden
-//   clip-path: inset(-300px -100px 0)
-
-//   min-height: 0
-
-// .project-card.is-active .project-card_frame
-//   overflow: visible
-//   animation-direction: normal
-
-// .project-card_frame
-//   overflow: hidden
-//   animation: phone-frame-overflow-animation 1s ease forwards
-//   animation-direction: reverse
-
-
-// .project-card_mask
-//   position: absolute
-//   inset: 0
-//   overflow: visible
-
-// .project-card_children
-//   position: relative
-//   width: 100%
-//   height: 100%
-
-//   padding: 20px
-//   border-radius: inherit
-//   scale: 0.65
-//   display: flex
-//   justify-content: center
-//   align-items: flex-start
-
-//   cursor: pointer
-
-//   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)
-//   will-change: transform
-//   z-index: 1000
-
-// .project-card_frame
-//   animation: phone-frame-overflow-animation 1s ease forwards
-//   animation-direction: reverse
-//   animation-delay:  0.4s
-//   overflow: visible
-//   & .project-card_children
-//     transform: translateY(-30%) perspective(900px) rotateX(-12deg) scale(1.25)
-//     &:has(.video_frame)
-//       animation: phone-take-out 2s ease-out forwards
-//       animation-direction: reverse
-
-// .project-card_children
-//   transform: translateY(0) scale(0.65)
-//   // will-change: transform
-
-//   &:has(.video_frame)
-//     animation: phone-take-out 2s ease-out forwards
-//     animation-direction: reverse
-
-// .project-card.is-active
-//   .project-card_children
-//     transform: translateY(-30%) perspective(900px) rotateX(-12deg) scale(1.25)
-
-//     &:has(.video_frame)
-//       animation: phone-take-out 2s ease-out forwards
-//       animation-direction: normal
-
-// .project-card_frame:hover
-//   overflow: visible
-//   animation: phone-frame-overflow-animation 1s ease forwards
-//   animation-delay:  0.4s
-//   animation-direction: normal
-//   & .project-card_children
-//     transform: translateY(-30%) perspective(900px) rotateX(-12deg) scale(1.25)
-//     &:has(.video_frame)
-//       animation-direction: normal
-//       animation: phone-take-out 2s ease-out forwards
-
-// .project-card_title
-//   font-size: clamp(18px, 4vw, 28px)
-//   font-weight: 600
-//   text-align: center
-
-// @media (max-width: $mobile-width)
-//   .project-card_children
-//     overflow: visible
-//     &:not(:has(.video_frame))
-//       scale: 0.9
-
-//   .project-card_frame
-//     overflow: visible
-//     &:not(:has(.video_frame))
-//       aspect-ratio: 1 / 0.5

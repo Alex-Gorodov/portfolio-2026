@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 
 interface VideoTemplateProps {
   src: string;
+  poster?: string;
 }
 
-export default function VideoTemplate({ src }: VideoTemplateProps) {
+export default function VideoTemplate({ src, poster }: VideoTemplateProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
@@ -33,11 +34,11 @@ export default function VideoTemplate({ src }: VideoTemplateProps) {
       <video
         ref={videoRef}
         className={`video_template ${!isPlaying ? 'video_template--paused' : ''}`}
-        autoPlay
         loop
         muted
         playsInline
         preload="metadata"
+        poster={poster}
         onClick={togglePlay}
       >
         <source src={src} type="video/mp4" />

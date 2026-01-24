@@ -1,0 +1,129 @@
+
+$bg-main: #0b1020
+$bg-card: #ffffff
+$text-main: #0b1020
+$text-muted: #7a7f99
+$accent: #4f7cff
+$error: #ff4d4f
+$radius: 14px
+$transition: 0.25s ease
+
+.contact__wrapper
+  max-width: 760px
+  margin: 0 auto
+  position: relative
+
+
+.contact__form-wrapper
+  // background: $bg-card
+  border-radius: $radius
+  padding: 24px 8px 0px
+  // box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12)
+  // overflow: hidden
+  z-index: 1000
+  pointer-events: all
+
+
+.contact__form
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  gap: 20px
+
+
+.contact__item
+  position: relative
+  &--wide
+    grid-column: span 2
+
+.contact__field
+  width: 100%
+  padding: 14px 16px
+  border-radius: 10px
+  border: 1px solid rgba(0, 0, 0, 0.12)
+  font-size: 15px
+  font-family: inherit
+  background: transparent
+  color: $text-main
+  transition: border-color $transition, box-shadow $transition
+
+  &::placeholder
+    color: $text-muted
+
+
+  &:focus
+    outline: none
+    border-color: $black
+    box-shadow: 0 0 3px 3px rgba(34, 35, 38, 0.15)
+
+
+  &--message
+    resize: vertical
+    min-height: 120px
+
+
+.contact__item--error .contact__field
+  border-color: $error
+
+
+.contact__field--error
+  border-color: $error
+
+
+.contact__submit
+  grid-column: span 2
+  margin-top: 10px
+  padding: 14px 20px
+  border-radius: 12px
+  font-size: 15px
+  font-weight: 600
+  border: none
+  cursor: pointer
+  transition: transform $transition, box-shadow $transition
+  background-color: $accent
+  color: $text-main
+  opacity: 1
+  &:disabled
+    opacity: 0.6
+    background-color: $text-muted
+    color: #fff
+
+
+.contact__submit:hover:not(:disabled)
+  transform: translateY(-1px)
+  box-shadow: 0 6px 20px $dark-background
+
+
+.contact__submit
+  &:active
+    transform: translateY(0)
+
+.contact__error-message
+  grid-column: span 2
+  font-size: 14px
+  color: $error
+  margin-top: 6px
+  max-height: 0
+  opacity: 0
+  overflow: hidden
+  transition: max-height 0.3s ease, opacity 0.2s ease
+
+
+.contact__error-message--opened
+  max-height: 40px
+  opacity: 1
+
+
+.contact__success-message
+  text-align: center
+  font-size: 18px
+  font-weight: 500
+  padding: 60px 20px
+  background: $bg-card
+  border-radius: $radius
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12)
+
+
+@media (max-width: 640px)
+  .contact__form
+    display: flex
+    flex-direction: column

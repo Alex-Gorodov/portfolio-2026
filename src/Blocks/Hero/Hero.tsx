@@ -10,26 +10,38 @@ export default function Hero() {
   const imageRef = useRef<HTMLImageElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [activeWord, setActiveWord] = useState<'Frontend' | 'Mobile'>('Frontend');
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   useEffect(() => {
-  const image = imageRef.current;
-  if (!image) return;
+    const id = setInterval(() => {
+      setActiveWord((prev) =>
+        prev === 'Frontend' ? 'Mobile' : 'Frontend'
+      );
+    }, 2000);
 
-  const speed = 0.35;
-  const update = () => {
-    const scale = 1 + window.scrollY * 0.0018;
-    const y = window.scrollY * speed;
+    return () => clearInterval(id);
+  }, []);
 
-    image.style.transform = `translate(0, ${y}px) scale(${scale})`;
-    image.style.opacity = `${Math.max(0, 1 - window.scrollY / 600)}`;
-    image.style.filter = `grayscale(${Math.min(100, window.scrollY / 5)}%)`;
 
-    rafRef.current = requestAnimationFrame(update);
-  };
+  useEffect(() => {
+    const image = imageRef.current;
+    if (!image) return;
+
+    const speed = 0.35;
+    const update = () => {
+      const scale = 1 + window.scrollY * 0.0018;
+      const y = window.scrollY * speed;
+
+      image.style.transform = `translate(0, ${y}px) scale(${scale})`;
+      image.style.opacity = `${Math.max(0, 1 - window.scrollY / 600)}`;
+      image.style.filter = `grayscale(${Math.min(100, window.scrollY / 5)}%)`;
+
+      rafRef.current = requestAnimationFrame(update);
+    };
 
     rafRef.current = requestAnimationFrame(update);
 
@@ -71,17 +83,23 @@ export default function Hero() {
               </div>
             </div>
 
-
-            <p className="hero_description">Frontend Developer</p>
+            <p className="hero_description">
+              <span className="hero_gear">
+                <span
+                  key={activeWord}
+                  className="hero_gear-word"
+                >
+                  {activeWord}
+                </span>
+              </span>
+              <span>Developer</span>
+            </p>
           </div>
 
           <div className="hero_buttons-wrapper">
-            <a href={CV} type="file" rel="noreferrer nofollow" target="_blank" download>
-              <Button label="Download CV" secondary />
-            </a>
-            <a href="#contact" rel="noreferrer nofollow">
-              <Button label="Contact" />
-            </a>
+            {/* <a className="hero_button" autoFocus={false} href={CV} type="file" rel="noreferrer nofollow" target="_blank" download> */}
+              <Button role="link" href={CV} label="Download CV" secondary allyDescription="Download CV"/>
+              <Button role="link" href="#contact" label="Contact" allyDescription="Go to contact information" />
           </div>
 
           <div className="hero_links-wrapper">

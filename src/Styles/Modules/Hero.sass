@@ -4,6 +4,20 @@
   to
     transform: translate3d(-33.33%,0,0)
 
+
+@keyframes gear-flip
+  0%
+    transform: rotateX(90deg) translateY(-50%)
+    opacity: 0
+
+  40%
+    opacity: 1
+
+  100%
+    transform: rotateX(0deg) translateY(0)
+    opacity: 1
+
+
 .hero
   &_wrapper
     @include section-layout
@@ -51,6 +65,10 @@
     flex-wrap: wrap
     justify-content: center
 
+  &_button
+    &:focus-visible
+      outline: none
+
   &_text-intro
     @include subscript-style
 
@@ -67,10 +85,19 @@
     white-space: nowrap
 
   &_description
-    margin: 0
-    font-size: clamp(16px, 3vw, 18px)
-    font-weight: 600
+    position: relative
+    display: flex
+    gap: 8px
+    justify-self: center
+    // font-size: clamp(16px, 3vw, 18px)
+    font-size: clamp(20px, 3vw, 24px)
+    font-weight: 400
     color: $text-secondary
+
+  &_word-with-effect
+    position: absolute
+    top: 0
+    right: 50%
 
   &_links-wrapper
     display: flex
@@ -79,9 +106,10 @@
   &_link
     color: $text
     transition: 0.3s
-    &:hover
+    &:hover,
+    &:focus-visible
+      outline: none
       opacity: 0.6
-
     &:active
       opacity: 0.3
 
@@ -107,3 +135,25 @@
     font-size: clamp(86px, 10vw, 124px)
     padding-right: 24px
     text-transform: uppercase
+
+
+.hero_gear
+  position: relative
+  width: 104px
+  height: 1.2em
+  perspective: 600px
+  overflow: hidden
+  display: inline-block
+  text-align: right
+
+.hero_gear-word
+  position: absolute
+  right: 0
+  top: 0
+  font-weight: 700
+  color: $primary
+
+  transform-origin: center center -20px
+  animation: gear-flip 0.8s cubic-bezier(0.22, 1, 0.36, 1)
+  will-change: transform, opacity
+

@@ -8,6 +8,7 @@ type PortfolioItemProps = {
 
 export function PortfolioItem({item}: PortfolioItemProps): JSX.Element {
   const { isMobile } = useResponsive();
+
   return (
     <div className="portfolio_item portfolio-item" key={item.id}>
       <a className="portfolio_link" href={item.path} target="_blank" rel="noreferrer nofollow">

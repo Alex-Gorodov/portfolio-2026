@@ -8,9 +8,6 @@ export default function Navigation({ className }: NavigationProps) {
       <a className="navigation_link" href="#about">
         <p className={`navigation_item navigation_item--${className}`}>About</p>
       </a>
-      {/* <a className="navigation_link" href="#experience">
-        <p className={`navigation_item navigation_item--${className}`}>Experience</p>
-      </a> */}
       <a className="navigation_link" href="#projects">
         <p className={`navigation_item navigation_item--${className}`}>Projects</p>
       </a>
