@@ -77,6 +77,8 @@
   &:focus-within
     .project-card_children
       transform: translateY(-60%) scale(0.65)
+      @media (max-width: $mobile-width)
+          transform: translateY(-30%) scale(1)
 
     .project-card_frame:not(:has(.video_frame))
       overflow: visible
@@ -97,6 +99,9 @@
   clip-path: inset(-200px 0)
   &:not(:has(.video_frame))
     aspect-ratio: 1 / 0.5
+    @media (max-width: $mobile-width)
+      aspect-ratio: 1 / 0.4
+
     &:has(.project-card_children:hover)
       overflow: visible
       animation: phone-frame-overflow-animation 1s ease forwards
@@ -131,6 +136,10 @@
   transform: scale(0.65)
   &:hover
     transform: translateY(-60%) scale(0.65)
+  @media (max-width: $mobile-width)
+    transform: scale(1)
+    &:hover
+      transform: translateY(-30%) scale(1)
 
 
 .portfolio_link
