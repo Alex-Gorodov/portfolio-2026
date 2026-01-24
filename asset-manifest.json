@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio-2026/static/css/main.e71b8d60.css",
-    "main.js": "/portfolio-2026/static/js/main.971c5690.js",
+    "main.css": "/portfolio-2026/static/css/main.f7bffd2b.css",
+    "main.js": "/portfolio-2026/static/js/main.9df765c9.js",
     "static/js/453.8cfb0cf3.chunk.js": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js",
     "static/media/sportapp-iphone-16.mp4": "/portfolio-2026/static/media/sportapp-iphone-16.f96589f8cdd5681baf72.mp4",
     "static/media/amishav-iphone-16.mp4": "/portfolio-2026/static/media/amishav-iphone-16.aae634a580ce6905ad24.mp4",
@@ -29,12 +29,12 @@
     "static/media/device.svg": "/portfolio-2026/static/media/device.cabb9da107d38a04f31a09b57b39122d.svg",
     "static/media/sedona.svg": "/portfolio-2026/static/media/sedona.07818e1ea118cd91783546aacfad17e7.svg",
     "index.html": "/portfolio-2026/index.html",
-    "main.e71b8d60.css.map": "/portfolio-2026/static/css/main.e71b8d60.css.map",
-    "main.971c5690.js.map": "/portfolio-2026/static/js/main.971c5690.js.map",
+    "main.f7bffd2b.css.map": "/portfolio-2026/static/css/main.f7bffd2b.css.map",
+    "main.9df765c9.js.map": "/portfolio-2026/static/js/main.9df765c9.js.map",
     "453.8cfb0cf3.chunk.js.map": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e71b8d60.css",
-    "static/js/main.971c5690.js"
+    "static/css/main.f7bffd2b.css",
+    "static/js/main.9df765c9.js"
   ]
 }
