@@ -50,7 +50,7 @@ export default function Projects() {
         </div>
         <Toggle value={isMobileApps} onChange={() => handleChangeApps()} leftLabel = "Mobile" rightLabel = "Web"/>
       </div>
-      <div className={`projects_wrapper ${isAppearing ? 'appearing' : ''}`}>
+      <div className={`projects_wrapper ${!isMobileApps ? 'projects_wrapper--web' : ''} ${isAppearing ? 'appearing' : ''}`}>
         {
           isMobileApps
           ?
