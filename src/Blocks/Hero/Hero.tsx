@@ -73,9 +73,9 @@ export default function Hero() {
                   isMobile
                   ?
                   <>
-                    <h2 className="hero_name">AlexGorodov</h2>
-                    <h2 className="hero_name">AlexGorodov</h2>
-                    <h2 className="hero_name">AlexGorodov</h2>
+                    <h2 className="hero_name">AlexGorodov</h2>&nbsp;
+                    <h2 className="hero_name" aria-hidden="true">AlexGorodov</h2>&nbsp;
+                    <h2 className="hero_name" aria-hidden="true">AlexGorodov</h2>&nbsp;
                   </>
                   :
                   <h2 className="hero_name">Alex Gorodov</h2>
@@ -105,9 +105,11 @@ export default function Hero() {
           <div className="hero_links-wrapper">
             <a className="hero_link" href="https://www.linkedin.com/in/a-gorodov" target="_blank" rel="noreferrer nofollow" >
               <AiFillLinkedin size={32}/>
+              <span className="visually-hidden">Visit my Linkedin profile</span>
             </a>
             <a className="hero_link" href="https://github.com/Alex-Gorodov" target="_blank" rel="noreferrer nofollow">
               <AiOutlineGithub size={32}/>
+              <span className="visually-hidden">Look in my Github profile</span>
             </a>
           </div>
         </div>
