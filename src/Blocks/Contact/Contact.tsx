@@ -1,7 +1,10 @@
 import { AiOutlineLinkedin, AiOutlineMail } from "react-icons/ai";
 import { ContactForm } from "../ContactForm/ContactForm";
+import { useResponsive } from "../../Context/responsive.context";
 
 export default function Contact() {
+  const { isMobile } = useResponsive();
+
   return (
     <div className="contact" id="contact">
       <div className="section_header">
@@ -19,12 +22,14 @@ export default function Contact() {
 
           <a className="contact_link" href="https://www.linkedin.com/in/a-gorodov" target="_blank" rel="noreferrer" >
             <AiOutlineLinkedin size={32}/>
-            <span>Linkedin</span>
+            {
+              !isMobile
+              &&
+              <span>Linkedin</span>
+            }
           </a>
         </div>
       </div>
-      {/* <ThreeDCard active> */}
-      {/* </ThreeDCard> */}
     </div>
   )
 }

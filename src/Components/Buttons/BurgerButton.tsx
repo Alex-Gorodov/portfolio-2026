@@ -13,7 +13,7 @@ export default function BurgerButton({onHandle}: BurgerButtonProps) {
   }
 
   return (
-    <button className="burger-button__wrapper" onClick={handleButton}>
+    <button className="burger-button_wrapper" onClick={handleButton}>
       <span className={`burger-button ${isActive ? 'burger-button--active' : ''}`}></span>
     </button>
   )
