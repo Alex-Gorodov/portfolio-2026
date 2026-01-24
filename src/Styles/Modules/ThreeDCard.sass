@@ -1,12 +1,14 @@
 .three-d-card
   &_wrapper
     border-radius: 16px
-    // perspective: 900px
+    perspective: 900px
     transform-style: preserve-3d
-    &:has(.main_image)
-      max-width: 320px
+    &:has(.about_image)
+      max-width: 600px
+      @media (min-width: $tablet-width)
+        max-width: 320px
 
-    &:hover .main_image
+    &:hover .about_image
       transform: translateZ(60px) scale(1.05)
       filter: grayscale(0%)
 

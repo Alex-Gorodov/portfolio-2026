@@ -1,4 +1,4 @@
-.main
+.about
   display: flex
   flex-direction: column
   gap: 20px
@@ -11,12 +11,16 @@
     gap: 2vw
     justify-content: center
     align-items: center
+    @media (max-width: $tablet-width)
+      grid-template-columns: repeat(auto-fit, minmax(180px, 100%))
 
   &_image-wrapper
     max-width: 320px
     border-radius: 16px
     perspective: 900px
     transform-style: preserve-3d
+    // @media (max-width: $tablet-width)
+    //   max-width: unset
 
   &_image-inner
     position: relative

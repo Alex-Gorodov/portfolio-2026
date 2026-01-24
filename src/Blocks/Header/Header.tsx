@@ -8,7 +8,7 @@ export default function Header() {
   const [isMenuOpened, setMenuOpened] = useState(false);
 
   return (
-    <div className="header">
+    <header className="header">
       <span className="header_name">Alex Gorodov</span>
       <nav className="header_navigation">
         {
@@ -23,6 +23,6 @@ export default function Header() {
           <Navigation className="header"/>
         }
       </nav>
-    </div>
+    </header>
   )
 }

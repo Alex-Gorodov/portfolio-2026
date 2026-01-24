@@ -56,7 +56,7 @@ export function ContactForm(): JSX.Element {
   };
 
   return (
-    <section className="section contact" id="contact">
+    <div>
       <h2 className='visually-hidden'>Contact form</h2>
       <div className="contact_wrapper">
 
@@ -132,6 +132,6 @@ export function ContactForm(): JSX.Element {
           <p className="contact_success-message">Successfully sent!</p>
         )}
       </div>
-    </section>
+    </div>
   );
 }

@@ -22,7 +22,7 @@ export default function ThreeDCard({
     const inner = innerRef.current;
     if (!wrapper || !inner || !active) return;
 
-    const maxRotate = 16;
+    const maxRotate = 8;
 
     const target = { rotateX: 0, rotateY: 0 };
     const current = { rotateX: 0, rotateY: 0 };
