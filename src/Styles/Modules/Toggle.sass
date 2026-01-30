@@ -1,47 +1,46 @@
 .toggle
   position: relative
-  display: flex
   width: 300px
   height: 44px
+  display: flex
   padding: 0px
+  border: 2px solid $main-button
   border-radius: 22px
   background-color: #e6e6e6
-  border: 2px solid $main-button
-  overflow: hidden
-  cursor: pointer
   transition: 0.4s
+  cursor: pointer
+  overflow: hidden
   &:focus-visible
     outline: none
     box-shadow: 0px 0px 20px 4px $dark-background
 
-.toggle_slider
-  position: absolute
-  top: 2px
-  left: 2px
-  height: 36px
-  border-radius: 20px
-  background-color: $main-button
-  transition: transform 0.25s ease
+  &_slider
+    position: absolute
+    top: 2px
+    left: 2px
+    height: 36px
+    border-radius: 20px
+    background-color: $main-button
+    transition: transform 0.25s ease
 
-.toggle_item
-  flex: 1
-  display: flex
-  align-items: center
-  justify-content: center
-  z-index: 1
-  height: 100%
-  position: relative
+  &_item
+    position: relative
+    height: 100%
+    display: flex
+    flex: 1
+    align-items: center
+    justify-content: center
+    // z-index: 1
 
-.toggle_text
-  position: absolute
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
-  font-size: 16px
-  font-weight: 600
-  color: $text
-  transition: color 0.25s ease
+  &_text
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    font-size: 16px
+    font-weight: 600
+    color: $text
+    transition: color 0.25s ease
 
-
-.toggle_text.active
-  color: #fff
+  &_text.active
+    color: #fff

@@ -41,6 +41,9 @@ body
   margin: auto
   padding: 16px 40px
   max-width: $max-app-width
+  &--appearing
+    animation: appearing 1.25s ease-out
+
   &_intro-text
     @include subscript-style;
 
@@ -73,5 +76,3 @@ body
 .main
   flex: 1
 
-.appearing
-  animation: appearing 1.25s ease-out

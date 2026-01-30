@@ -51,7 +51,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className={`hero section ${mounted ? 'appearing' : ''}`}>
+    <div className={`hero section ${mounted ? 'section--appearing' : ''}`}>
       <div className="hero_wrapper">
         <div className="hero_image-wrapper hero_parallax">
           <img

@@ -14,7 +14,6 @@ export default function About() {
       <div className="about_cards-wrapper">
 
         <div>
-
           <ThreeDCard
             active
             children={
