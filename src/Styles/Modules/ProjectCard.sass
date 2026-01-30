@@ -33,16 +33,18 @@
   0%
     clip-path: inset(0 0 0 0)
 
-  40%
+  20%
     clip-path: inset(-200px 0 0 0)
 
 
 @keyframes phone-frame-overflow-in
-  0%
-    clip-path: inset(0 0 0 0) // рамка закрыта
 
-  40%
+  0%
     clip-path: inset(-200px 0 0 0)
+  90%
+    clip-path: inset(-200px 0 0 0)
+  100%
+    clip-path: inset(0 0 0 0) // рамка закрыта
 
 @keyframes phone-frame-overflow-out
   0%
@@ -123,6 +125,7 @@
   animation-direction: reverse
   &:has(.children-leaving)
     animation: phone-frame-overflow-animation 1s ease forwards
+    clip-path: inset(-240px 0 0 0)
 
 .project-card_children
   position: relative
@@ -149,7 +152,7 @@
   animation: phone-take-out 2s ease-out forwards
 
 .children-leaving
-  animation: phone-take-in 2s ease-in forwards
+  animation: phone-take-in 1.6s ease-in forwards
 
 /* FRAME STATES */
 .frame-rest

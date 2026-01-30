@@ -53,18 +53,32 @@
     position: absolute
     top: 50%
     left: 50%
-    transform: translate(-50%, -50%)
-    z-index: 10
     display: block
     width: 0
     height: 0
     border: none
-    border-top: 30px solid transparent
-    border-bottom: 30px solid transparent
-    transition: 0.3s
-
-    border-left: 45px solid $card-background
     background-color: transparent
+    transform: translate(-50%, -50%)
+    transition: 0.3s
+    z-index: 10
+
+    &--play
+      border-top: 30px solid transparent
+      border-bottom: 30px solid transparent
+      border-left: 45px solid $card-background
+    &--pause
+      width: 20px
+      height: 60px
+      margin-left: -20px
+      background-color: $card-background
+      &::after
+        display: block
+        width: 20px
+        height: 60px
+        background-color: $card-background
+        margin-left: 40px
+        content: ''
+
 
 
 
