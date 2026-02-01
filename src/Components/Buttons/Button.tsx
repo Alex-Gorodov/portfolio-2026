@@ -19,7 +19,7 @@ export default function Button({
 
   if (role === 'link') {
     return (
-      <a href={href} className={className} target="_blank" rel="noreferrer nofollow">
+      <a href={href} className={className} target={ href?.charAt(0) === "#" ? '_self' : '_blank'} rel="noreferrer nofollow">
         <span>{label ?? 'Button'}</span>
       </a>
     );
