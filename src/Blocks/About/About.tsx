@@ -46,7 +46,7 @@ export default function About() {
         </div>
         <div>
 
-        <ThreeDCard
+        {/* <ThreeDCard
           active
           children={
             <div className="about_card">
@@ -70,7 +70,51 @@ export default function About() {
               </p>
             </div>
           }
-        />
+        /> */}
+
+        <ThreeDCard active>
+          <div className="about_card">
+            <AiOutlineDatabase size={48} />
+
+            <p className="about_card-title">Tech Stack</p>
+
+            {/* Frontend */}
+            <div className="about_card-section">
+              <p className="about_card-section-title">Frontend</p>
+              <p className="about_card-text">
+                React, Redux, TypeScript, JavaScript (ES6+)
+              </p>
+              <p className="about_card-text">
+                HTML5, CSS3, SASS / SCSS, responsive design
+              </p>
+            </div>
+
+            {/* Mobile */}
+            <div className="about_card-section">
+              <p className="about_card-section-title">Mobile</p>
+              <p className="about_card-text">
+                React Native, Expo
+              </p>
+            </div>
+
+            {/* Backend */}
+            <div className="about_card-section">
+              <p className="about_card-section-title">Backend</p>
+              <p className="about_card-text">
+                Go (Golang), REST APIs, Firebase
+              </p>
+            </div>
+
+            {/* Tools */}
+            <div className="about_card-section">
+              <p className="about_card-section-title">Tools</p>
+              <p className="about_card-text">
+                Git, GitHub, Webpack, Gulp
+              </p>
+            </div>
+          </div>
+        </ThreeDCard>
+
 
         </div>
 

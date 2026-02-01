@@ -58,14 +58,14 @@
   &:focus-within
     .project-card_children
       transform: translateY(-60%) scale(0.65)
-      @media (max-width: $mobile-width)
-        transform: translateY(-30%) scale(0.65)
+      &:not(:has(.video_frame))
+        @media (max-width: $mobile-width)
+          transform: translateY(-30%) scale(1)
 
     .project-card_frame:not(:has(.video_frame))
       overflow: visible
       animation: phone-frame-overflow 1s ease forwards
       clip-path: inset(-200px 0 0 0)
-
 
 .project-card_frame
   position: relative
@@ -82,12 +82,11 @@
     @media (max-width: $mobile-width)
       aspect-ratio: 1 / 0.4
 
-    &:has(.project-card_children:hover)
+    &:has(.project-card_children:hover),
+    &:has(.project-card_children:focus-within)
       overflow: visible
       animation: phone-frame-overflow-animation 1s ease forwards
       clip-path: inset(-100px)
-      // clip-path: inset(-200px 0 0 0)
-
 
 .frame-active
   overflow: visible
@@ -117,7 +116,8 @@
   will-change: transform
   z-index: 1000
   transform: scale(0.65)
-  &:hover
+  &:hover,
+  &:focus-visible
     transform: translateY(-60%) scale(0.65)
 
 
@@ -134,6 +134,7 @@
 .frame-rest
   overflow: hidden
   clip-path: inset(0 0)
+
 
 .project-card_title
   font-size: clamp(18px, 4vw, 28px)

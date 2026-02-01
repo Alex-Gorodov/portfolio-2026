@@ -7,6 +7,12 @@ import CatEnergy from "./Assets/Images/Portfolio/catEnergy.webp";
 import Sedona from "./Assets/Images/Portfolio/sedona.webp";
 import Device from "./Assets/Images/Portfolio/device.webp";
 
+import Sportapp from './Assets/Videos/sportapp-iphone-16.mp4';
+import SportappPoster from './Assets/Images/poster-sport.png';
+import Amishav from './Assets/Videos/amishav-iphone-16.mp4';
+import AmishavIcon from './Assets/Images/Portfolio/logos/amishav-icon.png'
+import AmishavPoster from './Assets/Images/poster-amishav.png';
+
 import { ReactComponent as BrightLightsIcon } from "./Assets/Images/Portfolio/logos/bright-lights.svg";
 import { ReactComponent as CatEnergyIcon } from "./Assets/Images/Portfolio/logos/cat-energy.svg";
 import { ReactComponent as CreatexIcon } from "./Assets/Images/Portfolio/logos/createx.svg";
@@ -57,7 +63,22 @@ export enum Colors {
   Border = '#1F2937',
 }
 
+export const MOBILE_PROJECTS = [
+    {
+      title: "Amishav",
+      themeColor: "#72b4ee",
+      src: Amishav,
+      poster: AmishavPoster,
+      icon: AmishavIcon,
+    },
 
+    {
+      title: "Unifier",
+      themeColor: "#fe5622",
+      src: Sportapp,
+      poster: SportappPoster,
+    },
+  ]
 
 export const WEB_PROJECTS = [
   {

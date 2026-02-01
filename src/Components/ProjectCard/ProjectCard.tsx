@@ -73,6 +73,8 @@ export default function ProjectCard({
         className={`project-card_frame frame-${state}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onFocusCapture={handleMouseEnter}
+        
       >
         <div className={`project-card_children children-${state}`}>
           {isVideo ? (
