@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/portfolio-2026/static/css/main.7dad3b77.css",
-    "main.js": "/portfolio-2026/static/js/main.42765b1b.js",
+    "main.css": "/portfolio-2026/static/css/main.1b13548f.css",
+    "main.js": "/portfolio-2026/static/js/main.42dd1685.js",
     "static/js/453.8cfb0cf3.chunk.js": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js",
     "static/media/sportapp-iphone-16.mp4": "/portfolio-2026/static/media/sportapp-iphone-16.f96589f8cdd5681baf72.mp4",
     "static/media/amishav-iphone-16.mp4": "/portfolio-2026/static/media/amishav-iphone-16.aae634a580ce6905ad24.mp4",
     "static/media/poster-sport.png": "/portfolio-2026/static/media/poster-sport.5a23e6445f05e11e697a.png",
     "static/media/amishav-icon.png": "/portfolio-2026/static/media/amishav-icon.b57000fb0c578d6a4f85.png",
     "static/media/poster-amishav.png": "/portfolio-2026/static/media/poster-amishav.85c6d196be212d3d01f1.png",
-    "static/media/main-pic.webp": "/portfolio-2026/static/media/main-pic.46371a5a5d54ce254594.webp",
+    "static/media/alex_gorodov_cv.pdf": "/portfolio-2026/static/media/alex_gorodov_cv.84d6dadd386b3ffee330.pdf",
     "static/media/Alex.webp": "/portfolio-2026/static/media/Alex.e74736f202f5a2d69f88.webp",
     "static/media/iphone-template.png": "/portfolio-2026/static/media/iphone-template.0c9fb195c73a625d6cd5.png",
     "static/media/sedona.webp": "/portfolio-2026/static/media/sedona.54df09e56828476f18e6.webp",
@@ -24,17 +24,16 @@
     "static/media/gllacy.svg": "/portfolio-2026/static/media/gllacy.985d3e7741769c781a24feaf93e009b9.svg",
     "static/media/divesea.svg": "/portfolio-2026/static/media/divesea.bbd2b168988b878ceee3848eeb34a8df.svg",
     "static/media/createx.svg": "/portfolio-2026/static/media/createx.ab67922cfb883356e3a454167df32cbd.svg",
-    "static/media/alex_gorodov_cv.pdf": "/portfolio-2026/static/media/alex_gorodov_cv.62d3a14574d6ffb1a6af.pdf",
     "static/media/cat-energy.svg": "/portfolio-2026/static/media/cat-energy.9ae0c7c027a55c0625f88f8bb6792dca.svg",
     "static/media/device.svg": "/portfolio-2026/static/media/device.cabb9da107d38a04f31a09b57b39122d.svg",
     "static/media/sedona.svg": "/portfolio-2026/static/media/sedona.07818e1ea118cd91783546aacfad17e7.svg",
     "index.html": "/portfolio-2026/index.html",
-    "main.7dad3b77.css.map": "/portfolio-2026/static/css/main.7dad3b77.css.map",
-    "main.42765b1b.js.map": "/portfolio-2026/static/js/main.42765b1b.js.map",
+    "main.1b13548f.css.map": "/portfolio-2026/static/css/main.1b13548f.css.map",
+    "main.42dd1685.js.map": "/portfolio-2026/static/js/main.42dd1685.js.map",
     "453.8cfb0cf3.chunk.js.map": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7dad3b77.css",
-    "static/js/main.42765b1b.js"
+    "static/css/main.1b13548f.css",
+    "static/js/main.42dd1685.js"
   ]
 }
