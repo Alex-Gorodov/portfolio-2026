@@ -10,6 +10,7 @@ import { Toggle } from '../../Components/Toggle/Toggle';
 import { useRef, useState, useEffect } from 'react';
 import { WEB_PROJECTS } from '../../constants';
 import { PortfolioItem } from '../../Components/PortfolioItem/PortfolioItem';
+import { useInViewport } from '../../Hooks/useInViewport';
 
 export default function Projects() {
   const [isMobileApps, setIsMobileApps] = useState(true);
@@ -19,20 +20,7 @@ export default function Projects() {
   const webRef = useRef<HTMLDivElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
-  // useLayoutEffect(() => {
-  //   const el = isMobileApps ? mobileRef.current : webRef.current;
-  //   if (!el || !wrapperRef.current) return;
-
-  //   console.log(el.offsetHeight);
-
-  //   const update = () => {
-  //     wrapperRef.current!.style.height = `${el.offsetHeight}px`;
-  //   };
-
-  //   update();
-  //   window.addEventListener('resize', update);
-  //   return () => window.removeEventListener('resize', update);
-  // }, [isMobileApps]);
+  const isWebVisible = useInViewport(webRef);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -133,7 +121,10 @@ export default function Projects() {
             })
           }
         </div>
-        <div className='projects-container projects-container--web' ref={webRef}>
+        <div
+          className='projects-container projects-container--web'
+          ref={webRef}
+        >
 
           {
             WEB_PROJECTS.map((p) => {

@@ -2,14 +2,10 @@
 @keyframes phone-take-in
   0%
     transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
-  20%
-    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
-  40%
-    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
-  60%
-    transform: translateY(-60%) perspective(900px) rotateX(6deg) scale(0.65)
+  10%
+    transform: translateY(-110%) perspective(900px) rotateX(6deg) scale(0.65)
   80%
-    transform: translateY(-110%) perspective(900px) rotateX(8deg) scale(0.65)
+    transform: translateY(-60%) perspective(900px) rotateX(8deg) scale(0.65)
   100%
     transform: scale(0.65)
 
@@ -36,26 +32,6 @@
   20%
     clip-path: inset(-200px 0 0 0)
 
-
-@keyframes phone-frame-overflow-in
-
-  0%
-    clip-path: inset(-200px 0 0 0)
-  90%
-    clip-path: inset(-200px 0 0 0)
-  100%
-    clip-path: inset(0 0 0 0) // рамка закрыта
-
-@keyframes phone-frame-overflow-out
-  0%
-    clip-path: inset(-200px 0 0 0)
-
-  40%
-    clip-path: inset(0 0 0 0)
-
-  100%
-    clip-path: inset(0 0 0 0)
-
 .project-card
   position: relative
   display: flex
@@ -78,13 +54,12 @@
       & .project-card_children
         transform: scale(1)
 
-  /* 🔑 hover = keyboard focus */
   &:hover,
   &:focus-within
     .project-card_children
       transform: translateY(-60%) scale(0.65)
       @media (max-width: $mobile-width)
-          transform: translateY(-30%) scale(1)
+        transform: translateY(-30%) scale(0.65)
 
     .project-card_frame:not(:has(.video_frame))
       overflow: visible
@@ -95,7 +70,6 @@
 .project-card_frame
   position: relative
   width: 100%
-  // max-width: 280px
   aspect-ratio: 1 / 0.85
   border-radius: clamp(12px, 3vw, 20px)
   background-color: var(--theme-color, transparent)
@@ -112,6 +86,8 @@
       overflow: visible
       animation: phone-frame-overflow-animation 1s ease forwards
       clip-path: inset(-100px)
+      // clip-path: inset(-200px 0 0 0)
+
 
 .frame-active
   overflow: visible
@@ -121,10 +97,10 @@
 
 .frame-leaving
   overflow: visible
-  animation: phone-frame-overflow-animation 1s ease forwards
+  animation: phone-frame-overflow-animation 2s ease forwards
   animation-direction: reverse
   &:has(.children-leaving)
-    animation: phone-frame-overflow-animation 1s ease forwards
+    animation: phone-frame-overflow-animation 2s ease forwards
     clip-path: inset(-240px 0 0 0)
 
 .project-card_children
@@ -152,7 +128,7 @@
   animation: phone-take-out 2s ease-out forwards
 
 .children-leaving
-  animation: phone-take-in 1.6s ease-in forwards
+  animation: phone-take-in 0.8s ease-in forwards
 
 /* FRAME STATES */
 .frame-rest
