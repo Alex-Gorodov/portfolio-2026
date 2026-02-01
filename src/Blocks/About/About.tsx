@@ -13,23 +13,21 @@ export default function About() {
       </div>
       <div className="about_cards-wrapper">
 
-        <div>
-          <ThreeDCard
-            active
-            children={
-              <div className="about_card">
-                <AiOutlineLineChart size={48}/>
-                <p className="about_card-title">Experience</p>
-                <p className="about_card-text">Frontend developer</p>
-                <p className="about_card-text">3+ years</p>
-                <br/>
-                <p className="about_card-text">Mobile developer</p>
-                <p className="about_card-text">1 year</p>
-              </div>
-            }
-          />
-        </div>
-        <div>
+        <ThreeDCard
+          active
+          children={
+            <div className="about_card">
+              <AiOutlineLineChart size={48}/>
+              <p className="about_card-title">Experience</p>
+              <p className="about_card-text">Frontend developer</p>
+              <p className="about_card-text">3+ years</p>
+              <br/>
+              <p className="about_card-text">Mobile developer</p>
+              <p className="about_card-text">1 year</p>
+            </div>
+          }
+        />
+{/*
         <ThreeDCard
           active
           children={
@@ -41,83 +39,53 @@ export default function About() {
               className="about_image"
             />
           }
-        />
-
-        </div>
-        <div>
-
-        {/* <ThreeDCard
-          active
-          children={
-            <div className="about_card">
-              <AiOutlineDatabase size={48}/>
-              <p className="about_card-title">Tech Stack</p>
-
-              <p className="about_card-text">
-                React, Redux, TypeScript, JavaScript (ES6+)
-              </p>
-
-              <p className="about_card-text">
-                HTML5, CSS3, SASS / SCSS, responsive design
-              </p>
-
-              <p className="about_card-text">
-                React Native, Expo, Firebase, REST APIs
-              </p>
-
-              <p className="about_card-text">
-                Git, GitHub, Webpack, Gulp
-              </p>
-            </div>
-          }
         /> */}
 
-        <ThreeDCard active>
-          <div className="about_card">
-            <AiOutlineDatabase size={48} />
+        <ThreeDCard
+          active
+          children={
+            <div className="about_card about_card--stack">
+              <AiOutlineDatabase size={48} />
 
-            <p className="about_card-title">Tech Stack</p>
+              <p className="about_card-title">Tech Stack</p>
 
-            {/* Frontend */}
-            <div className="about_card-section">
-              <p className="about_card-section-title">Frontend</p>
-              <p className="about_card-text">
-                React, Redux, TypeScript, JavaScript (ES6+)
-              </p>
-              <p className="about_card-text">
-                HTML5, CSS3, SASS / SCSS, responsive design
-              </p>
+              {/* Frontend */}
+              <div className="about_card-section">
+                <p className="about_card-section-title">Frontend</p>
+                <p className="about_card-text">
+                  React, Redux, TypeScript, JavaScript (ES6+)
+                </p>
+                <p className="about_card-text">
+                  HTML5, CSS3, SASS / SCSS, responsive design
+                </p>
+              </div>
+
+              {/* Mobile */}
+              <div className="about_card-section">
+                <p className="about_card-section-title">Mobile</p>
+                <p className="about_card-text">
+                  React Native, Expo
+                </p>
+              </div>
+
+              {/* Backend */}
+              <div className="about_card-section">
+                <p className="about_card-section-title">Backend</p>
+                <p className="about_card-text">
+                  Go (Golang), REST APIs, Firebase
+                </p>
+              </div>
+
+              {/* Tools */}
+              <div className="about_card-section">
+                <p className="about_card-section-title">Tools</p>
+                <p className="about_card-text">
+                  Git, GitHub, Webpack, Gulp
+                </p>
+              </div>
             </div>
-
-            {/* Mobile */}
-            <div className="about_card-section">
-              <p className="about_card-section-title">Mobile</p>
-              <p className="about_card-text">
-                React Native, Expo
-              </p>
-            </div>
-
-            {/* Backend */}
-            <div className="about_card-section">
-              <p className="about_card-section-title">Backend</p>
-              <p className="about_card-text">
-                Go (Golang), REST APIs, Firebase
-              </p>
-            </div>
-
-            {/* Tools */}
-            <div className="about_card-section">
-              <p className="about_card-section-title">Tools</p>
-              <p className="about_card-text">
-                Git, GitHub, Webpack, Gulp
-              </p>
-            </div>
-          </div>
-        </ThreeDCard>
-
-
-        </div>
-
+          }
+        />
       </div>
     </div>
   );

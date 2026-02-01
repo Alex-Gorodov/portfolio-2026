@@ -7,7 +7,8 @@
     @include section-layout
     display: grid
     padding: 0
-    grid-template-columns: repeat(auto-fit, minmax(180px, 25%))
+    grid-template-columns: 1fr
+    // grid-template-columns: repeat(auto-fit, minmax(180px, 1fr))
     gap: 2vw
     justify-content: center
     align-items: center
@@ -20,6 +21,7 @@
     border-radius: 16px
     perspective: 900px
     transform-style: preserve-3d
+
   &_image-inner
     position: relative
     border-radius: 16px
@@ -42,9 +44,17 @@
     box-shadow: $card-shadow
     border-radius: 16px
     padding: 20px
+    &--stack
+      gap: 20px
+    &-section
+      display: flex
+      width: 100%
+      flex-direction: column
+      justify-content: flex-start
+      align-items: flex-start
 
   &_card-title
-    margin: 12px 0
+    margin: 12px auto
     font-size: clamp(16px, 3vw, 18px)
     font-weight: 600
     color: $text

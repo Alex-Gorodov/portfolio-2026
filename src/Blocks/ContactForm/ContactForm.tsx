@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Spinner } from '../../Components/Spinner/Spinner';
+import Button from '../../Components/Buttons/Button';
 
 export function ContactForm(): JSX.Element {
   const [formData, setFormData] = useState({
@@ -63,7 +64,7 @@ export function ContactForm(): JSX.Element {
         {!isSuccess && (
           <div className="contact_form-wrapper">
             {isSending ? (
-              <div style={{paddingTop: '60px'}}>
+              <div style={{display: 'flex', justifyContent: 'center', padding: '60px 0'}}>
                 <Spinner size={'40'} color={'#000c24'} />
               </div>
             ) : (
@@ -119,9 +120,10 @@ export function ContactForm(): JSX.Element {
                     onChange={handleInputChange}
                   ></textarea>
                 </label>
-                <button className="contact_submit" type="submit" disabled={isButtonDisabled} onClick={sendForm}>
+                <button className="button" type="submit" disabled={isButtonDisabled} onClick={sendForm}>
                   Send message!
                 </button>
+                {/* <Button/> */}
                 {/* <Button label='Send message!' onClick={() => sendForm}/> */}
                 <p className={`contact_error-message ${isError && (formData.name.length < 2 || !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email)) && 'contact_error-message--opened'}`}>Please fill in the required fields.</p>
               </form>
