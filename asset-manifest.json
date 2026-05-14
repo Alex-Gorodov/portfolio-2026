@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio-2026/static/css/main.d09c9d44.css",
-    "main.js": "/portfolio-2026/static/js/main.474b767e.js",
+    "main.js": "/portfolio-2026/static/js/main.69e29983.js",
     "static/js/453.8cfb0cf3.chunk.js": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js",
     "static/media/sportapp-iphone-16.mp4": "/portfolio-2026/static/media/sportapp-iphone-16.f96589f8cdd5681baf72.mp4",
     "static/media/amishav-iphone-16.mp4": "/portfolio-2026/static/media/amishav-iphone-16.aae634a580ce6905ad24.mp4",
@@ -9,7 +9,7 @@
     "static/media/amishav.png": "/portfolio-2026/static/media/amishav.b57000fb0c578d6a4f85.png",
     "static/media/poster-amishav.png": "/portfolio-2026/static/media/poster-amishav.85c6d196be212d3d01f1.png",
     "static/media/amishav.webp": "/portfolio-2026/static/media/amishav.67e1a70c6da6365f2c48.webp",
-    "static/media/alex_gorodov_cv.pdf": "/portfolio-2026/static/media/alex_gorodov_cv.84d6dadd386b3ffee330.pdf",
+    "static/media/alex_gorodov_cv.pdf": "/portfolio-2026/static/media/alex_gorodov_cv.0042064b7d7d0b0169c3.pdf",
     "static/media/Alex.webp": "/portfolio-2026/static/media/Alex.e74736f202f5a2d69f88.webp",
     "static/media/iphone-template.png": "/portfolio-2026/static/media/iphone-template.0c9fb195c73a625d6cd5.png",
     "static/media/divesea.webp": "/portfolio-2026/static/media/divesea.b307834de5d65e6a0936.webp",
@@ -27,11 +27,11 @@
     "static/media/css.svg": "/portfolio-2026/static/media/css.683563aae41322a7b00dfbc08a0caab8.svg",
     "static/media/html.svg": "/portfolio-2026/static/media/html.dcec69b208e28160b0ee1eb5d1b77cc2.svg",
     "main.d09c9d44.css.map": "/portfolio-2026/static/css/main.d09c9d44.css.map",
-    "main.474b767e.js.map": "/portfolio-2026/static/js/main.474b767e.js.map",
+    "main.69e29983.js.map": "/portfolio-2026/static/js/main.69e29983.js.map",
     "453.8cfb0cf3.chunk.js.map": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d09c9d44.css",
-    "static/js/main.474b767e.js"
+    "static/js/main.69e29983.js"
   ]
 }
