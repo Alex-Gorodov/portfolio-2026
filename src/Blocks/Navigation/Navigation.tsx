@@ -4,15 +4,15 @@ interface NavigationProps {
 
 export default function Navigation({ className }: NavigationProps) {
   return (
-    <div className={`navigation_menu ${className}`}>
-      <a className="navigation_link" href="#about">
-        <p className={`navigation_item navigation_item--${className}`}>About</p>
+    <div className={`navigation__menu ${className}`}>
+      <a className="navigation__link" href="#about">
+        <p className={`navigation__item navigation__item--${className}`}>About</p>
       </a>
-      <a className="navigation_link" href="#projects">
-        <p className={`navigation_item navigation_item--${className}`}>Projects</p>
+      <a className="navigation__link" href="#projects">
+        <p className={`navigation__item navigation__item--${className}`}>Projects</p>
       </a>
-      <a className="navigation_link" href="#contact">
-        <p className={`navigation_item navigation_item--${className}`}>Contact</p>
+      <a className="navigation__link" href="#contact">
+        <p className={`navigation__item navigation__item--${className}`}>Contact</p>
       </a>
     </div>
   )

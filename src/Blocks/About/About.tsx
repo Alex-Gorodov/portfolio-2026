@@ -7,23 +7,23 @@ export default function About() {
 
   return (
     <div className="about section" id="about">
-      <div className="section_header">
-        <p className="section_intro-text">Get to know more</p>
-        <h2 className="section_intro-title">About me</h2>
+      <div className="section__header">
+        <p className="section__intro-text">Get to know more</p>
+        <h2 className="section__intro-title">About me</h2>
       </div>
-      <div className="about_cards-wrapper">
+      <div className="about__cards-wrapper">
 
         <ThreeDCard
           active
           children={
-            <div className="about_card">
+            <div className="about__card">
               <AiOutlineLineChart size={48}/>
-              <p className="about_card-title">Experience</p>
-              <p className="about_card-text">Frontend developer</p>
-              <p className="about_card-text">3+ years</p>
+              <p className="about__card-title">Experience</p>
+              <p className="about__card-text">Frontend developer</p>
+              <p className="about__card-text">3+ years</p>
               <br/>
-              <p className="about_card-text">Mobile developer</p>
-              <p className="about_card-text">1 year</p>
+              <p className="about__card-text">Mobile developer</p>
+              <p className="about__card-text">1 year</p>
             </div>
           }
         />
@@ -36,7 +36,7 @@ export default function About() {
               alt="Alex and Agatha anime style AI generated"
               width={320}
               height={320}
-              className="about_image"
+              className="about__image"
             />
           }
         /> */}
@@ -44,42 +44,42 @@ export default function About() {
         <ThreeDCard
           active
           children={
-            <div className="about_card about_card--stack">
+            <div className="about__card about__card--stack">
               <AiOutlineDatabase size={48} />
 
-              <p className="about_card-title">Tech Stack</p>
+              <p className="about__card-title">Tech Stack</p>
 
               {/* Frontend */}
-              <div className="about_card-section">
-                <p className="about_card-section-title">Frontend</p>
-                <p className="about_card-text">
+              <div className="about__card-section">
+                <p className="about__card-section-title">Frontend</p>
+                <p className="about__card-text">
                   React, Redux, TypeScript, JavaScript (ES6+)
                 </p>
-                <p className="about_card-text">
+                <p className="about__card-text">
                   HTML5, CSS3, SASS / SCSS, responsive design
                 </p>
               </div>
 
               {/* Mobile */}
-              <div className="about_card-section">
-                <p className="about_card-section-title">Mobile</p>
-                <p className="about_card-text">
+              <div className="about__card-section">
+                <p className="about__card-section-title">Mobile</p>
+                <p className="about__card-text">
                   React Native, Expo
                 </p>
               </div>
 
               {/* Backend */}
-              <div className="about_card-section">
-                <p className="about_card-section-title">Backend</p>
-                <p className="about_card-text">
+              <div className="about__card-section">
+                <p className="about__card-section-title">Backend</p>
+                <p className="about__card-text">
                   Go (Golang), REST APIs, Firebase
                 </p>
               </div>
 
               {/* Tools */}
-              <div className="about_card-section">
-                <p className="about_card-section-title">Tools</p>
-                <p className="about_card-text">
+              <div className="about__card-section">
+                <p className="about__card-section-title">Tools</p>
+                <p className="about__card-text">
                   Git, GitHub, Webpack, Gulp
                 </p>
               </div>

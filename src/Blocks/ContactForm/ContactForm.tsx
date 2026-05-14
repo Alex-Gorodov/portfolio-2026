@@ -59,19 +59,19 @@ export function ContactForm(): JSX.Element {
   return (
     <div>
       <h2 className='visually-hidden'>Contact form</h2>
-      <div className="contact_wrapper">
+      <div className="contact__wrapper">
 
         {!isSuccess && (
-          <div className="contact_form-wrapper">
+          <div className="contact__form-wrapper">
             {isSending ? (
               <div style={{display: 'flex', justifyContent: 'center', padding: '60px 0'}}>
                 <Spinner size={'40'} color={'#000c24'} />
               </div>
             ) : (
-              <form className="contact_form" action="https://formspree.io/f/mgebwvrj" method="POST">
-                <label className={`contact_item ${isError && 'contact_item--error'}`} htmlFor="name">
+              <form className="contact__form" action="https://formspree.io/f/mgebwvrj" method="POST">
+                <label className={`contact__item ${isError && 'contact__item--error'}`} htmlFor="name">
                   <input
-                    className={`contact_field ${isError && formData.name.length < 2 && 'contact_field--error'}`}
+                    className={`contact__field ${isError && formData.name.length < 2 && 'contact__field--error'}`}
                     type="text"
                     name="name"
                     id="name"
@@ -82,23 +82,23 @@ export function ContactForm(): JSX.Element {
                     onChange={handleInputChange}
                   />
                 </label>
-                <label className={`contact_item ${isError && 'contact_item--error'}`} htmlFor="email">
+                <label className={`contact__item ${isError && 'contact__item--error'}`} htmlFor="email">
                   <input
-                    className={`contact_field ${isError && !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email) && 'contact_field--error'}`}
+                    className={`contact__field ${isError && !/^[a-zA-Z0-9.__%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email) && 'contact__field--error'}`}
                     type="email"
                     name="email"
                     id="email"
                     placeholder="Email"
-                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                    pattern="^[a-zA-Z0-9.__%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                     minLength={5}
                     required
                     value={formData.email}
                     onChange={handleInputChange}
                   />
                 </label>
-                <label className="contact_item contact_item--wide" htmlFor="subject">
+                <label className="contact__item contact__item--wide" htmlFor="subject">
                   <input
-                    className="contact_field"
+                    className="contact__field"
                     type="text"
                     name="subject"
                     id="subject"
@@ -107,9 +107,9 @@ export function ContactForm(): JSX.Element {
                     onChange={handleInputChange}
                   />
                 </label>
-                <label className="contact_item contact_item--wide" htmlFor="message">
+                <label className="contact__item contact__item--wide" htmlFor="message">
                   <textarea
-                    className="contact_field contact_field--message"
+                    className="contact__field contact__field--message"
                     name="message"
                     id="message"
                     cols={30}
@@ -125,13 +125,13 @@ export function ContactForm(): JSX.Element {
                 </button>
                 {/* <Button/> */}
                 {/* <Button label='Send message!' onClick={() => sendForm}/> */}
-                <p className={`contact_error-message ${isError && (formData.name.length < 2 || !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email)) && 'contact_error-message--opened'}`}>Please fill in the required fields.</p>
+                <p className={`contact__error-message ${isError && (formData.name.length < 2 || !/^[a-zA-Z0-9.__%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email)) && 'contact__error-message--opened'}`}>Please fill in the required fields.</p>
               </form>
             )}
           </div>
         )}
         {isSuccess && (
-          <p className="contact_success-message">Successfully sent!</p>
+          <p className="contact__success-message">Successfully sent!</p>
         )}
       </div>
     </div>

@@ -1,5 +1,6 @@
 import Braga from "./Assets/Images/Portfolio/braga.webp";
 import Divesea from "./Assets/Images/Portfolio/divesea.webp";
+import Amishav from "./Assets/Images/Portfolio/amishav.webp";
 import Gllacy from "./Assets/Images/Portfolio/gllacy.webp";
 import BrightLights from "./Assets/Images/Portfolio/brightLights.webp";
 import CreateX from "./Assets/Images/Portfolio/createx.webp";
@@ -9,8 +10,8 @@ import Device from "./Assets/Images/Portfolio/device.webp";
 
 import Sportapp from './Assets/Videos/sportapp-iphone-16.mp4';
 import SportappPoster from './Assets/Images/poster-sport.png';
-import Amishav from './Assets/Videos/amishav-iphone-16.mp4';
-import AmishavIcon from './Assets/Images/Portfolio/logos/amishav-icon.png'
+import AmishavVideo from './Assets/Videos/amishav-iphone-16.mp4';
+import AmishavIcon from './Assets/Images/Portfolio/logos/amishav.png'
 import AmishavPoster from './Assets/Images/poster-amishav.png';
 
 import { ReactComponent as BrightLightsIcon } from "./Assets/Images/Portfolio/logos/bright-lights.svg";
@@ -67,9 +68,10 @@ export const MOBILE_PROJECTS = [
     {
       title: "Amishav",
       themeColor: "#72b4ee",
-      src: Amishav,
+      src: AmishavVideo,
       poster: AmishavPoster,
       icon: AmishavIcon,
+      technologies: ["React", "TypeScript", "SASS(CSS)", "Firebase", "Redux", ],
     },
 
     {
@@ -77,6 +79,7 @@ export const MOBILE_PROJECTS = [
       themeColor: "#fe5622",
       src: Sportapp,
       poster: SportappPoster,
+      technologies: ["React", "TypeScript", "SASS(CSS)", "Firebase", "Redux", ],
     },
   ]
 
@@ -87,7 +90,8 @@ export const WEB_PROJECTS = [
     path: "https://alex-gorodov.github.io/braga",
     description: "My own website, my own beer, my own production.",
     img: Braga,
-    icon: BragaIcon
+    icon: BragaIcon,
+    technologies: ["React", "TypeScript", "SASS(CSS)", "Firebase", "Redux", "HTML"],
   },
   {
     id: "divesea",
@@ -95,54 +99,64 @@ export const WEB_PROJECTS = [
     path: "https://alex-gorodov.github.io/divesea",
     description: "Explore our dynamic NFT marketplace to discover, create, and sell thousands of artworks. Join now for a $20 bonus and unleash your creativity!",
     img: Divesea,
-    icon: DiveseaIcon
+    icon: DiveseaIcon,
+    technologies: ["React", "TypeScript", "SASS(CSS)", "Firebase", "Redux", "HTML"],
   },
   {
-    id: "gllacy",
-    name: "Gllacy",
-    path: "https://alex-gorodov.github.io/gllacy",
-    description: "Gllacy store offers a delightful selection of homemade ice cream flavors. Enjoy natural ingredients, free delivery, and exclusive gifts with every purchase. The design belongs to HTML Academy.",
-    img: Gllacy,
-    icon: GllacyIcon
+    id: "amishav",
+    name: "Amishav",
+    path: "https://alex-gorodov.github.io/amishav-intel-haifa-admin",
+    description: "Security group help desk.",
+    img: Amishav,
+    icon: AmishavIcon,
+    technologies: ["React", "TypeScript", "SASS(CSS)", "Firebase", "Redux", "HTML"],
   },
-  {
-    id: "bright-lights",
-    name: "Bright Lights",
-    path: "https://alex-gorodov.github.io/bright-lights/",
-    description: "\"Bright Lights\" introduces a dynamic blend of music, tours, and news. Led by Grammy-nominated singer, songwriter, and DJ, Bright Lights delivers an electrifying experience, captivating audiences worldwide.",
-    img: BrightLights,
-    icon: BrightLightsIcon
-  },
-  {
-    id: "createx",
-    name: "CreateX",
-    path: "https://alex-gorodov.github.io/CreateX/",
-    description: "\"CreateX\" offers a diverse range of online courses and events tailored for learners worldwide. Benefit from experienced tutors, 24/7 support, and a vibrant learning community. Enroll now and unleash your potential with CreateX!",
-    img: CreateX,
-    icon: CreatexIcon
-  },
-  {
-    id: "cat-energy",
-    name: "Cat Energy",
-    path: "https://alex-gorodov.github.io/Cat-Energy/",
-    description: "\"Cat Energy\" offers specialized nutrition programs for cats. Whether your pet needs to lose weight or gain muscle, our functional nutrition products provide essential nutrients. Achieve remarkable results without changing your cat's lifestyle. Contact us for dealer cooperation. The design belongs to HTML Academy.",
-    img: CatEnergy,
-    icon: CatEnergyIcon
-  },
-  {
-    id: "sedona",
-    name: "Sedona",
-    path: "https://htmlacademy-adaptive.github.io/590651-sedona-26/11/",
-    description: "Sedona is a true Arizona town with a lively atmosphere and amazing attractions. Discover five reasons why Sedona is better than the Grand Canyon. The design belongs to HTML Academy.",
-    img: Sedona,
-    icon: SedonaIcon
-  },
-  {
-    id: "device",
-    name: "Device",
-    path: "https://alex-gorodov.github.io/Device/",
-    description: "\"Device\" is a gadget online store offering a wide range of products. Services include delivery, warranty, and financing. Contact information, working hours, and newsletter subscription are also available. The design belongs to HTML Academy.",
-    img: Device,
-    icon: DeviceIcon
-  }
+  // {
+  //   id: "gllacy",
+  //   name: "Gllacy",
+  //   path: "https://alex-gorodov.github.io/gllacy",
+  //   description: "Gllacy store offers a delightful selection of homemade ice cream flavors. Enjoy natural ingredients, free delivery, and exclusive gifts with every purchase. The design belongs to HTML Academy.",
+  //   img: Gllacy,
+  //   icon: GllacyIcon
+  // },
+  // {
+  //   id: "bright-lights",
+  //   name: "Bright Lights",
+  //   path: "https://alex-gorodov.github.io/bright-lights/",
+  //   description: "\"Bright Lights\" introduces a dynamic blend of music, tours, and news. Led by Grammy-nominated singer, songwriter, and DJ, Bright Lights delivers an electrifying experience, captivating audiences worldwide.",
+  //   img: BrightLights,
+  //   icon: BrightLightsIcon
+  // },
+  // {
+  //   id: "createx",
+  //   name: "CreateX",
+  //   path: "https://alex-gorodov.github.io/CreateX/",
+  //   description: "\"CreateX\" offers a diverse range of online courses and events tailored for learners worldwide. Benefit from experienced tutors, 24/7 support, and a vibrant learning community. Enroll now and unleash your potential with CreateX!",
+  //   img: CreateX,
+  //   icon: CreatexIcon
+  // },
+  // {
+  //   id: "cat-energy",
+  //   name: "Cat Energy",
+  //   path: "https://alex-gorodov.github.io/Cat-Energy/",
+  //   description: "\"Cat Energy\" offers specialized nutrition programs for cats. Whether your pet needs to lose weight or gain muscle, our functional nutrition products provide essential nutrients. Achieve remarkable results without changing your cat's lifestyle. Contact us for dealer cooperation. The design belongs to HTML Academy.",
+  //   img: CatEnergy,
+  //   icon: CatEnergyIcon
+  // },
+  // {
+  //   id: "sedona",
+  //   name: "Sedona",
+  //   path: "https://htmlacademy-adaptive.github.io/590651-sedona-26/11/",
+  //   description: "Sedona is a true Arizona town with a lively atmosphere and amazing attractions. Discover five reasons why Sedona is better than the Grand Canyon. The design belongs to HTML Academy.",
+  //   img: Sedona,
+  //   icon: SedonaIcon
+  // },
+  // {
+  //   id: "device",
+  //   name: "Device",
+  //   path: "https://alex-gorodov.github.io/Device/",
+  //   description: "\"Device\" is a gadget online store offering a wide range of products. Services include delivery, warranty, and financing. Contact information, working hours, and newsletter subscription are also available. The design belongs to HTML Academy.",
+  //   img: Device,
+  //   icon: DeviceIcon
+  // }
 ]

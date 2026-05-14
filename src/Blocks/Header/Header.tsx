@@ -9,11 +9,11 @@ export default function Header() {
 
   return (
     <header className="header">
-      <span className="header_name">Alex Gorodov</span>
-      <nav className="header_navigation">
+      <span className="header__name">Alex Gorodov</span>
+      <nav className="header__navigation">
         {
           isMobile &&
-          <Navigation className={`header_navigation--mobile ${isMenuOpened ? 'header_navigation--mobile-opened' : ''}`}/>
+          <Navigation className={`header__navigation--mobile ${isMenuOpened ? 'header__navigation--mobile-opened' : ''}`}/>
         }
         {
           isMobile

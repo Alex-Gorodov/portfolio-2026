@@ -1,18 +1,18 @@
 .three-d-card
-  &_wrapper
+  &__wrapper
     border-radius: 16px
     perspective: 900px
     transform-style: preserve-3d
-    &:has(.about_image)
+    &:has(.about__image)
       max-width: 600px
       @media (min-width: $tablet-width)
         max-width: 320px
 
-    &:hover .about_image
+    &:hover .about__image
       transform: translateZ(60px) scale(1.05)
       filter: grayscale(0%)
 
-  &_inner
+  &__inner
     position: relative
     border-radius: 16px
     overflow: hidden

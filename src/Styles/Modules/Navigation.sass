@@ -1,18 +1,18 @@
 .navigation
 
-  &_menu
+  &__menu
     display: flex
     flex-direction: row
     align-items: center
     gap: clamp(12px, 2vw, 24px)
 
-    &.header_navigation--mobile
+    &.header__navigation--mobile
       flex-direction: column
       justify-content: space-between
       gap: 20px
       z-index: 1000
 
-  &_link
+  &__link
     color: $text-secondary
     text-decoration: none
     &:hover,
@@ -20,7 +20,7 @@
       outline: none
       color: $text
 
-  &_item
+  &__item
     font-size: clamp(12px, 2vw, 18px)
     margin: 0
     transition: 0.3s

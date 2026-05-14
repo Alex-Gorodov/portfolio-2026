@@ -19,20 +19,20 @@
 
 
 .hero
-  &_wrapper
+  &__wrapper
     @include section-layout
     position: relative
     @media(max-width: $mobile-width)
       min-height: 90vh
 
-  &_image-wrapper
+  &__image-wrapper
     width: 320px
     height: 320px
     border-radius: clamp(16px, 5vw, 999px)
     overflow: hidden
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1)
 
-  &_parallax
+  &__parallax
     z-index: 0
     overflow: hidden
     &-image
@@ -43,13 +43,13 @@
       backface-visibility: hidden
       transform-style: preserve-3d
 
-  &_image
+  &__image
     display: block
     width: 320px
     height: 320px
     object-fit: cover
 
-  &_content
+  &__content
     position: relative
     z-index: 1
     display: flex
@@ -58,32 +58,32 @@
     align-items: center
     text-align: center
 
-  &_buttons-wrapper
+  &__buttons-wrapper
     display: flex
     gap: 12px
     flex-wrap: wrap
     justify-content: center
 
-  &_button
+  &__button
     &:focus-visible
       outline: none
 
-  &_text-intro
+  &__text-intro
     @include subscript-style
 
-  &_name-marquee
+  &__name-marquee
     overflow: hidden
 
-  &_name-track
+  &__name-track
     display: inline-block
 
-  &_name
+  &__name
     margin: 6px 0
     font-size: clamp(22px, 4vw, 28px)
     font-weight: 700
     white-space: nowrap
 
-  &_description
+  &__description
     position: relative
     display: flex
     gap: 8px
@@ -93,16 +93,16 @@
     font-weight: 400
     color: $text-secondary
 
-  &_word-with-effect
+  &__word-with-effect
     position: absolute
     top: 0
     right: 50%
 
-  &_links-wrapper
+  &__links-wrapper
     display: flex
     gap: 16px
 
-  &_link
+  &__link
     color: $text
     transition: 0.3s
     &:hover,
@@ -113,7 +113,7 @@
       opacity: 0.3
 
 @media (max-width: $mobile-width)
-  .hero_name-marquee
+  .hero__name-marquee
     width: 100vw
     overflow: hidden
     mask-image: linear-gradient(
@@ -124,20 +124,20 @@
       transparent
     )
 
-  .hero_name-track
+  .hero__name-track
     display: flex
     gap: 0px
     width: max-content
     animation: hero-marquee 8s linear infinite
     will-change: transform
 
-  .hero_name
+  .hero__name
     font-size: clamp(86px, 10vw, 124px)
     padding-right: 24px
     text-transform: uppercase
 
 
-.hero_gear
+.hero__gear
   position: relative
   width: 104px
   height: 1.2em
@@ -146,7 +146,7 @@
   display: inline-block
   text-align: right
 
-.hero_gear-word
+.hero__gear-word
   position: absolute
   right: 0
   top: 0

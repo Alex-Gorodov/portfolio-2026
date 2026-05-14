@@ -88,13 +88,13 @@ export default function ThreeDCard({
   return (
     <div
       ref={wrapperRef}
-      className="three-d-card_wrapper"
+      className="three-d-card__wrapper"
       style={{ '--flat': disableShadow, pointerEvents: 'auto' } as React.CSSProperties}
       onMouseLeave={hoverOnly ? handleMouseLeave : undefined}
     >
       <div
         ref={innerRef}
-        className={`three-d-card_inner ${disableShadow ? 'three-d-card_inner--flat' : ''}`}
+        className={`three-d-card__inner ${disableShadow ? 'three-d-card__inner--flat' : ''}`}
       >
         {children}
       </div>

@@ -46,28 +46,45 @@
   max-width: 320px
   z-index: 100
 
-  &:not(:has(.video_frame))
+  &:not(:has(.video__frame))
     padding: clamp(6px, 2vw, 8px)
     gap: clamp(6px, 3vw, 12px)
 
     @media (max-width: $mobile-width)
-      & .project-card_children
+      & .project-card__children
         transform: scale(1)
 
   &:hover,
   &:focus-within
-    .project-card_children
-      transform: translateY(-60%) scale(0.65)
-      &:not(:has(.video_frame))
+    .project-card__children
+      transform: translateY(-35%) scale(0.65)
+      &:not(:has(.video__frame))
         @media (max-width: $mobile-width)
           transform: translateY(-30%) scale(1)
 
-    .project-card_frame:not(:has(.video_frame))
+    .project-card__frame:not(:has(.video__frame))
       overflow: visible
       animation: phone-frame-overflow 1s ease forwards
       clip-path: inset(-200px 0 0 0)
 
-.project-card_frame
+  &__technologies
+    @include list-reset
+    display: flex
+    flex-direction: row
+    gap: 4px
+    & span
+      width: 32px
+      display: flex
+      justify-content: center
+      align-items: center
+      border-radius: 4px
+      filter: grayscale(1)
+      transition: 0.3s ease
+      cursor: help
+      &:hover
+        filter: grayscale(0)
+
+.project-card__frame
   position: relative
   width: 100%
   aspect-ratio: 1 / 0.85
@@ -77,13 +94,14 @@
   min-height: 0
   overflow: hidden
   clip-path: inset(-200px 0)
-  &:not(:has(.video_frame))
+  z-index: 10
+  &:not(:has(.video__frame))
     aspect-ratio: 1 / 0.5
     @media (max-width: $mobile-width)
       aspect-ratio: 1 / 0.4
 
-    &:has(.project-card_children:hover),
-    &:has(.project-card_children:focus-within)
+    &:has(.project-card__children:hover),
+    &:has(.project-card__children:focus-within)
       overflow: visible
       animation: phone-frame-overflow-animation 1s ease forwards
       clip-path: inset(-100px)
@@ -102,7 +120,7 @@
     animation: phone-frame-overflow-animation 2s ease forwards
     clip-path: inset(-240px 0 0 0)
 
-.project-card_children
+.project-card__children
   position: relative
   width: 100%
   height: 100%
@@ -121,7 +139,7 @@
     transform: translateY(-60%) scale(0.65)
 
 
-.portfolio_link
+.portfolio__link
   outline: none
 
 .children-active
@@ -136,7 +154,8 @@
   clip-path: inset(0 0)
 
 
-.project-card_title
+.project-card__title
   font-size: clamp(18px, 4vw, 28px)
   font-weight: 600
   text-align: center
+

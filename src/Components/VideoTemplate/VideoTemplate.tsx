@@ -30,14 +30,14 @@
 //   };
 
 //   return (
-//   <div className="video_frame">
-//       <div className="video_mask">
+//   <div className="video__frame">
+//       <div className="video__mask">
 //         {
 //         isPlaying
 //         ?
 //         <video
 //           ref={videoRef}
-//           className={`video_template ${!isPlaying ? 'video_template--paused' : ''}`}
+//           className={`video__template ${!isPlaying ? 'video__template--paused' : ''}`}
 //           loop
 //           muted
 //           playsInline
@@ -48,11 +48,11 @@
 //           <source src={src} type="video/mp4" />
 //         </video>
 //         :
-//         // <button className="video_button" onClick={togglePlay} aria-label="Play video"/>
+//         // <button className="video__button" onClick={togglePlay} aria-label="Play video"/>
 //         <img
 //           src={poster}
 //           alt=""
-//           className={`video_template ${!isPlaying ? 'video_template--paused' : ''}`}
+//           className={`video__template ${!isPlaying ? 'video__template--paused' : ''}`}
 //           onClick={togglePlay}
 //         />
 //       }
@@ -100,16 +100,16 @@
 //   };
 
 //   return (
-//     <div className="video_frame">
-//       <div className="video_mask">
+//     <div className="video__frame">
+//       <div className="video__mask">
 //         {/* POSTER */}
 //         {!isPlaying && poster && (
 //           <>
-//           <button className="video_button video_button--play" aria-label="Play video"/>
+//           <button className="video__button video__button--play" aria-label="Play video"/>
 //           <img
 //             src={poster}
 //             alt=""
-//             className="video_template video_template--poster"
+//             className="video__template video__template--poster"
 //             onClick={handleToggle}
 //           />
 //           </>
@@ -118,10 +118,10 @@
 //         {/* VIDEO (ВСЕГДА В DOM) */}
 
 //         <>
-//           <button className="video_button video_button--pause" aria-label="Play video"/>
+//           <button className="video__button video__button--pause" aria-label="Play video"/>
 //           <video
 //             ref={videoRef}
-//             className="video_template"
+//             className="video__template"
 //             loop
 //             muted
 //             playsInline
@@ -170,14 +170,14 @@ export default function VideoTemplate({ src, poster }: VideoTemplateProps) {
   };
 
   return (
-    <div className="video_frame">
-      <div className="video_mask">
+    <div className="video__frame">
+      <div className="video__mask">
         {/* POSTER */}
         {!isPlaying && poster && (
           <img
             src={poster}
             alt=""
-            className="video_template video_template--poster"
+            className="video__template video__template--poster"
             onClick={handleToggle}
           />
         )}
@@ -185,7 +185,7 @@ export default function VideoTemplate({ src, poster }: VideoTemplateProps) {
         {/* VIDEO */}
         <video
           ref={videoRef}
-          className="video_template"
+          className="video__template"
           loop
           muted
           playsInline
@@ -200,7 +200,7 @@ export default function VideoTemplate({ src, poster }: VideoTemplateProps) {
 
         {/* BUTTON */}
         <button
-          className={`video_button ${isPlaying ? 'video_button--pause' : 'video_button--play'}`}
+          className={`video__button ${isPlaying ? 'video__button--pause' : 'video__button--play'}`}
           onClick={handleToggle}
           aria-label={isPlaying ? 'Pause video' : 'Play video'}
         />

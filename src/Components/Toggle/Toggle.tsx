@@ -35,21 +35,21 @@ export const Toggle: React.FC<ToggleProps> = ({
       type="button"
     >
       <div
-        className="toggle_slider"
+        className="toggle__slider"
         style={{
           width: half - 6,
           transform: `translateX(${value ? 0 : half}px)`,
         }}
       />
 
-      <div className="toggle_item">
-        <span className={`toggle_text ${value ? "active" : ""}`}>
+      <div className="toggle__item">
+        <span className={`toggle__text ${value ? "active" : ""}`}>
           {leftLabel}
         </span>
       </div>
 
-      <div className="toggle_item">
-        <span className={`toggle_text ${!value ? "active" : ""}`}>
+      <div className="toggle__item">
+        <span className={`toggle__text ${!value ? "active" : ""}`}>
           {rightLabel}
         </span>
       </div>

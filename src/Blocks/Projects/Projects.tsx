@@ -53,9 +53,9 @@ export default function Projects() {
   return (
     <div className="projects section" id="projects">
       <div style={{display: 'flex', flexDirection: 'column', gap: '24px'}}>
-        <div className="section_header">
-          <p className="section_intro-text">Browse my recent</p>
-          <h2 className="section_intro-title">Projects</h2>
+        <div className="section__header">
+          <p className="section__intro-text">Browse my recent</p>
+          <h2 className="section__intro-title">Projects</h2>
         </div>
         <Toggle value={isMobileApps} onChange={() => handleChangeApps()} leftLabel = "Mobile" rightLabel = "Web"/>
       </div>
@@ -87,7 +87,7 @@ export default function Projects() {
               className="projects-container projects-container--mobile"
             >
               {
-              MOBILE_PROJECTS.map((p) => {
+              MOBILE__PROJECTS.map((p) => {
                 return (
                   <ProjectCard title={p.title} themeColor={p.themeColor} icon={p.icon} isVideo>
                     <VideoTemplate src={p.src} poster={p.poster}/>
@@ -109,7 +109,7 @@ export default function Projects() {
               className="projects-container projects-container--web"
             >
               {
-              WEB_PROJECTS.map((p) => {
+              WEB__PROJECTS.map((p) => {
                 return (
                   <ProjectCard title={p.icon} path={p.path}>
                     <PortfolioItem item={{
@@ -159,7 +159,7 @@ export default function Projects() {
             className="projects-container projects-container--web"
           >
             {WEB_PROJECTS.map(p => (
-              <ProjectCard key={p.id} title={p.icon} path={p.path}>
+              <ProjectCard key={p.id} title={p.name} icon={p.icon} path={p.path} technologies={p.technologies}>
                 <PortfolioItem item={{ ...p, isAdaptive: false }} />
               </ProjectCard>
             ))}

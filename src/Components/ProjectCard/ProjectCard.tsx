@@ -1,5 +1,15 @@
 import React, { useRef, useState } from "react";
 import ThreeDCard from "../ThreeDCard/ThreeDCard";
+import { ReactComponent as ReactIcon } from "../../Assets/Images/icons/react.svg"
+import { ReactComponent as Redux } from "../../Assets/Images/icons/redux.svg"
+import { ReactComponent as Sass } from "../../Assets/Images/icons/sass.svg"
+import { ReactComponent as HTML } from "../../Assets/Images/icons/html.svg"
+import { ReactComponent as Less } from "../../Assets/Images/icons/less.svg"
+import { ReactComponent as CSS } from "../../Assets/Images/icons/css.svg"
+import { ReactComponent as JS } from "../../Assets/Images/icons/js.svg"
+import { ReactComponent as TS } from "../../Assets/Images/icons/ts.svg"
+import { ReactComponent as Firebase } from "../../Assets/Images/icons/firebase.svg"
+
 
 interface ProjectCardProps {
   children: React.ReactNode;
@@ -7,7 +17,8 @@ interface ProjectCardProps {
   title: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
   themeColor?: string;
   path?: string;
-  icon?: string;
+  icon?: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  technologies: string[];
 }
 
 export default function ProjectCard({
@@ -16,7 +27,8 @@ export default function ProjectCard({
   isVideo,
   themeColor,
   icon,
-  path
+  path,
+  technologies,
 }: ProjectCardProps) {
   const frameRef = useRef<HTMLDivElement>(null);
   const [state, setState] = useState<"rest" | "active" | "leaving">("rest");
@@ -70,13 +82,13 @@ export default function ProjectCard({
     <div className="project-card">
       <div
         style={{backgroundColor: themeColor}}
-        className={`project-card_frame frame-${state}`}
+        className={`project-card__frame frame-${state}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onFocusCapture={handleMouseEnter}
-        
+
       >
-        <div className={`project-card_children children-${state}`}>
+        <div className={`project-card__children children-${state}`}>
           {isVideo ? (
             <ThreeDCard active={state === "active"} disableShadow hoverOnly>
               {children}
@@ -88,20 +100,62 @@ export default function ProjectCard({
       </div>
 
       {!icon && isTitleName ? (
-        <h3 className="project-card_title">{title}</h3>
+        <h3 className="project-card__title">{title}</h3>
       ) :
         icon ?
-        <img src={icon} width={80} alt={isTitleName ? title : 'Project'}/>
+        typeof icon === "string" ?
+          <img src={icon} width={80} alt={isTitleName ? title : 'Project'}/>
+          :
+          React.createElement(icon, { width: 120, height: 40, "aria-hidden": true })
         :
-
-      (
-        <div className="project-card_title project-card_title--icon">
-          <a href={path} target="_blank" rel="noreferrer nofollow" tabIndex={-1}>
-            {React.createElement(title, { width: 120, height: 40, "aria-hidden": true })}
-            <span className="visually-hidden">{`Go to ${isTitleName ? title : 'The project'}`}</span>
-          </a>
-        </div>
-      )}
+        (
+          <div className="project-card__title project-card__title--icon">
+            <a href={path} target="__blank" rel="noreferrer nofollow" tabIndex={-1}>
+              {React.createElement(title, { width: 120, height: 40, "aria-hidden": true })}
+              <span className="visually-hidden">{`Go to ${isTitleName ? title : 'The project'}`}</span>
+            </a>
+          </div>
+        )
+      }
+      <ul className="project-card__technologies">
+        {
+          technologies.map((item) => {
+            return (
+              <li key={`${item}-${Math.random() * 10}`} title={item}>
+                <span>
+                  {
+                    (() => {
+                      switch (item) {
+                        case 'React':
+                          return <ReactIcon/>
+                        case 'TypeScript':
+                          return <TS/>
+                        case 'Redux':
+                          return <Redux/>
+                        case 'SASS(CSS)':
+                          return <Sass/>
+                        case 'Less(CSS)':
+                          return <Less/>
+                        case 'HTML':
+                          return <HTML/>
+                        case 'JavaScript':
+                          return <JS/>
+                        case 'CSS':
+                          return <CSS/>
+                        case 'Firebase':
+                          return <Firebase/>
+                        default:
+                          return item;
+                      }
+                    })()
+                  }
+                </span>
+                <span className="visually-hidden">{item}</span>
+              </li>
+            )
+          })
+        }
+      </ul>
     </div>
   );
 }

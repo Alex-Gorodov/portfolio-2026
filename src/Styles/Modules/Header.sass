@@ -6,12 +6,12 @@
   align-items: center
   padding: 16px
 
-  &_name
+  &__name
     font-weight: 700
     font-size: clamp(16px, 4vw, 32px)
     color: black
 
-  &_navigation
+  &__navigation
     display: flex
     gap: 8px
     &--mobile
@@ -30,9 +30,9 @@
         right: 16px
         transition: right 0.3s ease-out
 
-.header:has(.header_navigation--mobile-opened)
-  ~ .hero .hero_wrapper
-    .hero_image-wrapper
+.header:has(.header__navigation--mobile-opened)
+  ~ .hero .hero__wrapper
+    .hero__image-wrapper
       transform: rotateY(-25deg) translateX(-40px)
       opacity: 0.8
 
