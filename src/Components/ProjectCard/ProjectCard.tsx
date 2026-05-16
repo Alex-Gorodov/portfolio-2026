@@ -16,6 +16,7 @@ interface ProjectCardProps {
   isVideo?: boolean;
   title: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
   themeColor?: string;
+  description?: string;
   path?: string;
   icon?: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
   technologies: string[];
@@ -26,6 +27,7 @@ export default function ProjectCard({
   title,
   isVideo,
   themeColor,
+  description,
   icon,
   path,
   technologies,
@@ -33,6 +35,7 @@ export default function ProjectCard({
   const frameRef = useRef<HTMLDivElement>(null);
   const [state, setState] = useState<"rest" | "active" | "leaving">("rest");
   const animationTimeout = useRef<NodeJS.Timeout | null>(null);
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
 
   const handleMouseEnter = () => {
     if (!isVideo) return;
@@ -104,7 +107,10 @@ export default function ProjectCard({
       ) :
         icon ?
         typeof icon === "string" ?
-          <img src={icon} width={80} alt={isTitleName ? title : 'Project'}/>
+
+          <a style={{ display: 'flex' }} href={path} target="__blank" rel="noreferrer nofollow" tabIndex={-1}>
+            <img src={icon} width={80} height={40} alt={isTitleName ? title : 'Project'}/>
+          </a>
           :
           React.createElement(icon, { width: 120, height: 40, "aria-hidden": true })
         :
@@ -115,6 +121,18 @@ export default function ProjectCard({
               <span className="visually-hidden">{`Go to ${isTitleName ? title : 'The project'}`}</span>
             </a>
           </div>
+        )
+      }
+      {
+        description && (
+          <p
+            className={`project-card__description ${
+              isDescriptionOpen ? 'project-card__description--open' : ''
+            }`}
+            onClick={() => setIsDescriptionOpen(prev => !prev)}
+          >
+            {description}
+          </p>
         )
       }
       <ul className="project-card__technologies">

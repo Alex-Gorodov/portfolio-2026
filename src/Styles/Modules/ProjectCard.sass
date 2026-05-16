@@ -67,6 +67,37 @@
       animation: phone-frame-overflow 1s ease forwards
       clip-path: inset(-200px 0 0 0)
 
+  &__description
+    position: relative
+    font-size: clamp(12px, 3vw, 16px)
+    max-height: 4.5em
+    padding: 12px
+    overflow: hidden
+    cursor: pointer
+    transition: max-height .35s ease
+
+    &::after
+      content: ""
+      position: absolute
+      left: 0
+      bottom: 0
+      width: 100%
+      height: 40px
+      pointer-events: none
+      opacity: 1
+      transition: opacity .25s ease
+      background: linear-gradient(
+        to top,
+        darken($light-background, 5%) 4%,
+        transparent
+      )
+
+    &--open
+      max-height: 500px
+
+      &::after
+        opacity: 0
+
   &__technologies
     @include list-reset
     display: flex

@@ -159,7 +159,7 @@ export default function Projects() {
             className="projects-container projects-container--web"
           >
             {WEB_PROJECTS.map(p => (
-              <ProjectCard key={p.id} title={p.name} icon={p.icon} path={p.path} technologies={p.technologies}>
+              <ProjectCard key={p.id} title={p.name} icon={p.icon} path={p.path} description={p.description} technologies={p.technologies}>
                 <PortfolioItem item={{ ...p, isAdaptive: false }} />
               </ProjectCard>
             ))}
