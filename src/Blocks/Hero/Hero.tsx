@@ -135,15 +135,15 @@ export default function Hero() {
                   isResumeListOpened &&
                   <ul className="hero__resumes-list">
                     <li className="hero__resume-item">
-                      <a role="link" href={Frontend}>Frontend CV</a>
+                      <a role="link" target="_blank" href={Frontend}>Frontend CV</a>
                     </li>
 
                     <li className="hero__resume-item">
-                      <a role="link" href={Mobile}>Mobile CV</a>
+                      <a role="link" target="_blank" href={Mobile}>Mobile CV</a>
                     </li>
 
                     <li className="hero__resume-item">
-                      <a role="link" href={Fullstack}>FullStack CV</a>
+                      <a role="link" target="_blank" href={Fullstack}>FullStack CV</a>
                     </li>
                   </ul>
                 }
