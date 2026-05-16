@@ -120,11 +120,9 @@ export function ContactForm(): JSX.Element {
                     onChange={handleInputChange}
                   ></textarea>
                 </label>
-                <button className="button" type="submit" disabled={isButtonDisabled} onClick={sendForm}>
+                <button className="button contact__submit" type="submit" disabled={isButtonDisabled} onClick={sendForm}>
                   Send message!
                 </button>
-                {/* <Button/> */}
-                {/* <Button label='Send message!' onClick={() => sendForm}/> */}
                 <p className={`contact__error-message ${isError && (formData.name.length < 2 || !/^[a-zA-Z0-9.__%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email)) && 'contact__error-message--opened'}`}>Please fill in the required fields.</p>
               </form>
             )}

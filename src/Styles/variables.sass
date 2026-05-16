@@ -36,6 +36,14 @@ $card-shadow: 0 12px 30px rgba(0,0,0,0.15)
   padding: 0
   margin: 0
 
+@mixin link-reset
+  text-decoration: none
+  color: inherit
+  &:hover
+    opacity: 0.6
+  &:active
+    opacity: 0.3
+
 @mixin flex-center
   display: flex
   justify-content: center

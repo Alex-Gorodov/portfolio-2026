@@ -1,6 +1,8 @@
 import { AiFillLinkedin, AiOutlineGithub } from "react-icons/ai";
 import Image from "../../Assets/Images/Alex.webp";
-import CV from "../../Assets/Files/alex_gorodov_cv.pdf";
+import Frontend from "../../Assets/Files/alexandr_gorodov_frontend_cv.pdf";
+import Mobile from "../../Assets/Files/alexandr_gorodov_mobile_cv.pdf";
+import Fullstack from "../../Assets/Files/alexandr_gorodov_fullstack_cv.pdf";
 import Button from "../../Components/Buttons/Button";
 import { useResponsive } from "../../Context/responsive.context";
 import { useEffect, useRef, useState } from "react";
@@ -11,6 +13,26 @@ export default function Hero() {
   const rafRef = useRef<number | null>(null);
   const [mounted, setMounted] = useState(false);
   const [activeWord, setActiveWord] = useState<'Frontend' | 'Mobile'>('Frontend');
+
+  const [isResumeListOpened, setResumeListOpened] = useState(false);
+  const resumeMenuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      resumeMenuRef.current &&
+      !resumeMenuRef.current.contains(event.target as Node)
+    ) {
+      setResumeListOpened(false);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
 
   useEffect(() => {
     setMounted(true);
@@ -98,8 +120,35 @@ export default function Hero() {
 
           <div className="hero__buttons-wrapper">
             {/* <a className="hero__button" autoFocus={false} href={CV} type="file" rel="noreferrer nofollow" target="__blank" download> */}
-              <Button role="link" href={CV} label="Download CV" secondary allyDescription="Download CV"/>
-              <Button role="link" href="#contact" label="Contact" allyDescription="Go to contact information" />
+              <div
+                ref={resumeMenuRef}
+                className="hero__resume-dropdown"
+              >
+                <Button
+                  onClick={() => setResumeListOpened(!isResumeListOpened)}
+                  label="Download CV"
+                  secondary
+                  allyDescription="Download CV"
+                />
+
+                {
+                  isResumeListOpened &&
+                  <ul className="hero__resumes-list">
+                    <li className="hero__resume-item">
+                      <a role="link" href={Frontend}>Frontend CV</a>
+                    </li>
+
+                    <li className="hero__resume-item">
+                      <a role="link" href={Mobile}>Mobile CV</a>
+                    </li>
+
+                    <li className="hero__resume-item">
+                      <a role="link" href={Fullstack}>FullStack CV</a>
+                    </li>
+                  </ul>
+                }
+              </div>
+              <Button role="link" href="/#contact" label="Contact" allyDescription="Go to contact information" />
           </div>
 
           <div className="hero__links-wrapper">

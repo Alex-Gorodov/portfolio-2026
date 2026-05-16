@@ -7,7 +7,6 @@
     @include section-layout
     display: grid
     padding: 0
-    // grid-template-columns: 1fr
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
     gap: 2vw
     justify-content: center
@@ -43,6 +42,8 @@
     @include flex-column-center
     box-shadow: $card-shadow
     border-radius: 16px
+    background-color: $light-background
+
     padding: 20px
     &--stack
       gap: 20px

@@ -29,12 +29,14 @@
     width: 320px
     height: 320px
     border-radius: clamp(16px, 5vw, 999px)
-    overflow: hidden
+    // overflow: hidden
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1)
+    @media(max-width: $mobile-width)
+      width: 100vw
 
   &__parallax
     z-index: 0
-    overflow: hidden
+    // overflow: hidden
     &-image
       width: 420px
       height: auto
@@ -42,6 +44,38 @@
       will-change: transform
       backface-visibility: hidden
       transform-style: preserve-3d
+
+  &__resume-dropdown
+    position: relative
+
+  &__resumes-list
+    @include list-reset
+    position: absolute
+    top: 40px
+    left: 0px
+    right: 0px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    border: 2px solid $border-color
+    border-radius: 20px
+    background-color: $light-background
+    overflow: hidden
+
+
+  &__resume-item
+    background-color: $light-background
+    color: $text
+    transition: background 0.3s
+    &:hover
+      background-color: $dark-background
+      color: $text-secondary
+    & a
+      @include link-reset
+      display: block
+      padding: 8px
+      transition: 0.3s
+
 
   &__image
     display: block
@@ -59,10 +93,15 @@
     text-align: center
 
   &__buttons-wrapper
-    display: flex
+    display: grid
+    grid-template-columns: 2fr 1fr
     gap: 12px
-    flex-wrap: wrap
     justify-content: center
+    @media (max-width: $mobile-width)
+      display: flex
+      flex-direction: column
+      width: calc(100% - 80px)
+
 
   &__button
     &:focus-visible

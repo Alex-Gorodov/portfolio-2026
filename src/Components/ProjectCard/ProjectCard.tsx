@@ -112,7 +112,11 @@ export default function ProjectCard({
             <img src={icon} width={80} height={40} alt={isTitleName ? title : 'Project'}/>
           </a>
           :
-          React.createElement(icon, { width: 120, height: 40, "aria-hidden": true })
+          <a style={{ display: 'flex' }} href={path} target="__blank" rel="noreferrer nofollow" tabIndex={-1}>
+            {
+              React.createElement(icon, { width: 120, height: 40, "aria-hidden": true })
+            }
+            </a>
         :
         (
           <div className="project-card__title project-card__title--icon">
