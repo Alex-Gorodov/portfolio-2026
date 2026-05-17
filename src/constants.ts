@@ -101,6 +101,7 @@ export const WEB_PROJECTS = [
     img: Divesea,
     icon: DiveseaIcon,
     technologies: ["React", "TypeScript", "SASS(CSS)", "Firebase", "Redux", "HTML"],
+    layout: 'https://www.figma.com/design/LZGy0Wp1cngiLMqozMjimw/DiveSea?m=auto&t=VnvfzQYBZzWut2kZ-6'
   },
   {
     id: "amishav",

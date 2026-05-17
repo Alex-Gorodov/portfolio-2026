@@ -17,6 +17,7 @@ interface ProjectCardProps {
   title: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
   themeColor?: string;
   description?: string;
+  layout?: string;
   path?: string;
   icon?: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
   technologies: string[];
@@ -30,6 +31,7 @@ export default function ProjectCard({
   description,
   icon,
   path,
+  layout,
   technologies,
 }: ProjectCardProps) {
   const frameRef = useRef<HTMLDivElement>(null);
@@ -129,14 +131,25 @@ export default function ProjectCard({
       }
       {
         description && (
-          <p
-            className={`project-card__description ${
-              isDescriptionOpen ? 'project-card__description--open' : ''
-            }`}
-            onClick={() => setIsDescriptionOpen(prev => !prev)}
+          <div
+          className={`project-card__description ${
+                  isDescriptionOpen ? 'project-card__description--open' : ''
+                }`}
           >
-            {description}
-          </p>
+              <p
+
+                onClick={() => setIsDescriptionOpen(prev => !prev)}
+              >
+                {description}
+              </p>
+              {
+                layout && (
+                  <a href={layout} target="_blank" rel="noreferrer nofollow" className="project-card__layout-link">
+                    View Layout
+                  </a>
+                )
+              }
+          </div>
         )
       }
       <ul className="project-card__technologies">
