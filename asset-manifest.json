@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio-2026/static/css/main.05b21200.css",
-    "main.js": "/portfolio-2026/static/js/main.f97953d9.js",
+    "main.css": "/portfolio-2026/static/css/main.cad5b99c.css",
+    "main.js": "/portfolio-2026/static/js/main.16b60c8f.js",
     "static/js/453.8cfb0cf3.chunk.js": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js",
     "static/media/sportapp-iphone-16.mp4": "/portfolio-2026/static/media/sportapp-iphone-16.f96589f8cdd5681baf72.mp4",
     "static/media/amishav-iphone-16.mp4": "/portfolio-2026/static/media/amishav-iphone-16.aae634a580ce6905ad24.mp4",
@@ -28,12 +28,12 @@
     "static/media/firebase.svg": "/portfolio-2026/static/media/firebase.7e910046f7b0de58268d6d359f56395a.svg",
     "static/media/css.svg": "/portfolio-2026/static/media/css.683563aae41322a7b00dfbc08a0caab8.svg",
     "static/media/html.svg": "/portfolio-2026/static/media/html.dcec69b208e28160b0ee1eb5d1b77cc2.svg",
-    "main.05b21200.css.map": "/portfolio-2026/static/css/main.05b21200.css.map",
-    "main.f97953d9.js.map": "/portfolio-2026/static/js/main.f97953d9.js.map",
+    "main.cad5b99c.css.map": "/portfolio-2026/static/css/main.cad5b99c.css.map",
+    "main.16b60c8f.js.map": "/portfolio-2026/static/js/main.16b60c8f.js.map",
     "453.8cfb0cf3.chunk.js.map": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.05b21200.css",
-    "static/js/main.f97953d9.js"
+    "static/css/main.cad5b99c.css",
+    "static/js/main.16b60c8f.js"
   ]
 }
