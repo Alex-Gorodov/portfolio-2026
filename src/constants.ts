@@ -1,12 +1,6 @@
 import Braga from "./Assets/Images/Portfolio/braga.webp";
 import Divesea from "./Assets/Images/Portfolio/divesea.webp";
 import Amishav from "./Assets/Images/Portfolio/amishav.webp";
-import Gllacy from "./Assets/Images/Portfolio/gllacy.webp";
-import BrightLights from "./Assets/Images/Portfolio/brightLights.webp";
-import CreateX from "./Assets/Images/Portfolio/createx.webp";
-import CatEnergy from "./Assets/Images/Portfolio/catEnergy.webp";
-import Sedona from "./Assets/Images/Portfolio/sedona.webp";
-import Device from "./Assets/Images/Portfolio/device.webp";
 
 import Sportapp from './Assets/Videos/sportapp-iphone-16.mp4';
 import SportappPoster from './Assets/Images/poster-sport.png';
@@ -14,12 +8,6 @@ import AmishavVideo from './Assets/Videos/amishav-iphone-16.mp4';
 import AmishavIcon from './Assets/Images/Portfolio/logos/amishav.png'
 import AmishavPoster from './Assets/Images/poster-amishav.png';
 
-import { ReactComponent as BrightLightsIcon } from "./Assets/Images/Portfolio/logos/bright-lights.svg";
-import { ReactComponent as CatEnergyIcon } from "./Assets/Images/Portfolio/logos/cat-energy.svg";
-import { ReactComponent as CreatexIcon } from "./Assets/Images/Portfolio/logos/createx.svg";
-import { ReactComponent as GllacyIcon } from "./Assets/Images/Portfolio/logos/gllacy.svg";
-import { ReactComponent as SedonaIcon } from "./Assets/Images/Portfolio/logos/sedona.svg";
-import { ReactComponent as DeviceIcon } from "./Assets/Images/Portfolio/logos/device.svg";
 import { ReactComponent as DiveseaIcon } from "./Assets/Images/Portfolio/logos/divesea.svg";
 import { ReactComponent as BragaIcon } from "./Assets/Images/Portfolio/logos/braga.svg";
 
@@ -107,7 +95,7 @@ export const WEB_PROJECTS = [
     id: "amishav",
     name: "Amishav",
     path: "https://alex-gorodov.github.io/amishav-intel-haifa-admin",
-    description: "The last and my current project that i work on it till now - the application for managing Intel's Haifa security + emergency + operational offices. The project includes admin page (desktop) and the mobile application on React Native. The desing is fully custom and was created by me without any templates.",
+    description: "The last and my current project that i work on it till now - the application for managing Intel's Haifa security + emergency + control center teams. The project includes admin page (desktop) and the mobile application on React Native. The desing is fully custom and was created by me without any templates.",
     img: Amishav,
     icon: AmishavIcon,
     technologies: ["React", "TypeScript", "SASS(CSS)", "Firebase", "Redux", "HTML"],

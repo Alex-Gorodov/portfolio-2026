@@ -83,6 +83,14 @@ export default function About() {
                   Git, GitHub, Webpack, Gulp
                 </p>
               </div>
+
+              {/* AI Tools */}
+              <div className="about__card-section">
+                <p className="about__card-section-title">AI Tools</p>
+                <p className="about__card-text">
+                  ChatGPT, Gemini, Cursor, Copilot
+                </p>
+              </div>
             </div>
           }
         />
