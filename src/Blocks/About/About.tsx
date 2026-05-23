@@ -1,6 +1,7 @@
 import Image from "../../Assets/Images/main-pic.webp";
 import { AiOutlineDatabase } from "react-icons/ai";
 import { AiOutlineLineChart } from "react-icons/ai";
+import { HiAcademicCap } from "react-icons/hi";
 import ThreeDCard from "../../Components/ThreeDCard/ThreeDCard";
 
 export default function About() {
@@ -24,6 +25,19 @@ export default function About() {
               <br/>
               <p className="about__card-text">Mobile developer</p>
               <p className="about__card-text">1 year</p>
+            </div>
+          }
+        />
+
+        <ThreeDCard
+          active
+          children={
+            <div className="about__card">
+              <HiAcademicCap size={48}/>
+              <p className="about__card-title">Learning now</p>
+              <p className="about__card-text">React Three Fiber</p>
+              <p className="about__card-text">Three.js</p>
+
             </div>
           }
         />
@@ -80,7 +94,7 @@ export default function About() {
               <div className="about__card-section">
                 <p className="about__card-section-title">Tools</p>
                 <p className="about__card-text">
-                  Git, GitHub, Webpack, Gulp
+                  Git, GitHub, Webpack, Vite, Gulp
                 </p>
               </div>
 

@@ -95,7 +95,7 @@ export const WEB_PROJECTS = [
     id: "amishav",
     name: "Amishav",
     path: "https://alex-gorodov.github.io/amishav-intel-haifa-admin",
-    description: "The last and my current project that i work on it till now - the application for managing Intel's Haifa security + emergency + control center teams. The project includes admin page (desktop) and the mobile application on React Native. The desing is fully custom and was created by me without any templates.",
+    description: "The last and my current project that i work on it till now - the application for managing Intel's Haifa security + emergency + control center teams. The project includes admin page (desktop) and the mobile application on React Native. The desing is fully custom and was created by me without any templates. I also used AI tools to apply and enhance the UI skin of the application.",
     img: Amishav,
     icon: AmishavIcon,
     technologies: ["React", "TypeScript", "SASS(CSS)", "Firebase", "Redux", "HTML"],
