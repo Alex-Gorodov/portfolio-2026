@@ -29,7 +29,7 @@ export default function About() {
           }
         />
 
-        <ThreeDCard
+        {/* <ThreeDCard
           active
           children={
             <div className="about__card">
@@ -40,7 +40,7 @@ export default function About() {
 
             </div>
           }
-        />
+        /> */}
 {/*
         <ThreeDCard
           active

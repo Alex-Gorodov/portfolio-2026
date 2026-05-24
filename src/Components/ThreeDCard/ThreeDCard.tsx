@@ -17,8 +17,6 @@ export default function ThreeDCard({
   const innerRef = useRef<HTMLDivElement>(null);
   const { isMobile } = useResponsive();
 
-  console.log(isMobile);
-
   const handleMouseLeave = () => {
     const wrapper = wrapperRef.current;
     const inner = innerRef.current;
