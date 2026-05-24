@@ -9,6 +9,7 @@ import Button from "../../Components/Buttons/Button";
 import { useResponsive } from "../../Context/responsive.context";
 import { useEffect, useRef, useState } from "react";
 import ThreeSphere from "../../Components/ThreeSphere/ThreeSphere";
+// import ThreeSphere from "../../Components/ThreeSphere/ThreeSphere";
 
 
 export default function Hero() {
@@ -16,40 +17,25 @@ export default function Hero() {
   const imageRef = useRef<HTMLImageElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const [mounted, setMounted] = useState(false);
-  const [activeWord, setActiveWord] = useState<'Frontend' | 'Mobile'>('Frontend');
+  const words = ['Frontend', 'Mobile', 'FullStack'] as const;
 
-  const [isResumeListOpened, setResumeListOpened] = useState(false);
-  const resumeMenuRef = useRef<HTMLDivElement | null>(null);
+  type Word = typeof words[number];
 
-  useEffect(() => {
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      resumeMenuRef.current &&
-      !resumeMenuRef.current.contains(event.target as Node)
-    ) {
-      setResumeListOpened(false);
-    }
-  };
-
-  document.addEventListener("mousedown", handleClickOutside);
-
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-}, []);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const [activeWord, setActiveWord] = useState<Word>('Frontend');
 
   useEffect(() => {
     const id = setInterval(() => {
-      setActiveWord((prev) =>
-        prev === 'Frontend' ? 'Mobile' : 'Frontend'
-      );
+      setActiveWord((prev) => {
+        const currentIndex = words.indexOf(prev);
+        return words[(currentIndex + 1) % words.length];
+      });
     }, 2000);
 
     return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    setMounted(true);
   }, []);
 
 

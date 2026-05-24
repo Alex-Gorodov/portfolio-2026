@@ -1,13 +1,23 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { useGlobalMouse } from "../../Hooks/useGlobalMouse";
 
 function Orb() {
   const group = useRef<THREE.Group>(null);
   const particles = useRef<THREE.Points>(null);
+  const scrollY = useRef(0);
+  const smoothScroll = useRef(0);
 
   const pointer = useGlobalMouse();
+  useEffect(() => {
+    const onScroll = () => {
+      scrollY.current = window.scrollY;
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // smooth energy value (ONLY source of truth)
   const energy = useRef(1);
@@ -50,8 +60,8 @@ function Orb() {
     const px = pointer.current.current.x;
     const py = pointer.current.current.y;
 
-    group.current.position.x += (px * 1.2 - group.current.position.x) * 0.04;
-    group.current.position.y += (py * 0.9 - group.current.position.y) * 0.04;
+    group.current.position.x += (px * 1.2 - group.current.position.x) * 0.4;
+    group.current.position.y += (py * 0.9 - group.current.position.y) * 0.4;
 
     // -----------------------------
     // 3. NATURAL FLOATING MOTION
@@ -76,6 +86,55 @@ function Orb() {
     // -----------------------------
     particles.current.rotation.y = t * 0.08;
     particles.current.rotation.x = t * 0.03;
+
+    // -----------------------------
+    // 6. SCROLL
+    // -----------------------------
+    const scroll = scrollY.current * 0.001;
+    smoothScroll.current += (scroll - smoothScroll.current) * 0.03;
+
+    // POSITION
+    group.current.position.y = THREE.MathUtils.lerp(
+      group.current.position.y,
+      -smoothScroll.current * 2.2,
+      0.05
+    );
+
+    group.current.position.x = THREE.MathUtils.lerp(
+      group.current.position.x,
+      Math.sin(smoothScroll.current * 1.5) * 2.6,
+      0.05
+    );
+
+    // ROTATION (scroll-driven)
+    group.current.rotation.y = THREE.MathUtils.lerp(
+      group.current.rotation.y,
+      smoothScroll.current * 1.5,
+      0.04
+    );
+
+    // natural floating rotation (independent)
+    group.current.rotation.x = Math.sin(t * 0.4) * 0.25;
+    group.current.rotation.z = Math.cos(t * 0.3) * 0.15;
+
+
+    // -----------------------------
+    // MOUSE ROTATION (NEW)
+    // -----------------------------
+    const mouseRotX = py * 0.6;
+    const mouseRotY = px * 0.8;
+
+    group.current.rotation.x = THREE.MathUtils.lerp(
+      group.current.rotation.x,
+      mouseRotX,
+      0.06
+    );
+
+    group.current.rotation.y = THREE.MathUtils.lerp(
+      group.current.rotation.y,
+      mouseRotY,
+      0.06
+    );
   });
 
   return (
@@ -85,24 +144,10 @@ function Orb() {
         energy.current += 0.02;
       }}
     >
-      {/* CORE GLOW SPHERE */}
-      <mesh>
-        <sphereGeometry args={[1, 32, 32]} />
-        <meshPhysicalMaterial
-          color="#ffffff"
-          transmission={1}
-          thickness={1.4}
-          roughness={0}
-          metalness={0}
-          ior={1.4}
-          transparent
-          opacity={0.55}
-        />
-      </mesh>
 
       {/* WIREFRAME STRUCTURE */}
-      <mesh>
-        <sphereGeometry args={[1.02, 24, 24]} />
+      <mesh position={[-1, 1, 0]}>
+        <sphereGeometry args={[1, 24, 24]}/>
         <meshBasicMaterial
           wireframe
           color="#009baa"
@@ -139,7 +184,6 @@ export default function ThreeSphere() {
       <ambientLight intensity={0.6} />
       <directionalLight position={[3, 3, 3]} intensity={1} />
       <pointLight position={[-3, -2, -2]} intensity={0.5} />
-
       <Orb />
     </Canvas>
   );
