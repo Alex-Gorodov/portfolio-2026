@@ -1,7 +1,26 @@
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { useGlobalMouse } from "../../Hooks/useGlobalMouse";
+import { Html, useProgress } from "@react-three/drei";
+import { Suspense } from "react";
+
+function Loader() {
+  const { progress } = useProgress();
+
+  return (
+    <Html center>
+      <div style={{
+        color: "white",
+        fontSize: "14px",
+        fontFamily: "sans-serif",
+        opacity: 0.8
+      }}>
+        Loading {progress.toFixed(0)}%
+      </div>
+    </Html>
+  );
+}
 
 function Orb() {
   const group = useRef<THREE.Group>(null);
@@ -88,35 +107,42 @@ function Orb() {
     particles.current.rotation.x = t * 0.03;
 
     // -----------------------------
-    // 6. SCROLL
+    // 6. SCROLL (FIXED BEHAVIOR)
     // -----------------------------
-    const scroll = scrollY.current * 0.001;
-    smoothScroll.current += (scroll - smoothScroll.current) * 0.03;
 
-    // POSITION
+    const scroll = scrollY.current * 0.001;
+
+    // smooth scroll (inertia)
+    smoothScroll.current += (scroll - smoothScroll.current) * 0.6;
+
+    // limit influence so it never flies away forever
+    const bounded = THREE.MathUtils.clamp(smoothScroll.current, -1.8, 6);
+
+    // auto-return force (KEY PART)
+    const returnForce = THREE.MathUtils.lerp(bounded, 0, 0.02);
+
+    // POSITION Y
     group.current.position.y = THREE.MathUtils.lerp(
       group.current.position.y,
-      -smoothScroll.current * 2.2,
-      0.05
+      -returnForce * 2.2,
+      0.08
     );
+
+    // POSITION X (keep motion but not escape screen)
+    const wave = Math.sin(returnForce * 3.5) * 10.2;
 
     group.current.position.x = THREE.MathUtils.lerp(
       group.current.position.x,
-      Math.sin(smoothScroll.current * 1.5) * 2.6,
-      0.05
+      wave,
+      0.08
     );
 
-    // ROTATION (scroll-driven)
+    // ROTATION
     group.current.rotation.y = THREE.MathUtils.lerp(
       group.current.rotation.y,
-      smoothScroll.current * 1.5,
-      0.04
+      returnForce * 10.5,
+      0.06
     );
-
-    // natural floating rotation (independent)
-    group.current.rotation.x = Math.sin(t * 0.4) * 0.25;
-    group.current.rotation.z = Math.cos(t * 0.3) * 0.15;
-
 
     // -----------------------------
     // MOUSE ROTATION (NEW)
@@ -156,6 +182,16 @@ function Orb() {
         />
       </mesh>
 
+      <mesh position={[3, 0, 0]}>
+        <sphereGeometry args={[1, 32, 32]}/>
+        <meshBasicMaterial
+          wireframe
+          color="#9959ff"
+          transparent
+          opacity={0.18}
+        />
+      </mesh>
+
       {/* PARTICLES */}
       <points ref={particles}>
         <bufferGeometry>
@@ -174,6 +210,25 @@ function Orb() {
           opacity={0.85}
         />
       </points>
+
+      {/* PARTICLES */}
+      <points ref={particles}>
+        <bufferGeometry>
+          <bufferAttribute
+            attach="attributes-position"
+            array={positions}
+            count={particleCount}
+            itemSize={3}
+          />
+        </bufferGeometry>
+
+        <pointsMaterial
+          size={0.02}
+          color="#be3cd8"
+          transparent
+          opacity={0.55}
+        />
+      </points>
     </group>
   );
 }
@@ -188,3 +243,4 @@ export default function ThreeSphere() {
     </Canvas>
   );
 }
+

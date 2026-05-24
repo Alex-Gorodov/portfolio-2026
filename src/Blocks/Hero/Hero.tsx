@@ -2,15 +2,10 @@ import { AiFillLinkedin, AiOutlineGithub } from "react-icons/ai";
 import Image from "../../Assets/Images/Alex.webp";
 
 import CV from "../../Assets/Files/alex_gorodov_cv.pdf";
-import Frontend from "../../Assets/Files/alexandr_gorodov_frontend_cv.pdf";
-import Mobile from "../../Assets/Files/alexandr_gorodov_mobile_cv.pdf";
-import Fullstack from "../../Assets/Files/alexandr_gorodov_fullstack_cv.pdf";
 import Button from "../../Components/Buttons/Button";
 import { useResponsive } from "../../Context/responsive.context";
 import { useEffect, useRef, useState } from "react";
 import ThreeSphere from "../../Components/ThreeSphere/ThreeSphere";
-// import ThreeSphere from "../../Components/ThreeSphere/ThreeSphere";
-
 
 export default function Hero() {
   const { isMobile } = useResponsive();
