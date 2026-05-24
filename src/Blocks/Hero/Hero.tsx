@@ -8,6 +8,8 @@ import Fullstack from "../../Assets/Files/alexandr_gorodov_fullstack_cv.pdf";
 import Button from "../../Components/Buttons/Button";
 import { useResponsive } from "../../Context/responsive.context";
 import { useEffect, useRef, useState } from "react";
+import ThreeSphere from "../../Components/ThreeSphere/ThreeSphere";
+
 
 export default function Hero() {
   const { isMobile } = useResponsive();
@@ -77,6 +79,26 @@ export default function Hero() {
   return (
     <div className={`hero section ${mounted ? 'section--appearing' : ''}`}>
       <div className="hero__wrapper">
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh'
+        }}>
+
+          <div style={{
+            position: 'fixed',
+            width: '100%',
+            height: '100%',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)'
+          }}>
+
+            <ThreeSphere/>
+          </div>
+        </div>
         <div className="hero__image-wrapper hero__parallax">
           <img
             ref={imageRef}

@@ -3,13 +3,23 @@
   gap: 20px
   padding: 40px 20px
   margin-bottom: 40px
+  opacity: 0
+  transform: translateY(40px) scale(0.96)
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)
+  will-change: transform, opacity
+
+  &--appearing
+    opacity: 1
+    transform: translateY(0px) scale(1)
 
   &__block
+    position: relative
     max-width: $desktop-width
     width: 100%
     display: flex
     flex-direction: column
     box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.35)
+    background-color: rgb(214.5869565217, 217.6956521739, 223.9130434783)
     border-radius: 24px
     padding-bottom: 20px
   &__links

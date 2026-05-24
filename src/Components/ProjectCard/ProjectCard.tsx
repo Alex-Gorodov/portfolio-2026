@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ThreeDCard from "../ThreeDCard/ThreeDCard";
 import { ReactComponent as ReactIcon } from "../../Assets/Images/icons/react.svg"
 import { ReactComponent as Redux } from "../../Assets/Images/icons/redux.svg"
@@ -38,6 +38,28 @@ export default function ProjectCard({
   const [state, setState] = useState<"rest" | "active" | "leaving">("rest");
   const animationTimeout = useRef<NodeJS.Timeout | null>(null);
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
+
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(el);
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleMouseEnter = () => {
     if (!isVideo) return;
@@ -84,7 +106,12 @@ export default function ProjectCard({
   const isTitleName = typeof title === "string";
 
   return (
-    <div className="project-card">
+    <div
+      ref={cardRef}
+      className={`project-card ${
+        isVisible ? "project-card--visible" : ""
+      }`}
+    >
       <div
         style={{backgroundColor: themeColor}}
         className={`project-card__frame frame-${state}`}

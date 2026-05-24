@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useResponsive } from '../../Context/responsive.context';
 interface ThreeDCardProps {
   children: React.ReactNode;
@@ -17,6 +17,30 @@ export default function ThreeDCard({
   const innerRef = useRef<HTMLDivElement>(null);
   const { isMobile } = useResponsive();
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+
+    if (!wrapper) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(wrapper);
+        }
+      },
+      {
+        threshold: 0.4,
+      }
+    );
+
+    observer.observe(wrapper);
+
+    return () => observer.disconnect();
+  }, []);
+
   const handleMouseLeave = () => {
     const wrapper = wrapperRef.current;
     const inner = innerRef.current;
@@ -31,6 +55,51 @@ export default function ThreeDCard({
       handleMouseLeave();
     }
   }, [isMobile]);
+
+    useEffect(() => {
+    if (!isVisible) return;
+
+    const wrapper = wrapperRef.current;
+    const inner = innerRef.current;
+
+    if (!wrapper || !inner) return;
+
+    wrapper.animate(
+      [
+        {
+          opacity: 0,
+          transform: 'perspective(900px) translateY(40px) scale(0.96)',
+        },
+        {
+          opacity: 1,
+          transform: 'perspective(900px) translateY(0px) scale(1)',
+        },
+      ],
+      {
+        duration: 900,
+        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        fill: 'forwards',
+      }
+    );
+
+    inner.animate(
+      [
+        {
+          opacity: 0,
+          transform: 'translateZ(-40px)',
+        },
+        {
+          opacity: 1,
+          transform: 'translateZ(0px)',
+        },
+      ],
+      {
+        duration: 1000,
+        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        fill: 'forwards',
+      }
+    );
+  }, [isVisible]);
 
   useEffect(() => {
     if (!active || isMobile) return;
