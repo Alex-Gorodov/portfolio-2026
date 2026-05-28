@@ -102,7 +102,7 @@ export default function About() {
               <div className="about__card-section">
                 <p className="about__card-section-title">AI Tools</p>
                 <p className="about__card-text">
-                  ChatGPT, Gemini, Cursor, Copilot
+                  ChatGPT, Gemini, Cursor, Copilot, Claude Code
                 </p>
               </div>
             </div>

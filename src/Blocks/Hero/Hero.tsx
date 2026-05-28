@@ -1,7 +1,7 @@
 import { AiFillLinkedin, AiOutlineGithub } from "react-icons/ai";
 import Image from "../../Assets/Images/Alex.webp";
 
-import CV from "../../Assets/Files/alex_gorodov_cv.pdf";
+import CV from "../../Assets/Files/Alexandr_Gorodov_CV.pdf";
 import Button from "../../Components/Buttons/Button";
 import { useResponsive } from "../../Context/responsive.context";
 import { useEffect, useRef, useState } from "react";
