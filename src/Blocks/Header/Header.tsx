@@ -23,7 +23,7 @@ export default function Header() {
               isNameHovered ? "header__letter--hovered" : ""
             }`}
             style={{
-              transitionDelay: `${index * 0.02}s`,
+              transitionDelay: `${isNameHovered ? index * 0.013 : (name.length - index) * 0.02}s`,
             }}
           >
             {letter === " " ? "\u00A0" : letter}
