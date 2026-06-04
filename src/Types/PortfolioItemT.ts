@@ -4,6 +4,5 @@ export type PortfolioItemT = {
   path: string,
   description: string,
   img: string,
-  isAdaptive: boolean,
   technologies: string[]
 }

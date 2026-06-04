@@ -1,5 +1,7 @@
-import { AiOutlineLinkedin, AiOutlineMail } from "react-icons/ai";
-import { ContactForm } from "../ContactForm/ContactForm";
+import { AiOutlineLinkedin } from "react-icons/ai";
+import { SiGmail } from "react-icons/si";
+import { FaGithub } from "react-icons/fa";
+import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 import { useResponsive } from "../../Context/responsive.context";
 import { useRef, useState, useEffect } from "react";
 
@@ -39,24 +41,48 @@ export default function Contact() {
         ref={wrapperRef}
         className={`contact ${isVisible ? 'contact--appearing' : ''}`}
       >
-        <div className="contact__block">
-          <ContactForm/>
+        <div className="contact__links">
+          <a href="mailto: a.gorodov.22@gmail.com" className="contact__link">
+            <SiGmail size={48} color="#fc413d"/>
+            <span className="visually-hidden">a.gorodov.22@gmail.com</span>
+          </a>
 
-          <div className="contact__links">
-            <a href="mailto: a.gorodov.22@gmail.com" className="contact__link">
-              <AiOutlineMail size={32} />
-              <span>a.gorodov.22@gmail.com</span>
-            </a>
+          <a className="contact__link" href="https://www.linkedin.com/in/a-gorodov" target="__blank" rel="noreferrer" >
+            <AiOutlineLinkedin size={48} color="#0077b5"/>
+            {
+              !isMobile
+              &&
+              <span className="visually-hidden">linkedin</span>
+            }
+          </a>
 
-            <a className="contact__link" href="https://www.linkedin.com/in/a-gorodov" target="__blank" rel="noreferrer" >
-              <AiOutlineLinkedin size={32}/>
-              {
-                !isMobile
-                &&
-                <span>Linkedin</span>
-              }
-            </a>
-          </div>
+          <a className="contact__link" href="https://wa.me/972543955573" target="__blank" rel="noreferrer" >
+            <FaWhatsapp size={48} color="#189b46"/>
+            {
+              !isMobile
+              &&
+              <span className="visually-hidden">WhatsApp</span>
+            }
+          </a>
+
+          <a className="contact__link" href="https://t.me/a_gorodov" target="__blank" rel="noreferrer" >
+            <FaTelegramPlane size={48} color="#24a1de"/>
+            {
+              !isMobile
+              &&
+              <span className="visually-hidden">Telegram</span>
+            }
+          </a>
+
+          <a className="contact__link" href="https://github.com/Alex-Gorodov" target="__blank" rel="noreferrer" >
+            <FaGithub size={48} color="#000000"/>
+
+            {
+              !isMobile
+              &&
+              <span className="visually-hidden">GitHub</span>
+            }
+          </a>
         </div>
       </div>
     </>

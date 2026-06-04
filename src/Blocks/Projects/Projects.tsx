@@ -59,75 +59,6 @@ export default function Projects() {
         </div>
         <Toggle value={isMobileApps} onChange={() => handleChangeApps()} leftLabel = "Mobile" rightLabel = "Web"/>
       </div>
-      {/* <motion.div
-        ref={wrapperRef}
-        layout
-        transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-        style={{ overflow: 'hidden' }}
-      >
-
-        <AnimatePresence mode="wait" custom={direction}
-          // onExitComplete={() => {
-          //   const active = isMobileApps ? mobileRef.current : webRef.current;
-          //   if (wrapperRef.current && active) {
-          //     wrapperRef.current.style.height = `${active.offsetHeight}px`;
-          //   }
-          // }}
-        >
-          {isMobileApps ? (
-            <motion.div
-              ref={mobileRef}
-              key="mobile"
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="projects-container projects-container--mobile"
-            >
-              {
-              MOBILE__PROJECTS.map((p) => {
-                return (
-                  <ProjectCard title={p.title} themeColor={p.themeColor} icon={p.icon} isVideo>
-                    <VideoTemplate src={p.src} poster={p.poster}/>
-                  </ProjectCard>
-                )
-              })
-            }
-            </motion.div>
-          ) : (
-            <motion.div
-              ref={webRef}
-              key="web"
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="projects-container projects-container--web"
-            >
-              {
-              WEB__PROJECTS.map((p) => {
-                return (
-                  <ProjectCard title={p.icon} path={p.path}>
-                    <PortfolioItem item={{
-                      id: p.id,
-                      name: p.name,
-                      path: p.path,
-                      description: p.description,
-                      img: p.img,
-                      isAdaptive: false
-                    }} />
-                  </ProjectCard>
-                )
-              })
-            }
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div> */}
 
       <AnimatePresence mode="wait" custom={direction}>
         {isMobileApps ? (
@@ -160,7 +91,7 @@ export default function Projects() {
           >
             {WEB_PROJECTS.map(p => (
               <ProjectCard key={p.id} title={p.name} icon={p.icon} path={p.path} description={p.description} technologies={p.technologies} layout={p.layout}>
-                <PortfolioItem item={{ ...p, isAdaptive: false }} />
+                <PortfolioItem item={{ ...p }} />
               </ProjectCard>
             ))}
           </motion.div>

@@ -43,7 +43,6 @@ export function PortfolioItem({
         isVisible ? "portfolio-item--visible" : ""
       }`}
       key={item.id}
-
     >
       <a
         className="portfolio__link"

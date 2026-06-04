@@ -1,20 +1,20 @@
 import { AiFillLinkedin, AiOutlineGithub } from "react-icons/ai";
 import Image from "../../Assets/Images/Alex.webp";
-
 import CV from "../../Assets/Files/Alexandr_Gorodov_CV.pdf";
 import Button from "../../Components/Buttons/Button";
 import { useResponsive } from "../../Context/responsive.context";
 import { useEffect, useRef, useState } from "react";
-import ThreeSphere from "../../Components/ThreeSphere/ThreeSphere";
+
+
+const words = ['Frontend', 'Mobile', 'FullStack'] as const;
+
+type Word = typeof words[number];
 
 export default function Hero() {
   const { isMobile } = useResponsive();
   const imageRef = useRef<HTMLImageElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const [mounted, setMounted] = useState(false);
-  const words = ['Frontend', 'Mobile', 'FullStack'] as const;
-
-  type Word = typeof words[number];
 
   const [activeWord, setActiveWord] = useState<Word>('Frontend');
 
@@ -60,26 +60,7 @@ export default function Hero() {
   return (
     <div className={`hero section ${mounted ? 'section--appearing' : ''}`}>
       <div className="hero__wrapper">
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh'
-        }}>
 
-          <div style={{
-            position: 'fixed',
-            width: '100%',
-            height: '100%',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)'
-          }}>
-
-            <ThreeSphere/>
-          </div>
-        </div>
         <div className="hero__image-wrapper hero__parallax">
           <img
             ref={imageRef}

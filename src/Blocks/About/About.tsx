@@ -1,7 +1,5 @@
-import Image from "../../Assets/Images/main-pic.webp";
 import { AiOutlineDatabase } from "react-icons/ai";
 import { AiOutlineLineChart } from "react-icons/ai";
-import { HiAcademicCap } from "react-icons/hi";
 import ThreeDCard from "../../Components/ThreeDCard/ThreeDCard";
 
 export default function About() {

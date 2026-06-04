@@ -2,25 +2,6 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { useGlobalMouse } from "../../Hooks/useGlobalMouse";
-import { Html, useProgress } from "@react-three/drei";
-import { Suspense } from "react";
-
-function Loader() {
-  const { progress } = useProgress();
-
-  return (
-    <Html center>
-      <div style={{
-        color: "white",
-        fontSize: "14px",
-        fontFamily: "sans-serif",
-        opacity: 0.8
-      }}>
-        Loading {progress.toFixed(0)}%
-      </div>
-    </Html>
-  );
-}
 
 function Orb() {
   const group = useRef<THREE.Group>(null);
@@ -65,7 +46,7 @@ function Orb() {
   useFrame((state, delta) => {
     if (!group.current || !particles.current) return;
 
-    const t = state.clock.elapsedTime;
+    const t = state.clock.getElapsedTime() / 2;
 
     // -----------------------------
     // 1. SMOOTH POINTER
@@ -167,7 +148,7 @@ function Orb() {
     <group
       ref={group}
       onClick={() => {
-        energy.current += 0.02;
+        energy.current += 0.01;
       }}
     >
 
@@ -235,12 +216,28 @@ function Orb() {
 
 export default function ThreeSphere() {
   return (
-    <Canvas camera={{ position: [0, 0, 4] }}>
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[3, 3, 3]} intensity={1} />
-      <pointLight position={[-3, -2, -2]} intensity={0.5} />
-      <Orb />
-    </Canvas>
+    <div style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100vw',
+      height: '100vh'
+    }}>
+      <div style={{
+        position: 'fixed',
+        width: '100%',
+        height: '100%',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)'
+      }}>
+        <Canvas camera={{ position: [0, 0, 4] }}>
+          <ambientLight intensity={0.6} />
+          <directionalLight position={[3, 3, 3]} intensity={1} />
+          <pointLight position={[-3, -2, -2]} intensity={0.5} />
+          <Orb />
+        </Canvas>
+      </div>
+    </div>
   );
 }
-
