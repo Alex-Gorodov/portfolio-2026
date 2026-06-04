@@ -31,16 +31,39 @@ function Orb() {
     for (let i = 0; i < particleCount; i++) {
       const i3 = i * 3;
 
-      const radius = 1.5 + Math.random() * 1.8;
+      const radius = 1.5 + Math.random() * 1.4;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.random() * Math.PI;
 
       arr[i3] = radius * Math.sin(phi) * Math.cos(theta);
       arr[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
-      arr[i3 + 2] = radius * Math.cos(phi);
+      arr[i3 + 2] = radius * Math.cos(phi) * 4;
     }
 
     return arr;
+  }, []);
+
+  // circular sprite for round points
+  const sprite = useMemo(() => {
+    const size = 64;
+    const canvas = document.createElement('canvas');
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d')!;
+
+    const grad = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+    grad.addColorStop(0, 'rgba(255,255,255,1)');
+    grad.addColorStop(0.7, 'rgba(255,255,255,0.9)');
+    grad.addColorStop(1, 'rgba(255,255,255,0)');
+
+    ctx.clearRect(0,0,size,size);
+    ctx.fillStyle = grad;
+    ctx.fillRect(0,0,size,size);
+
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.minFilter = THREE.LinearFilter;
+    tex.needsUpdate = true;
+    return tex;
   }, []);
 
   useFrame((state, delta) => {
@@ -186,9 +209,13 @@ function Orb() {
 
         <pointsMaterial
           size={0.02}
+          map={sprite}
           color="#00eaff"
           transparent
-          opacity={0.85}
+          opacity={0.95}
+          depthWrite={false}
+          blending={THREE.AdditiveBlending}
+          sizeAttenuation
         />
       </points>
 
@@ -205,9 +232,13 @@ function Orb() {
 
         <pointsMaterial
           size={0.02}
+          map={sprite}
           color="#be3cd8"
           transparent
-          opacity={0.55}
+          opacity={0.65}
+          depthWrite={false}
+          blending={THREE.AdditiveBlending}
+          sizeAttenuation
         />
       </points>
     </group>
