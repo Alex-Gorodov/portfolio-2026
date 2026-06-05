@@ -79,7 +79,7 @@ export default function Projects() {
         />
       </div>
 
-      <div className="projects__wrapper" style={{ transition: 'height 0.3s ease', overflow: 'hidden' }}>
+      <div className="projects__wrapper" style={{ transition: 'height 0.3s ease' }}>
         {/* Navigation Sidebar */}
         <ul className="projects__buttons">
           {itemsToRender.map((project, index) => {
