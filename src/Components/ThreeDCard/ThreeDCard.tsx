@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useResponsive } from '../../Context/responsive.context';
+
 interface ThreeDCardProps {
   children: React.ReactNode;
   active?: boolean;
@@ -9,7 +10,7 @@ interface ThreeDCardProps {
 
 export default function ThreeDCard({
   children,
-  active = false,
+  active = true,
   disableShadow,
   hoverOnly = false
 }: ThreeDCardProps) {
@@ -18,10 +19,10 @@ export default function ThreeDCard({
   const { isMobile } = useResponsive();
 
   const [isVisible, setIsVisible] = useState(false);
+  const [animationDone, setAnimationDone] = useState(false);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
-
     if (!wrapper) return;
 
     const observer = new IntersectionObserver(
@@ -31,13 +32,10 @@ export default function ThreeDCard({
           observer.unobserve(wrapper);
         }
       },
-      {
-        threshold: 0.4,
-      }
+      { threshold: 0.4 }
     );
 
     observer.observe(wrapper);
-
     return () => observer.disconnect();
   }, []);
 
@@ -56,59 +54,58 @@ export default function ThreeDCard({
     }
   }, [isMobile]);
 
-    useEffect(() => {
+  // Handles the entry animation safely
+  useEffect(() => {
     if (!isVisible) return;
 
     const wrapper = wrapperRef.current;
     const inner = innerRef.current;
-
     if (!wrapper || !inner) return;
 
-    wrapper.animate(
+    const wrapAnim = wrapper.animate(
       [
-        {
-          opacity: 0,
-          transform: 'perspective(900px) translateY(40px) scale(0.96)',
-        },
-        {
-          opacity: 1,
-          transform: 'perspective(900px) translateY(0px) scale(1)',
-        },
+        { opacity: 0, transform: 'perspective(900px) translateY(40px) scale(0.96)' },
+        { opacity: 1, transform: 'perspective(900px) translateY(0px) scale(1)' }
       ],
-      {
-        duration: 900,
-        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
-        fill: 'forwards',
-      }
+      { duration: 900, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'forwards' }
     );
 
-    inner.animate(
+    const innerAnim = inner.animate(
       [
-        {
-          opacity: 0,
-          transform: 'translateZ(-40px)',
-        },
-        {
-          opacity: 1,
-          transform: 'translateZ(0px)',
-        },
+        { opacity: 0, transform: 'translateZ(-40px)' },
+        { opacity: 1, transform: 'translateZ(0px)' }
       ],
-      {
-        duration: 1000,
-        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
-        fill: 'forwards',
-      }
+      { duration: 1000, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'forwards' }
     );
+
+    // FIX: Remove the animation override locks once completed
+    wrapAnim.onfinish = () => {
+      if (typeof wrapAnim.commitStyles === 'function') {
+        wrapAnim.commitStyles(); // Saves the final opacity/transform to inline style
+        innerAnim.commitStyles();
+      } else {
+        // Fallback for older environments
+        wrapper.style.opacity = '1';
+        wrapper.style.transform = 'perspective(900px) translateY(0px) scale(1)';
+        inner.style.opacity = '1';
+        inner.style.transform = 'translateZ(0px)';
+      }
+
+      wrapAnim.cancel();  // Removes the Web Animation layer lock
+      innerAnim.cancel(); // Removes the Web Animation layer lock
+      setAnimationDone(true);
+    };
   }, [isVisible]);
 
+  // Handles the 3D mouse rotation tracking
   useEffect(() => {
-    if (!active || isMobile) return;
+    if (!active || isMobile || !animationDone) return;
 
     const wrapper = wrapperRef.current;
     const inner = innerRef.current;
     if (!wrapper || !inner) return;
 
-    const maxRotate = 2;
+    const maxRotate = 15;
     let rafId: number;
 
     const target = { rotateX: 0, rotateY: 0 };
@@ -117,11 +114,20 @@ export default function ThreeDCard({
     const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
     const handleMouseMove = (e: MouseEvent) => {
-      const cx = window.innerWidth / 2;
-      const cy = window.innerHeight / 2;
+      let cx = window.innerWidth / 2;
+      let cy = window.innerHeight / 2;
 
-      target.rotateY = ((e.clientX - cx) / cx) * maxRotate;
-      target.rotateX = -((e.clientY - cy) / cy) * maxRotate;
+      if (hoverOnly) {
+        const rect = wrapper.getBoundingClientRect();
+        cx = rect.left + rect.width / 2;
+        cy = rect.top + rect.height / 2;
+
+        target.rotateY = ((e.clientX - cx) / (rect.width / 2)) * maxRotate;
+        target.rotateX = -((e.clientY - cy) / (rect.height / 2)) * maxRotate;
+      } else {
+        target.rotateY = ((e.clientX - cx) / cx) * maxRotate;
+        target.rotateX = -((e.clientY - cy) / cy) * maxRotate;
+      }
     };
 
     const animate = () => {
@@ -136,28 +142,21 @@ export default function ThreeDCard({
 
     animate();
 
-    if (hoverOnly) {
-      wrapper.addEventListener('mousemove', handleMouseMove);
-    } else {
-      window.addEventListener('mousemove', handleMouseMove);
-    }
+    const targetElement = hoverOnly ? wrapper : window;
+    targetElement.addEventListener('mousemove', handleMouseMove as EventListener);
 
     return () => {
       cancelAnimationFrame(rafId);
-      if (hoverOnly) {
-        wrapper.removeEventListener('mousemove', handleMouseMove);
-      } else {
-        window.removeEventListener('mousemove', handleMouseMove);
-      }
+      targetElement.removeEventListener('mousemove', handleMouseMove as EventListener);
     };
-  }, [active, hoverOnly, isMobile]);
+  }, [active, hoverOnly, isMobile, animationDone]);
 
   return (
     <div
       ref={wrapperRef}
       className="three-d-card__wrapper"
       style={{ '--flat': disableShadow, pointerEvents: 'auto' } as React.CSSProperties}
-      onMouseLeave={hoverOnly ? handleMouseLeave : undefined}
+      onMouseLeave={handleMouseLeave}
     >
       <div
         ref={innerRef}

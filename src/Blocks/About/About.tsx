@@ -27,32 +27,6 @@ export default function About() {
           }
         />
 
-        {/* <ThreeDCard
-          active
-          children={
-            <div className="about__card">
-              <HiAcademicCap size={48}/>
-              <p className="about__card-title">Learning now</p>
-              <p className="about__card-text">React Three Fiber</p>
-              <p className="about__card-text">Three.js</p>
-
-            </div>
-          }
-        /> */}
-{/*
-        <ThreeDCard
-          active
-          children={
-            <img
-              src={Image}
-              alt="Alex and Agatha anime style AI generated"
-              width={320}
-              height={320}
-              className="about__image"
-            />
-          }
-        /> */}
-
         <ThreeDCard
           active
           children={
