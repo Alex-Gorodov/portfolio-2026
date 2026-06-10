@@ -140,7 +140,7 @@ export default function Projects() {
                             return (
                               <li key={`${item}-${index}`} title={item}>
                                 <span>
-                                  {IconComponent ? <IconComponent /> : item}
+                                  {IconComponent ? <IconComponent/> : item}
                                 </span>
                                 <span className="visually-hidden">{item}</span>
                               </li>
@@ -194,12 +194,12 @@ export default function Projects() {
                 ) : (
                   <div style={styles.desktopContainer}>
                     <div className="project__details">
-                      <div style={{ display: 'flex'}}>
+                      {/* <div style={{ display: 'flex'}}>
                         <h3 className="project__title">{currentProject.title}</h3>
-                      </div>
+                      </div> */}
 
                       <a
-                        className='project__desktop-link-wrapper'
+                        className='project__desktop-link'
                         href={!isMobile && currentProject.path}
                       >
                         <img

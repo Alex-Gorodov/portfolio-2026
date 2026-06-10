@@ -126,7 +126,7 @@
     transition: 0.3s
 
     // 1n (even Rows): Images Left, Text Right
-    &:nth-of-type(even)
+    &:nth-of-type(2n)
       grid-template-columns: 1fr 2fr
       .project__image-wrapper
         .project__screenshot
@@ -164,7 +164,7 @@
             transform: translateX(150%) scale(1)
 
     // 2n (odd Rows): Images Right, Text Left
-    &:nth-of-type(odd)
+    &:nth-of-type(2n - 1)
       grid-template-columns: 2fr 1fr
       .project__text
         grid-row: 1

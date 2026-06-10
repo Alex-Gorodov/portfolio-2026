@@ -39,8 +39,9 @@ export default function About() {
               <div className="about__card-section">
                 <p className="about__card-section-title">Frontend</p>
                 <p className="about__card-text">
-                  React, Redux, TypeScript, JavaScript (ES6+)
+                  React, Redux, TypeScript, JavaScript, ThreeJS
                 </p>
+                <br/>
                 <p className="about__card-text">
                   HTML5, CSS3, SASS / SCSS, responsive design
                 </p>
@@ -62,11 +63,19 @@ export default function About() {
                 </p>
               </div>
 
-              {/* Tools */}
+              {/* Dev Tools */}
               <div className="about__card-section">
-                <p className="about__card-section-title">Tools</p>
+                <p className="about__card-section-title">Development & Build Tools</p>
                 <p className="about__card-text">
                   Git, GitHub, Webpack, Vite, Gulp
+                </p>
+              </div>
+
+              {/* UI/UX Tools */}
+              <div className="about__card-section">
+                <p className="about__card-section-title">UI/UX Tools</p>
+                <p className="about__card-text">
+                  Figma, Photoshop, Gimp, Blender
                 </p>
               </div>
 
@@ -77,6 +86,7 @@ export default function About() {
                   ChatGPT, Gemini, Cursor, Copilot, Claude Code
                 </p>
               </div>
+
             </div>
           }
         />

@@ -29,6 +29,8 @@ import { ReactComponent as CSS } from "./Assets/Images/icons/css.svg"
 import { ReactComponent as JS } from "./Assets/Images/icons/js.svg"
 import { ReactComponent as TS } from "./Assets/Images/icons/ts.svg"
 
+// import { SiIntel as AmishavIcon } from "react-icons/si";
+
 import { ReactComponent as DiveseaIcon } from "./Assets/Images/Portfolio/logos/divesea.svg";
 import { ReactComponent as BragaIcon } from "./Assets/Images/Portfolio/logos/braga.svg";
 
@@ -109,7 +111,7 @@ export const IntelScreensDescription = {
 export const MOBILE_PROJECTS = [
     {
       id: 'intel-mobile',
-      title: "Intel Security (mobile)",
+      title: "Intel Security",
       themeColor: "#72b4ee",
       src: AmishavVideo,
       poster: AmishavPoster,
@@ -170,7 +172,7 @@ export const WEB_PROJECTS = [
     title: "Intel Security Team",
     path: "https://alex-gorodov.github.io/amishav-intel-haifa-admin",
     description: [
-      "When it came to the management side of the ecosystem, I knew the mobile app for the field was only half the battle. To truly automate my managerial headaches, I needed a centralized brain that could process field telemetry and handle high-level coordination with zero administrative overhead. So, I engineered the Desktop Admin Panel—a comprehensive operations dashboard designed specifically for the control room environment.",
+      "When it came to the management side of the ecosystem, I knew the mobile app for the field was only half the battle. To truly automate my managerial headaches, I needed a centralized brain that could process field telemetry and handle high-level coordination with zero administrative overhead. So, I engineered the Desktop Admin Panel — a comprehensive operations dashboard designed specifically for the control room environment.",
       "Built with React and Redux, this panel serves as the ultimate cockpit for scheduling, compliance, and shift tracking. Instead of fighting with brittle spreadsheets, I designed an interface that transforms raw data into streamlined operational control. It features an automated shift-generation engine that ingests employee availability and builds the weekly roster in clicks rather than hours.",
       "It houses a real-time ledger that sanitizes Firestore timestamps, automates complex weekend/holiday salary calculations, and tracks mandatory security certifications (like weapon handling and medical responses) to ensure the entire roster is always 100% compliant. By enforcing a strict, two-tier approval workflow for peer-to-peer shift swaps, the panel acts as a perfect filter: guards coordinate adjustments among themselves on mobile, and the finalized request hits my desk for a single-click sign-off. It is a data-driven command center built to prove that with the right architecture, running a high-stakes security operation can be completely frictionless."
     ],
