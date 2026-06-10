@@ -1,5 +1,6 @@
 .projects
   transition: 0.6s
+
   &-container
     width: 100vw
     height: min-content
@@ -10,8 +11,219 @@
     gap: 32px
     &--web
       gap: 12px
+
   &__wrapper
-    width: 200vw
+    position: relative
     display: flex
+    width: 100%
+    gap: clamp(12px, 2vw, 60px)
     position: relative
     transition: 0.6s
+    @media(max-width: $tablet-width)
+      flex-direction: column
+
+  &__buttons
+    @include list-reset
+    min-width: 120px
+    display: flex
+    flex-direction: column
+    gap: clamp(12px, 4vw, 48px)
+    justify-content: start
+    @media(max-width: $tablet-width)
+      flex-direction: row
+      justify-content: center
+
+
+.project
+  &__trigger
+    display: flex
+    margin: 0
+    padding: 0
+    gap: 8px
+    background-color: transparent
+    border: none
+    font-weight: 600
+    font-size: clamp(14px, 2vw, 24px)
+    filter: grayscale(1)
+    transition: 0.3s
+    &--active
+      filter: grayscale(0)
+    &:hover
+      filter: grayscale(0)
+
+  &__details
+    width: 100%
+    max-width: $desktop-width
+    display: block // Crucial: layout must be block context, NOT flex or grid
+
+  &__details-wrapper
+    display: flex
+    @media(max-width: $tablet-width)
+      align-items: center
+      flex-direction: column
+
+  &__title
+    font-size: clamp(20px, 3vw, 28px)
+    font-weight: 700
+    color: #0f172a
+    width: 100%
+    @media(max-width: $tablet-width)
+      width: unset
+
+  &__desktop-link-wrapper
+    float: left // Forces the text to run up and wrap around this node
+    width: clamp(120px, 33vw, 480px) // Constrains the image sizing inline
+    margin-right: 24px // Creates space on the right for the wrapping text
+    margin-bottom: 16px // Creates space beneath the image if text runs long
+    border-radius: 12px
+    overflow: hidden
+    display: inline-block
+
+  &__description-paragraph
+    font-size: 16px
+    line-height: 1.7
+    color: #4b5563
+    text-align: justify
+    margin-bottom: 16px // Adds spacing between paragraphs naturally as they stack
+
+    &:last-of-type
+      margin-bottom: 0
+
+  &__showcase-container
+    height: 100%
+    min-height: 320px
+
+  &__showcase-container-inner
+    display: flex
+    flex-direction: column
+    gap:32px
+    @media(max-width: $tablet-width)
+      display: flex
+      align-items: center
+      flex-direction: column
+      justify-content: center
+
+  &__scroll-container
+    width: 100%
+    display: flex
+    align-items: center
+    @media(max-width: $tablet-width)
+      justify-content: center
+
+  &__stack-wrapper
+    display: flex
+    flex-direction: column
+    gap: 8px
+    width: 100%
+
+  &__row-container
+    @media(min-width: $tablet-width)
+      display: grid
+    align-items: flex-start
+    gap: 10px
+    width: 100%
+    max-width: $desktop-width
+    transition: 0.3s
+
+    // 1n (even Rows): Images Left, Text Right
+    &:nth-of-type(even)
+      grid-template-columns: 1fr 2fr
+      .project__image-wrapper
+        .project__screenshot
+          &--0
+            top: 0px
+            left: 0px
+            z-index: 3
+          &--1
+            top: 6px
+            left: 40px
+            transform: scale(0.96)
+            z-index: 2
+            @media(max-width: $tablet-width)
+              top: 0
+              left: 70px
+              // transform: scale(1)
+          &--2
+            top: 12px
+            left: 80px
+            transform: scale(0.92)
+            z-index: 1
+            @media(max-width: $tablet-width)
+              top: 0
+              left: 140px
+              // transform: scale(1)
+
+      &:has(.project__screenshot--1):hover
+        grid-template-columns: 1.2fr 1fr
+        @media(hover)
+          .project__screenshot--1
+            top: 0
+            transform: translateX(75%) scale(1)
+          .project__screenshot--2
+            top: 0
+            transform: translateX(150%) scale(1)
+
+    // 2n (odd Rows): Images Right, Text Left
+    &:nth-of-type(odd)
+      grid-template-columns: 2fr 1fr
+      .project__text
+        grid-row: 1
+        grid-column: 1 / 2
+      .project__image-wrapper
+        justify-self: flex-end
+        grid-row: 1
+        grid-column: 2 / 3
+        margin-right: 160px
+        .project__screenshot
+          &--0
+            top: 0
+            left: 0
+            z-index: 3
+          &--1
+            top: 6px
+            left: -40px
+            transform: scale(0.96)
+            z-index: 2
+            @media(max-width: $tablet-width)
+              top: 0
+              left: -80px
+              // transform: scale(1)
+          &--2
+            top: 0px
+            left: -80px
+            z-index: 1
+            transform: scale(0.92)
+            @media(max-width: $tablet-width)
+              top: 0
+              left: -120px
+              // transform: scale(1)
+      &:has(.project__screenshot--1):hover
+        grid-template-columns: 1.2fr 1fr
+        @media(hover)
+          .project__screenshot
+            &--1
+              top: 0
+              transform: translateX(-75%) scale(1)
+            &--2
+              top: 0
+              transform: translateX(-150%) scale(1)
+
+  &__image-wrapper
+    position: relative
+    height: 380px
+
+  &__screenshot
+    position: absolute
+    width: 160px
+    height: auto
+    object-fit: cover
+    border-radius: 10px
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), top 0.4s, scale 0.4s
+
+  &__text
+    font-size: 18px
+    font-weight: 500
+    line-height: 1.6
+    text-align: justify
+    color: #4b5563
+    transition: 3s

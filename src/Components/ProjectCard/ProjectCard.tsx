@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import ThreeDCard from "../ThreeDCard/ThreeDCard";
+import { ReactComponent as Firebase } from "../../Assets/Images/icons/firebase.svg"
 import { ReactComponent as ReactIcon } from "../../Assets/Images/icons/react.svg"
 import { ReactComponent as Redux } from "../../Assets/Images/icons/redux.svg"
 import { ReactComponent as Sass } from "../../Assets/Images/icons/sass.svg"
@@ -8,7 +9,6 @@ import { ReactComponent as Less } from "../../Assets/Images/icons/less.svg"
 import { ReactComponent as CSS } from "../../Assets/Images/icons/css.svg"
 import { ReactComponent as JS } from "../../Assets/Images/icons/js.svg"
 import { ReactComponent as TS } from "../../Assets/Images/icons/ts.svg"
-import { ReactComponent as Firebase } from "../../Assets/Images/icons/firebase.svg"
 
 
 interface ProjectCardProps {
