@@ -5,7 +5,8 @@ import Amishav from "./Assets/Images/Portfolio/amishav.webp";
 import Sportapp from './Assets/Videos/sportapp-iphone-16.mp4';
 import SportappPoster from './Assets/Images/poster-sport.png';
 import AmishavVideo from './Assets/Videos/amishav-iphone-16.mp4';
-import AmishavIcon from './Assets/Images/Portfolio/logos/amishav.png'
+// import AmishavIcon from './Assets/Images/Portfolio/logos/amishav.png'
+import AmishavIcon from './Assets/Images/Portfolio/logos/intel.svg'
 import AmishavPoster from './Assets/Images/poster-amishav.png';
 
 import IntelMobile11 from './Assets/Images/Portfolio/amishav-mobile-screenshots/profile-1.png'
