@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/portfolio-2026/static/css/main.caedc160.css",
-    "main.js": "/portfolio-2026/static/js/main.ffc491ac.js",
+    "main.js": "/portfolio-2026/static/js/main.e5ca5f85.js",
     "static/js/453.8cfb0cf3.chunk.js": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js",
     "static/media/protocols.png": "/portfolio-2026/static/media/protocols.e28837997b975154bcf5.png",
     "static/media/amishav-iphone-16.mp4": "/portfolio-2026/static/media/amishav-iphone-16.aae634a580ce6905ad24.mp4",
     "static/media/salary.png": "/portfolio-2026/static/media/salary.6ecd0189d7e118e117cb.png",
-    "static/media/profile-1.png": "/portfolio-2026/static/media/profile-1.bbf5992e25f0b1ab5e98.png",
     "static/media/schedule-1.png": "/portfolio-2026/static/media/schedule-1.60d1fbb5484f8433d95d.png",
+    "static/media/profile-1.png": "/portfolio-2026/static/media/profile-1.25caea0f17d88f0f63a3.png",
     "static/media/profile-3.png": "/portfolio-2026/static/media/profile-3.4bbc3315dd46893efc58.png",
     "static/media/schedule-2.png": "/portfolio-2026/static/media/schedule-2.67aefca82f5d46e82ef8.png",
     "static/media/availability.png": "/portfolio-2026/static/media/availability.eecf02efb8c7dad9a7e4.png",
@@ -35,11 +35,11 @@
     "static/media/css.svg": "/portfolio-2026/static/media/css.683563aae41322a7b00dfbc08a0caab8.svg",
     "static/media/html.svg": "/portfolio-2026/static/media/html.dcec69b208e28160b0ee1eb5d1b77cc2.svg",
     "main.caedc160.css.map": "/portfolio-2026/static/css/main.caedc160.css.map",
-    "main.ffc491ac.js.map": "/portfolio-2026/static/js/main.ffc491ac.js.map",
+    "main.e5ca5f85.js.map": "/portfolio-2026/static/js/main.e5ca5f85.js.map",
     "453.8cfb0cf3.chunk.js.map": "/portfolio-2026/static/js/453.8cfb0cf3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.caedc160.css",
-    "static/js/main.ffc491ac.js"
+    "static/js/main.e5ca5f85.js"
   ]
 }
